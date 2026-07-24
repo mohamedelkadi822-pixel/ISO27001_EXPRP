@@ -371,14 +371,14 @@
 <div id="landing-page">
     <div class="hero-banner">
         <h1 id="landing-title">ISO/IEC 27001:2022 Exam Preparation</h1>
-        <p id="landing-desc">Master Information Security Management Systems (ISMS), audit scenarios, and Annex A controls with 300 Practice Questions derived directly from standard & lead auditor documentation.</p>
+        <p id="landing-desc">Master Information Security Management Systems (ISMS), audit scenarios, and Annex A controls with Practice Questions derived directly from standard & lead auditor documentation.</p>
         <button class="btn-cta" onclick="launchSimulator()" id="btn-cta-text">Launch Exam Simulator 🚀</button>
     </div>
 
     <div class="landing-features">
         <div class="feature-card">
-            <h3>📚 <span id="feat1-title">300 Practice Questions</span></h3>
-            <p id="feat1-desc">Extensive questions covering Clauses 4-10, Annex A Controls, and Audit scenarios across 4 difficulty levels.</p>
+            <h3>📚 <span id="feat1-title">Scenario Questions</span></h3>
+            <p id="feat1-desc">Extensive scenario-based questions covering Clauses 4-10 and Annex A Controls.</p>
         </div>
         <div class="feature-card">
             <h3>🌐 <span id="feat2-title">Dual Language Support</span></h3>
@@ -430,8 +430,8 @@
                     <input type="text" id="input-trainee" placeholder="Enter your name here...">
                 </div>
                 <div class="form-group">
-                    <label id="lbl-qcount">Question Count (Max: 300):</label>
-                    <input type="number" id="input-qcount" value="10" min="1" max="300">
+                    <label id="lbl-qcount">Question Count:</label>
+                    <input type="number" id="input-qcount" value="10" min="1">
                 </div>
                 <div class="form-group" style="flex: 0 0 auto;">
                     <button class="btn btn-success" onclick="startExam()" id="btn-start" style="height: 42px;">Start Exam Now 🚀</button>
@@ -494,14 +494,14 @@
         <form id="quiz-form">
             <div id="questions-container"></div>
             
-            <!-- Pagination Navigation Controls -->
+            <!-- Pagination Controls -->
             <div class="pagination-container" id="pagination-controls">
                 <button type="button" class="btn btn-outline" onclick="changePage(-1)" id="btn-prev-page">⬅️ Previous</button>
                 <span class="page-info" id="page-indicator">Page 1 of 1</span>
                 <button type="button" class="btn btn-outline" onclick="changePage(1)" id="btn-next-page">Next ➡️</button>
             </div>
 
-            <button type="button" class="btn btn-success" style="font-size:1.05em; padding:14px; width:100%; margin-top:20px; display:none;" onclick="submitExam()" id="btn-submit">Submit & Save Attempt</button>
+            <button type="button" class="btn btn-success" style="font-size:1.05em; padding:14px; width:100%; margin-top:20px;" onclick="submitExam()" id="btn-submit">Submit & Save Attempt</button>
         </form>
     </div>
 
@@ -529,7 +529,6 @@
 <script src="questions.js"></script>
 
 <script>
-// --- GOOGLE SCRIPT BACKEND URL ---
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby5hBkCWyyaYbr4qlVMGZBVOuqaQ9An-c1x-Gic5RIrHvyyHRk0mhrUp5EsLuQOFF6OpA/exec";
 
 let currentLang = 'en';
@@ -545,23 +544,25 @@ let attemptsHistory = JSON.parse(localStorage.getItem('iso_attempts_history') ||
 let currentPage = 1;
 const PAGE_SIZE = 25; 
 
-const MAX_QUESTIONS_LIMIT = typeof questionBank !== 'undefined' ? questionBank.length : 300;
+function getAvailableBankLength() {
+    return (typeof questionBank !== 'undefined' && Array.isArray(questionBank)) ? questionBank.length : 0;
+}
 
 const i18n = {
     ar: {
         landingTitle: "التحضير لشهادة ISO/IEC 27001:2022",
-        landingDesc: "أتقن أنظمة إدارة أمن المعلومات (ISMS)، سيناريوهات المراجعة، وضوابط Annex A بـ 300 سؤال محاكاة متوقع وتدريبي مبني على معايير المراجعة، مراجع معيارية فورية، ولوحة تحكم تفاعلية.",
+        landingDesc: "أتقن أنظمة إدارة أمن المعلومات (ISMS)، سيناريوهات المراجعة، وضوابط Annex A بأسئلة محاكاة مبنية على معايير المراجعة ومراجع فورية.",
         btnCtaText: "تشغيل محاكي الامتحان 🚀",
-        feat1Title: "300 سؤال تدريبي (4 مستويات)",
-        feat1Desc: "تغطية تدريبية شاملة للبنود 4-10، ضوابط Annex A، وسيناريوهات امتحانات Lead Auditor المحاكاة.",
+        feat1Title: "أسئلة سيناريوهات حقيقية",
+        feat1Desc: "تغطية تدريبية شاملة للبنود 4-10 وضوابط Annex A بأسئلة قصصية عميقة.",
         feat2Title: "دعم كامل للغتين",
         feat2Desc: "تنقل بسلاسة بين اللغة العربية والإنجليزية في أي وقت مع إشارات فورية للبنود.",
         feat3Title: "متابع الوقت والأداء",
         feat3Desc: "تتبع الوقت المستغرق، سجلك المحلي، راجع الإجابات الخاطئة مع التعليل، وانضم للوحة الأوائل.",
         discTitle: "⚠️ إخلاء مسؤولية:",
-        discText: "هذه المنصة هي أداة تعليمية وتدريبية مستقلة صُممت بناءً على طلبك واستخدامك الشخصي. الأسئلة عبارة عن نماذج تدريبية ومحاكاة مجهزة لتسهيل التدريب والتحضير للامتحان. صاحب المنصة غير مسؤول عن أي بيانات يتم إدخالها أو معالجتها أو إرسالها من قبل المستخدمين بأي شكل من الأشكال.",
+        discText: "هذه المنصة هي أداة تعليمية وتدريبية مستقلة صُممت بناءً على طلبك واستخدامك الشخصي. الأسئلة عبارة عن نماذج تدريبية ومحاكاة مجهزة لتسهيل التدريب والتحضير للامتحان.",
         discTitleDash: "⚠️ إخلاء مسؤولية:",
-        discTextDash: "المشاركة اختيارية تماماً وبناءً على طلبك الشخصي. الأسئلة مخصصة للتدريب فقط. لا يتحمل المطور أي مسؤولية عن أية بيانات مدخلة.",
+        discTextDash: "المشاركة اختيارية تماماً وبناءً على طلبك الشخصي. الأسئلة مخصصة للتدريب فقط.",
         footerDisc: "إدخال البيانات اختياري بالكامل. المطور لا يتحمل أي مسؤولية عن المحتوى المدخل.",
         appTitle: "ISO/IEC 27001:2022 Exam Simulator",
         appSubtitle: "نظام محاكاة الامتحانات ومتابعة الأداء وإدارة المحاولات",
@@ -574,7 +575,7 @@ const i18n = {
         lbTitle: "🏆 لوحة ترتيب الأوائل العامة المباشرة",
         thLbName: "اسم المتدرب",
         thLbPct: "النسبة المئوية",
-        lblQCount: `عدد الأسئلة (الحد الأقصى: ${MAX_QUESTIONS_LIMIT}):`,
+        lblQCount: `عدد الأسئلة:`,
         btnStart: "ابدأ الاختبار الآن 🚀",
         tblTitle: "سجل المحاولات السابقة",
         thName: "اسم المتدرب",
@@ -590,18 +591,18 @@ const i18n = {
     },
     en: {
         landingTitle: "ISO/IEC 27001:2022 Exam Preparation",
-        landingDesc: "Master Information Security Management Systems (ISMS), audit scenarios, and Annex A controls with 300 AI-generated practice questions, instant clause references, and an interactive dashboard.",
+        landingDesc: "Master Information Security Management Systems (ISMS), audit scenarios, and Annex A controls with real practice questions and instant clause references.",
         btnCtaText: "Launch Exam Simulator 🚀",
-        feat1Title: "300 Practice Questions (4 Levels)",
-        feat1Desc: "Comprehensive practice coverage of Clauses 4-10, Annex A Controls, and simulated Lead Auditor scenarios.",
+        feat1Title: "Real Audit Scenarios",
+        feat1Desc: "Comprehensive practice coverage of Clauses 4-10 and Annex A Controls.",
         feat2Title: "Dual Language Support",
         feat2Desc: "Switch seamlessly between English and Arabic at any time with full ISO standard references.",
         feat3Title: "Performance & Timer Tracker",
         feat3Desc: "Track your elapsed time, local history, review wrong answers, and join the public Leaderboard.",
         discTitle: "⚠️ Disclaimer:",
-        discText: "This platform is an independent educational tool provided solely at your personal request and choice. Questions are practice/simulated materials designed to facilitate exam preparation. The platform owner is not responsible for any data entered, processed, or submitted by users in any manner.",
+        discText: "This platform is an independent educational tool provided solely at your personal request and choice. Questions are practice/simulated materials designed to facilitate exam preparation.",
         discTitleDash: "⚠️ Disclaimer:",
-        discTextDash: "Participation is entirely voluntary and based on your own personal request. Practice questions are provided for preparation purposes only. The developer bears no liability for any user-submitted data.",
+        discTextDash: "Participation is entirely voluntary and based on your own personal request. Practice questions are provided for preparation purposes only.",
         footerDisc: "Data submission is voluntary. Author assumes no liability for entered content.",
         appTitle: "ISO/IEC 27001:2022 Exam Simulator",
         appSubtitle: "Exam Simulation, Performance Dashboard & History Tracker",
@@ -614,7 +615,7 @@ const i18n = {
         lbTitle: "🏆 Public Live Leaderboard (Opted-in Trainees)",
         thLbName: "Trainee Name",
         thLbPct: "Percentage",
-        lblQCount: `Question Count (Max: ${MAX_QUESTIONS_LIMIT}):`,
+        lblQCount: `Question Count:`,
         btnStart: "Start Exam Now 🚀",
         tblTitle: "Past Attempts History",
         thName: "Trainee Name",
@@ -671,7 +672,10 @@ function toggleLanguageGlobal() {
     document.getElementById('lb-title').innerText = t.lbTitle;
     document.getElementById('th-lb-name').innerText = t.thLbName;
     document.getElementById('th-lb-pct').innerText = t.thLbPct;
-    document.getElementById('lbl-qcount').innerText = t.lblQCount;
+    
+    let totalAvail = getAvailableBankLength();
+    document.getElementById('lbl-qcount').innerText = `${t.lblQCount} ${totalAvail > 0 ? '(Max: ' + totalAvail + ')' : ''}`;
+    
     document.getElementById('btn-start').innerText = t.btnStart;
     document.getElementById('tbl-title').innerText = t.tblTitle;
     document.getElementById('th-name').innerText = t.thName;
@@ -797,6 +801,7 @@ function renderLeaderboard(list) {
 }
 
 function shuffle(array) {
+    if (!array || !Array.isArray(array)) return [];
     let arr = JSON.parse(JSON.stringify(array));
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -811,15 +816,21 @@ function startExam() {
         alert(currentLang === 'ar' ? 'يرجى إدخال اسم المتدرب أولاً!' : 'Please enter trainee name first!');
         return;
     }
+
+    let bankLen = getAvailableBankLength();
+    if (bankLen === 0) {
+        alert(currentLang === 'ar' 
+            ? 'خطأ: لم يتم تحميل أسئلة الاختبار (questions.js غير موجود أو يحتوي على أخطاء برمجية)!' 
+            : 'Error: questions.js is not loaded or contains syntax errors!');
+        return;
+    }
+
     currentTrainee = nameInput;
     joinLeaderboard = document.getElementById('chk-leaderboard').checked;
-
     localStorage.setItem('iso_joined_leaderboard', joinLeaderboard ? 'true' : 'false');
 
     let countInput = parseInt(document.getElementById('input-qcount').value) || 10;
-    
-    // Select the exact requested question count from the question bank
-    let count = Math.min(Math.max(countInput, 1), MAX_QUESTIONS_LIMIT);
+    let count = Math.min(Math.max(countInput, 1), bankLen);
 
     let shuffledBank = shuffle(questionBank);
     activeQuestions = shuffledBank.slice(0, count);
@@ -853,13 +864,6 @@ function renderExamQuestions() {
         let optsWithIndex = data.opts.map((opt, i) => ({ text: opt, originalIdx: i }));
         let shuffledOpts = shuffle(optsWithIndex);
 
-        let diffClass = 'diff-easy';
-        let diffLabel = currentLang === 'ar' ? 'سهل' : 'Easy';
-        if (q.difficulty === 'medium') { diffClass = 'diff-medium'; diffLabel = currentLang === 'ar' ? 'متوسط' : 'Medium'; }
-        else if (q.difficulty === 'hard') { diffClass = 'diff-hard'; diffLabel = currentLang === 'ar' ? 'صعب' : 'Hard'; }
-        else if (q.difficulty === 'vhard') { diffClass = 'diff-vhard'; diffLabel = currentLang === 'ar' ? 'صعب جداً (سيناريو)' : 'Very Hard (Scenario)'; }
-
-        // ALL QUESTIONS ARE MULTIPLE CHOICE (RADIO BUTTONS)
         let optsHtml = `
             <div class="options-list">
                 ${shuffledOpts.map(o => `
@@ -873,10 +877,7 @@ function renderExamQuestions() {
 
         card.innerHTML = `
             <div class="q-header">
-                <div>
-                    <span class="badge">Q${idx + 1} / ${activeQuestions.length}</span>
-                    <span class="badge-diff ${diffClass}">${diffLabel}</span>
-                </div>
+                <span class="badge">Q${idx + 1} / ${activeQuestions.length}</span>
                 <span class="ref-tag">${q.ref}</span>
             </div>
             <div style="font-weight:700; font-size:1.05em; margin-bottom:12px; line-height:1.5;">${data.q}</div>
@@ -892,10 +893,10 @@ function renderExamQuestions() {
     document.getElementById('btn-prev-page').style.visibility = currentPage === 1 ? 'hidden' : 'visible';
     document.getElementById('btn-next-page').style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
 
-    // Show pagination bar only if total questions exceed PAGE_SIZE (25)
+    // Show pagination controls only if total active questions exceed 25
     document.getElementById('pagination-controls').style.display = activeQuestions.length > PAGE_SIZE ? 'flex' : 'none';
 
-    // Show submit button only on the last page
+    // Show submit button on last page or if all questions fit in 1 page
     document.getElementById('btn-submit').style.display = currentPage === totalPages ? 'block' : 'none';
 }
 
@@ -1024,8 +1025,11 @@ function clearLocalHistory() {
 }
 
 window.onload = () => {
+    let bankLen = getAvailableBankLength();
     const qInput = document.getElementById('input-qcount');
-    if (qInput) qInput.max = MAX_QUESTIONS_LIMIT;
+    if (qInput && bankLen > 0) {
+        qInput.max = bankLen;
+    }
     updateDashboardStats();
 };
 </script>
