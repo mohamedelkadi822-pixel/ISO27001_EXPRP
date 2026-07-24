@@ -23,7 +23,6 @@
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
             --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
 
-            /* Color indicators for question types */
             --color-radio: #2563eb;
             --color-dropdown: #8b5cf6;
             --color-checkbox: #0d9488;
@@ -59,6 +58,7 @@
             flex-direction: column;
             min-height: 100vh;
             transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
         }
 
         .top-navbar {
@@ -97,32 +97,31 @@
         .hero-banner {
             background: var(--hero-bg);
             color: var(--hero-text);
-            padding: 110px 20px 80px 20px;
+            padding: 100px 15px 60px 15px;
             text-align: center;
             position: relative;
             border-bottom: 4px solid var(--accent);
         }
 
         .hero-banner h1 {
-            font-size: clamp(2em, 5vw, 3em);
+            font-size: clamp(1.8em, 4vw, 2.8em);
             margin: 0 0 15px 0;
             font-weight: 800;
-            letter-spacing: -0.5px;
         }
 
         .hero-banner p {
-            font-size: clamp(1em, 2.5vw, 1.25em);
+            font-size: clamp(0.95em, 2vw, 1.15em);
             color: #cbd5e1;
             max-width: 780px;
-            margin: 0 auto 35px auto;
+            margin: 0 auto 25px auto;
             line-height: 1.6;
         }
 
         .btn-cta {
             background: var(--accent);
             color: #0f172a;
-            padding: 16px 36px;
-            font-size: 1.15em;
+            padding: 14px 30px;
+            font-size: 1.05em;
             font-weight: 700;
             border: none;
             border-radius: 30px;
@@ -140,11 +139,11 @@
 
         .landing-features {
             max-width: 1050px;
-            margin: -40px auto 30px auto;
+            margin: -30px auto 30px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 0 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            padding: 0 15px;
             box-sizing: border-box;
             position: relative;
             z-index: 2;
@@ -152,36 +151,30 @@
 
         .feature-card {
             background: var(--bg-card);
-            padding: 28px 24px;
+            padding: 22px 20px;
             border-radius: 16px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-md);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
         }
 
         .feature-card h3 {
             color: var(--secondary);
             margin: 10px 0;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
 
         .feature-card p {
             color: var(--text-secondary);
-            font-size: 0.95em;
+            font-size: 0.9em;
             line-height: 1.5;
             margin: 0;
         }
 
         .disclaimer-box {
             max-width: 1050px;
-            margin: 0 auto 30px auto;
-            padding: 16px 20px;
+            margin: 0 auto 25px auto;
+            padding: 14px 18px;
             background: rgba(217, 119, 6, 0.08);
             border: 1px solid rgba(217, 119, 6, 0.3);
             border-radius: 12px;
@@ -198,16 +191,16 @@
             margin: 0 auto;
             flex: 1;
             width: 100%;
-            padding: 20px;
+            padding: 15px;
             box-sizing: border-box;
         }
 
         .dashboard-header {
             background: var(--hero-bg);
             color: white;
-            padding: 28px 24px;
+            padding: 22px 20px;
             border-radius: 16px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             box-shadow: var(--shadow-md);
             display: flex;
             justify-content: space-between;
@@ -216,58 +209,58 @@
             gap: 15px;
         }
 
-        .dashboard-title h1 { margin: 0; font-size: 1.6em; font-weight: 700; }
-        .dashboard-title p { margin: 5px 0 0 0; color: #94a3b8; font-size: 0.9em; }
+        .dashboard-title h1 { margin: 0; font-size: 1.4em; font-weight: 700; }
+        .dashboard-title p { margin: 5px 0 0 0; color: #94a3b8; font-size: 0.85em; }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .stat-card {
             background: var(--bg-card);
-            padding: 20px;
+            padding: 15px;
             border-radius: 14px;
             border: 1px solid var(--border-color);
             text-align: center;
             box-shadow: var(--shadow-sm);
         }
 
-        .stat-card .number { font-size: 2em; font-weight: 800; color: var(--secondary); }
-        .stat-card .label { color: var(--text-secondary); font-size: 0.85em; font-weight: 600; text-transform: uppercase; margin-top: 4px; }
+        .stat-card .number { font-size: 1.7em; font-weight: 800; color: var(--secondary); }
+        .stat-card .label { color: var(--text-secondary); font-size: 0.78em; font-weight: 600; text-transform: uppercase; margin-top: 4px; }
 
         .timer-badge {
             background: #0f172a;
             color: #38bdf8;
-            padding: 8px 18px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-weight: 700;
-            font-size: 1.05em;
+            font-size: 0.95em;
             border: 1px solid #38bdf8;
             box-shadow: var(--shadow-sm);
         }
 
         .settings-card {
             background: var(--bg-card);
-            padding: 22px;
+            padding: 18px;
             border-radius: 16px;
             border: 1px solid var(--border-color);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .settings-row { display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap; }
-        .form-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 160px; }
-        .checkbox-group { display: flex; align-items: center; gap: 8px; font-size: 0.88em; cursor: pointer; color: var(--text-secondary); font-weight: 600; }
+        .settings-row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 140px; }
+        .checkbox-group { display: flex; align-items: center; gap: 8px; font-size: 0.85em; cursor: pointer; color: var(--text-secondary); font-weight: 600; }
 
-        label { font-weight: 700; font-size: 0.88em; }
+        label { font-weight: 700; font-size: 0.85em; }
         select, input[type="number"], input[type="text"] {
-            padding: 10px 14px;
+            padding: 10px 12px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 0.95em;
@@ -283,8 +276,8 @@
             background: var(--secondary);
             color: white;
             border: none;
-            padding: 11px 22px;
-            font-size: 0.95em;
+            padding: 10px 20px;
+            font-size: 0.9em;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 700;
@@ -299,11 +292,11 @@
 
         .table-responsive { width: 100%; overflow-x: auto; border-radius: 8px; -webkit-overflow-scrolling: touch; }
         .history-table, .leaderboard-table {
-            width: 100%; border-collapse: collapse; margin-top: 10px; background: var(--bg-card); font-size: 0.9em; min-width: 550px;
+            width: 100%; border-collapse: collapse; margin-top: 10px; background: var(--bg-card); font-size: 0.85em; min-width: 500px;
         }
 
         .history-table th, .history-table td, .leaderboard-table th, .leaderboard-table td {
-            padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border-color);
+            padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border-color);
         }
 
         [dir="rtl"] .history-table th, [dir="rtl"] .history-table td,
@@ -311,34 +304,32 @@
 
         .history-table th, .leaderboard-table th { background: rgba(148, 163, 184, 0.1); font-weight: 700; color: var(--text-secondary); }
 
-        /* Dynamic Border Cards for Question Types */
+        /* Question Cards with Explicit Left/Right Colored Borders */
         .question-card {
             background: var(--bg-card);
-            padding: 24px;
+            padding: 18px;
             border-radius: 14px;
             border: 1px solid var(--border-color);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             box-shadow: var(--shadow-sm);
-            transition: border-color 0.3s ease;
         }
 
-        .card-type-radio { border-left: 6px solid var(--color-radio); }
-        [dir="rtl"] .card-type-radio { border-left: 1px solid var(--border-color); border-right: 6px solid var(--color-radio); }
+        .card-type-radio { border-left: 6px solid var(--color-radio) !important; }
+        [dir="rtl"] .card-type-radio { border-left: 1px solid var(--border-color) !important; border-right: 6px solid var(--color-radio) !important; }
 
-        .card-type-dropdown { border-left: 6px solid var(--color-dropdown); }
-        [dir="rtl"] .card-type-dropdown { border-left: 1px solid var(--border-color); border-right: 6px solid var(--color-dropdown); }
+        .card-type-dropdown { border-left: 6px solid var(--color-dropdown) !important; }
+        [dir="rtl"] .card-type-dropdown { border-left: 1px solid var(--border-color) !important; border-right: 6px solid var(--color-dropdown) !important; }
 
-        .card-type-checkbox { border-left: 6px solid var(--color-checkbox); }
-        [dir="rtl"] .card-type-checkbox { border-left: 1px solid var(--border-color); border-right: 6px solid var(--color-checkbox); }
+        .card-type-checkbox { border-left: 6px solid var(--color-checkbox) !important; }
+        [dir="rtl"] .card-type-checkbox { border-left: 1px solid var(--border-color) !important; border-right: 6px solid var(--color-checkbox) !important; }
 
-        .q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 0.88em; }
-        .badge { background: rgba(148, 163, 184, 0.2); color: var(--text-primary); padding: 4px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 700; }
+        .q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.82em; flex-wrap: wrap; gap: 6px; }
+        .badge { background: rgba(148, 163, 184, 0.2); color: var(--text-primary); padding: 4px 8px; border-radius: 6px; font-size: 0.85em; font-weight: 700; }
 
-        /* Badges for Question Type Identification */
         .badge-type {
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 6px;
-            font-size: 0.8em;
+            font-size: 0.78em;
             font-weight: 700;
             color: #ffffff;
             margin-left: 6px;
@@ -348,14 +339,35 @@
         .badge-dropdown { background-color: var(--color-dropdown); }
         .badge-checkbox { background-color: var(--color-checkbox); }
 
-        .options-list { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .options-list { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
         .option-item {
-            padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 0.95em; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease;
+            padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 0.9em; display: flex; align-items: flex-start; gap: 10px; transition: all 0.2s ease; line-height: 1.4;
         }
         .option-item:hover { background: rgba(148, 163, 184, 0.1); border-color: var(--secondary); }
+        .option-item input { margin-top: 3px; }
+
+        /* Perfect Dropdown Full Width and Wrapped Text Support */
+        .custom-dropdown-select {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 12px 14px;
+            font-size: 0.95em;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            white-space: normal !important;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+        }
+        .custom-dropdown-select option {
+            white-space: normal !important;
+            word-wrap: break-word;
+            padding: 8px;
+        }
 
         .explanation-box {
-            margin-top: 15px; padding: 15px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; font-size: 0.9em; line-height: 1.5;
+            margin-top: 12px; padding: 12px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; font-size: 0.88em; line-height: 1.5;
         }
         .ref-tag { font-weight: 700; display: inline-block; margin-bottom: 5px; color: var(--accent); }
 
@@ -363,27 +375,29 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 15px 0;
-            padding: 12px 0;
+            margin: 12px 0;
+            padding: 10px 0;
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
-        .page-info { font-weight: 700; font-size: 0.9em; color: var(--text-secondary); }
+        .page-info { font-weight: 700; font-size: 0.85em; color: var(--text-secondary); }
 
         #simulator-app, #exam-screen, #result-screen, #leaderboard-section { display: none; }
 
         footer {
-            text-align: center; padding: 20px; margin-top: auto; color: var(--text-secondary); font-size: 0.88em; font-weight: 600; border-top: 1px solid var(--border-color); background: var(--footer-bg); transition: background-color 0.3s;
+            text-align: center; padding: 15px; margin-top: auto; color: var(--text-secondary); font-size: 0.82em; font-weight: 600; border-top: 1px solid var(--border-color); background: var(--footer-bg);
         }
 
         @media (max-width: 640px) {
             .settings-row { flex-direction: column; align-items: stretch; }
             .btn-success { width: 100%; }
             .top-navbar { padding: 10px 15px; }
-            .btn-toggle { font-size: 0.78em; padding: 6px 12px; }
-            .hero-banner { padding-top: 90px; }
+            .btn-toggle { font-size: 0.75em; padding: 5px 10px; }
+            .hero-banner { padding-top: 80px; }
+            .question-card { padding: 14px; }
+            .option-item { font-size: 0.85em; padding: 10px; }
         }
     </style>
 </head>
@@ -469,8 +483,8 @@
             </label>
         </div>
 
-        <div id="leaderboard-section" style="background: var(--bg-card); padding:20px; border-radius:16px; border:1px solid var(--border-color); margin-bottom: 25px; box-shadow: var(--shadow-sm);">
-            <h3 style="color: var(--gold); margin-top:0; font-size:1.15em;" id="lb-title">🏆 Public Leaderboard (Opted-in Trainees)</h3>
+        <div id="leaderboard-section" style="background: var(--bg-card); padding:15px; border-radius:16px; border:1px solid var(--border-color); margin-bottom: 20px; box-shadow: var(--shadow-sm);">
+            <h3 style="color: var(--gold); margin-top:0; font-size:1.1em;" id="lb-title">🏆 Public Leaderboard (Opted-in Trainees)</h3>
             <div class="table-responsive">
                 <table class="leaderboard-table">
                     <thead>
@@ -485,8 +499,8 @@
             </div>
         </div>
 
-        <div style="background: var(--bg-card); padding:20px; border-radius:16px; border:1px solid var(--border-color); margin-bottom: 20px; box-shadow: var(--shadow-sm);">
-            <h3 id="tbl-title" style="margin-top:0; font-size:1.15em;">Past Attempts History</h3>
+        <div style="background: var(--bg-card); padding:15px; border-radius:16px; border:1px solid var(--border-color); margin-bottom: 20px; box-shadow: var(--shadow-sm);">
+            <h3 id="tbl-title" style="margin-top:0; font-size:1.1em;">Past Attempts History</h3>
             <div class="table-responsive">
                 <table class="history-table">
                     <thead>
@@ -512,8 +526,8 @@
     </div>
 
     <div id="exam-screen">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
-            <h2 id="exam-progress-title" style="font-size:1.3em; margin:0;">Question 1 of 10</h2>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+            <h2 id="exam-progress-title" style="font-size:1.2em; margin:0;">Question 1 of 10</h2>
             <div class="timer-badge" id="exam-timer">⏱️ 00:00</div>
             <button class="btn btn-outline" onclick="exitExam()" id="btn-cancel">Cancel Exam</button>
         </div>
@@ -534,22 +548,22 @@
                 <button type="button" class="btn btn-outline btn-next-page" onclick="changePage(1)">Next ➡️</button>
             </div>
 
-            <button type="button" class="btn btn-success" style="font-size:1.05em; padding:14px; width:100%; margin-top:20px;" onclick="submitExam()" id="btn-submit">Submit & Save Attempt</button>
+            <button type="button" class="btn btn-success" style="font-size:1.05em; padding:14px; width:100%; margin-top:15px;" onclick="submitExam()" id="btn-submit">Submit & Save Attempt</button>
         </form>
     </div>
 
     <div id="result-screen">
-        <div class="stat-card" style="margin-bottom:20px;">
+        <div class="stat-card" style="margin-bottom:15px;">
             <h2 id="res-title" style="margin-top:0;">Exam Result</h2>
-            <h3 id="res-trainee-name" style="color:var(--secondary); margin-top:-5px; font-size:1.2em;"></h3>
+            <h3 id="res-trainee-name" style="color:var(--secondary); margin-top:-5px; font-size:1.1em;"></h3>
             <div class="number" id="res-score">0 / 10</div>
             <p style="font-weight: 700; color: var(--accent); margin: 6px 0;" id="res-time-taken">⏱️ Time Taken: 00:00</p>
-            <p id="res-feedback" style="font-size:1.05em; color:var(--text-secondary);"></p>
+            <p id="res-feedback" style="font-size:1em; color:var(--text-secondary);"></p>
         </div>
 
         <div id="review-container"></div>
 
-        <button class="btn" style="width:100%; margin-top:20px; padding:12px;" onclick="showDashboard()" id="btn-back-dash">Back to Dashboard</button>
+        <button class="btn" style="width:100%; margin-top:15px; padding:12px;" onclick="showDashboard()" id="btn-back-dash">Back to Dashboard</button>
     </div>
 </div>
 
@@ -867,9 +881,9 @@ function startExam() {
 
     let shuffledBank = shuffle(questionBank);
     
-    // Assign a display UI type to each question in array
+    // Assign a display UI type to each question in array (0 = Radio, 1 = Dropdown, 2 = Checkbox)
     activeQuestions = shuffledBank.slice(0, count).map((q, idx) => {
-        let type = idx % 3; // 0 = Radio, 1 = Dropdown, 2 = Checkbox
+        let type = idx % 3; 
         return { ...q, uiType: type };
     });
 
@@ -926,18 +940,18 @@ function renderExamQuestions() {
                     ${shuffledOpts.map(o => `
                         <label class="option-item">
                             <input type="radio" name="q_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="userAnswers[${idx}]=${o.originalIdx}">
-                            ${o.text}
+                            <span>${o.text}</span>
                         </label>
                     `).join('')}
                 </div>
             `;
         } else if (q.uiType === 1) {
-            // Dropdown Select (Purple)
+            // Dropdown Select (Purple) - Full width, fully visible wrapped text
             cardClass = 'card-type-dropdown';
             badgeHtml = `<span class="badge-type badge-dropdown">${currentLang === 'ar' ? 'قائمة منسدلة' : 'Dropdown Select'}</span>`;
             optsHtml = `
-                <div style="margin-top:12px;">
-                    <select onchange="userAnswers[${idx}]=parseInt(this.value)">
+                <div style="margin-top:12px; width: 100%;">
+                    <select class="custom-dropdown-select" onchange="userAnswers[${idx}]=parseInt(this.value)">
                         <option value="" disabled ${userAnswers[idx] === undefined ? 'selected' : ''}>
                             ${currentLang === 'ar' ? '-- اختر الإجابة الصحيحة --' : '-- Select Correct Answer --'}
                         </option>
@@ -958,7 +972,7 @@ function renderExamQuestions() {
                     ${shuffledOpts.map(o => `
                         <label class="option-item">
                             <input type="checkbox" class="q_cb_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="handleCheckboxSelection(${idx}, ${o.originalIdx}, this)">
-                            ${o.text}
+                            <span>${o.text}</span>
                         </label>
                     `).join('')}
                 </div>
