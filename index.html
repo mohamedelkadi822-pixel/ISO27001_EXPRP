@@ -22,6 +22,11 @@
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
             --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+
+            /* Color indicators for question types */
+            --color-radio: #2563eb;
+            --color-dropdown: #8b5cf6;
+            --color-checkbox: #0d9488;
         }
 
         [data-theme="dark"] {
@@ -38,6 +43,10 @@
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
             --shadow-lg: 0 10px 25px rgba(0,0,0,0.4);
+
+            --color-radio: #60a5fa;
+            --color-dropdown: #a78bfa;
+            --color-checkbox: #2dd4bf;
         }
 
         body {
@@ -302,20 +311,42 @@
 
         .history-table th, .leaderboard-table th { background: rgba(148, 163, 184, 0.1); font-weight: 700; color: var(--text-secondary); }
 
+        /* Dynamic Border Cards for Question Types */
         .question-card {
             background: var(--bg-card);
             padding: 24px;
             border-radius: 14px;
             border: 1px solid var(--border-color);
             margin-bottom: 20px;
-            border-left: 5px solid var(--secondary);
             box-shadow: var(--shadow-sm);
+            transition: border-color 0.3s ease;
         }
 
-        [dir="rtl"] .question-card { border-left: 1px solid var(--border-color); border-right: 5px solid var(--secondary); }
+        .card-type-radio { border-left: 6px solid var(--color-radio); }
+        [dir="rtl"] .card-type-radio { border-left: 1px solid var(--border-color); border-right: 6px solid var(--color-radio); }
+
+        .card-type-dropdown { border-left: 6px solid var(--color-dropdown); }
+        [dir="rtl"] .card-type-dropdown { border-left: 1px solid var(--border-color); border-right: 6px solid var(--color-dropdown); }
+
+        .card-type-checkbox { border-left: 6px solid var(--color-checkbox); }
+        [dir="rtl"] .card-type-checkbox { border-left: 1px solid var(--border-color); border-right: 6px solid var(--color-checkbox); }
 
         .q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 0.88em; }
         .badge { background: rgba(148, 163, 184, 0.2); color: var(--text-primary); padding: 4px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 700; }
+
+        /* Badges for Question Type Identification */
+        .badge-type {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-left: 6px;
+        }
+        [dir="rtl"] .badge-type { margin-left: 0; margin-right: 6px; }
+        .badge-radio { background-color: var(--color-radio); }
+        .badge-dropdown { background-color: var(--color-dropdown); }
+        .badge-checkbox { background-color: var(--color-checkbox); }
 
         .options-list { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
         .option-item {
@@ -328,7 +359,6 @@
         }
         .ref-tag { font-weight: 700; display: inline-block; margin-bottom: 5px; color: var(--accent); }
 
-        /* Pagination Styles */
         .pagination-container {
             display: flex;
             justify-content: space-between;
@@ -543,7 +573,7 @@ let timerInterval = null;
 let secondsElapsed = 0;
 let attemptsHistory = JSON.parse(localStorage.getItem('iso_attempts_history') || '[]');
 
-// Set exact 10 questions per page limit
+// Strict 10 questions per page limit
 let currentPage = 1;
 const PAGE_SIZE = 10; 
 
@@ -836,7 +866,13 @@ function startExam() {
     let count = Math.min(Math.max(countInput, 1), bankLen);
 
     let shuffledBank = shuffle(questionBank);
-    activeQuestions = shuffledBank.slice(0, count);
+    
+    // Assign a display UI type to each question in array
+    activeQuestions = shuffledBank.slice(0, count).map((q, idx) => {
+        let type = idx % 3; // 0 = Radio, 1 = Dropdown, 2 = Checkbox
+        return { ...q, uiType: type };
+    });
+
     userAnswers = {};
     currentPage = 1;
 
@@ -873,17 +909,18 @@ function renderExamQuestions() {
         let q = activeQuestions[idx];
         let data = q[currentLang];
         let card = document.createElement('div');
-        card.className = 'question-card';
 
         let optsWithIndex = data.opts.map((opt, i) => ({ text: opt, originalIdx: i }));
         let shuffledOpts = shuffle(optsWithIndex);
 
-        // Switch between 3 display types: 0 = Radio Choices, 1 = Dropdown Select, 2 = Checkboxes
-        let qType = idx % 3; 
         let optsHtml = '';
+        let cardClass = '';
+        let badgeHtml = '';
 
-        if (qType === 0) {
-            // Radio Buttons
+        if (q.uiType === 0) {
+            // Radio Choices (Blue)
+            cardClass = 'card-type-radio';
+            badgeHtml = `<span class="badge-type badge-radio">${currentLang === 'ar' ? 'اختيار أحادي' : 'Single Choice'}</span>`;
             optsHtml = `
                 <div class="options-list">
                     ${shuffledOpts.map(o => `
@@ -894,8 +931,10 @@ function renderExamQuestions() {
                     `).join('')}
                 </div>
             `;
-        } else if (qType === 1) {
-            // Dropdown Select
+        } else if (q.uiType === 1) {
+            // Dropdown Select (Purple)
+            cardClass = 'card-type-dropdown';
+            badgeHtml = `<span class="badge-type badge-dropdown">${currentLang === 'ar' ? 'قائمة منسدلة' : 'Dropdown Select'}</span>`;
             optsHtml = `
                 <div style="margin-top:12px;">
                     <select onchange="userAnswers[${idx}]=parseInt(this.value)">
@@ -911,7 +950,9 @@ function renderExamQuestions() {
                 </div>
             `;
         } else {
-            // Checkboxes
+            // Checkboxes (Teal / Green)
+            cardClass = 'card-type-checkbox';
+            badgeHtml = `<span class="badge-type badge-checkbox">${currentLang === 'ar' ? 'مربع اختيار' : 'Multiple Choice'}</span>`;
             optsHtml = `
                 <div class="options-list">
                     ${shuffledOpts.map(o => `
@@ -924,9 +965,13 @@ function renderExamQuestions() {
             `;
         }
 
+        card.className = `question-card ${cardClass}`;
         card.innerHTML = `
             <div class="q-header">
-                <span class="badge">Q${idx + 1} / ${activeQuestions.length}</span>
+                <div>
+                    <span class="badge">Q${idx + 1} / ${activeQuestions.length}</span>
+                    ${badgeHtml}
+                </div>
                 <span class="ref-tag">${q.ref}</span>
             </div>
             <div style="font-weight:700; font-size:1.05em; margin-bottom:12px; line-height:1.5;">${data.q}</div>
@@ -935,7 +980,7 @@ function renderExamQuestions() {
         container.appendChild(card);
     }
 
-    // Update Pagination indicators & controls (Top and Bottom)
+    // Render Page Indicators (Top and Bottom)
     let pageStr = `${currentLang === 'ar' ? 'صفحة' : 'Page'} ${currentPage} ${currentLang === 'ar' ? 'من' : 'of'} ${totalPages}`;
     document.querySelectorAll('.page-indicator').forEach(el => el.innerText = pageStr);
 
