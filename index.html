@@ -886,7 +886,7 @@ function startExam() {
 
     let shuffledBank = shuffle(questionBank);
     
-    // Assign display UI types: 0 = Radio, 1 = Dropdown, 2 = Multiselect Checkbox
+    // Assign display UI types: 0 = Radio, 1 = Dropdown, 2 = Checkbox (Single selection choice rendered with checkboxes for visual diversity)
     activeQuestions = shuffledBank.slice(0, count).map((q, idx) => {
         let type = idx % 3; 
         return { ...q, uiType: type };
@@ -904,17 +904,13 @@ function startExam() {
 }
 
 function handleCheckboxChange(qIdx, val, checkboxEl) {
-    if (!Array.isArray(userAnswers[qIdx])) {
-        userAnswers[qIdx] = [];
-    }
+    // Ensures single selection behavior for this question type while using checkboxes visually
+    document.querySelectorAll(`.q_cb_${qIdx}`).forEach(cb => {
+        if (cb !== checkboxEl) cb.checked = false;
+    });
     if (checkboxEl.checked) {
-        if (!userAnswers[qIdx].includes(val)) {
-            userAnswers[qIdx].push(val);
-        }
+        userAnswers[qIdx] = val;
     } else {
-        userAnswers[qIdx] = userAnswers[qIdx].filter(item => item !== val);
-    }
-    if (userAnswers[qIdx].length === 0) {
         delete userAnswers[qIdx];
     }
 }
@@ -977,16 +973,15 @@ function renderExamQuestions() {
                 </div>
             `;
         } else {
-            // Multiselect Checkboxes (Teal) - Fully accepts multiple choices
+            // Checkbox Choice (Teal) - Visually distinct checkboxes preserving single-answer exam logic
             cardClass = 'card-type-checkbox';
-            badgeHtml = `<span class="badge-type badge-checkbox">${currentLang === 'ar' ? 'متعدد الاختيارات' : 'Multiple Choice'}</span>`;
-            instructionText = currentLang === 'ar' ? 'اختر الإجابة الصحيحة (اختيار واحد مطلوب لهذا السؤال):' : 'Select the correct option (Choose 1):';
-            let selectedArr = Array.isArray(userAnswers[idx]) ? userAnswers[idx] : [];
+            badgeHtml = `<span class="badge-type badge-checkbox">${currentLang === 'ar' ? 'اختيار متعدد' : 'Single Choice'}</span>`;
+            instructionText = currentLang === 'ar' ? 'اختر الإجابة الصحيحة (اختيار واحد مطلوب):' : 'Select the correct option (Choose 1):';
             optsHtml = `
                 <div class="options-list">
                     ${shuffledOpts.map(o => `
                         <label class="option-item">
-                            <input type="checkbox" class="q_cb_${idx}" value="${o.originalIdx}" ${selectedArr.includes(o.originalIdx) ? 'checked' : ''} onchange="handleCheckboxChange(${idx}, ${o.originalIdx}, this)">
+                            <input type="checkbox" class="q_cb_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="handleCheckboxChange(${idx}, ${o.originalIdx}, this)">
                             <span>${o.text}</span>
                         </label>
                     `).join('')}
@@ -1047,16 +1042,8 @@ function submitExam() {
         let userAns = userAnswers[idx];
         let correctAns = q[currentLang].ans;
 
-        if (q.uiType === 2) {
-            // Checkboxes evaluation (Multiselect)
-            if (Array.isArray(userAns) && userAns.length === 1 && userAns[0] === correctAns) {
-                score++;
-            }
-        } else {
-            // Standard Single Choice / Dropdown evaluation
-            if (userAns !== undefined && userAns === correctAns) {
-                score++;
-            }
+        if (userAns !== undefined && userAns === correctAns) {
+            score++;
         }
     });
 
@@ -1112,24 +1099,9 @@ function showResultScreen(score, pct, timeTakenStr) {
         let data = q[currentLang];
         let userAns = userAnswers[idx];
         let correctAns = data.ans;
-        let isCorrect = false;
+        let isCorrect = (userAns !== undefined && userAns === correctAns);
 
-        if (q.uiType === 2) {
-            if (Array.isArray(userAns) && userAns.length === 1 && userAns[0] === correctAns) {
-                isCorrect = true;
-            }
-        } else {
-            if (userAns !== undefined && userAns === correctAns) {
-                isCorrect = true;
-            }
-        }
-
-        let userText = '';
-        if (Array.isArray(userAns)) {
-            userText = userAns.length > 0 ? userAns.map(i => data.opts[i]).join(', ') : (currentLang === 'ar' ? 'لم تجب' : 'Not answered');
-        } else {
-            userText = userAns !== undefined ? data.opts[userAns] : (currentLang === 'ar' ? 'لم تجب' : 'Not answered');
-        }
+        let userText = userAns !== undefined ? data.opts[userAns] : (currentLang === 'ar' ? 'لم تجب' : 'Not answered');
         let correctText = data.opts[correctAns];
 
         let box = document.createElement('div');
