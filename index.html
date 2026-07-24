@@ -1,79 +1,1028 @@
-// --- CLAUSE 5: LEADERSHIP ---
-    {
-        id: 5,
-        ref: "ISO/IEC 27001:2022 - Clause 5.1",
-        ar: {
-            q: "المدير التنفيذي لشركة تداول قام بتفويض مدير تكنولوجيا المعلومات بالكامل للتوقيع على جميع سياسات ومخرجات نظام إدارة أمن المعلومات، ورفض حضور اجتماعات مراجعة الإدارة (Management Review) أو مراجعة الأهداف بحجة انشغاله بتوسع الشركة. كيف يتعامل المراجع مع هذا التفويض؟",
-            opts: [
-                "قبول التفويض، لأن المعيار يسمح بتعيين ممثل للإدارة (Management Representative) لقيادة الـ ISMS",
-                "تسجيل عدم مطابقة للبند 5.1، لأن الإدارة العليا يجب أن تُظهر بنفسها القيادة والالتزام ولا يمكنها تفويض مسؤوليتها المباشرة بالكامل",
-                "مطابقة، بشرط وجود قرار مجلس إدارة مكتوب يفوض مدير تكنولوجيا المعلومات",
-                "ملاحظة تحسين (OFI) تطلب من المدير التنفيذي التوقيع على محاضر الاجتماعات لاحقاً"
-            ],
-            ans: 1,
-            exp: "البند 5.1 يلقي التزام إظهار القيادة والالتزام مباشرة على الإدارة العليا (Top Management) لضمان توافق النظام مع التوجه الاستراتيجي."
-        },
-        en: {
-            q: "The CEO of a trading firm delegated all ISMS sign-offs and Management Review obligations exclusively to the IT Director, skipping security reviews due to corporate expansion duties. How should the auditor handle this delegation?",
-            opts: [
-                "Accept delegation, as ISO standards allow appointing a Management Representative to run the ISMS",
-                "Nonconformity against Clause 5.1, as Top Management must directly demonstrate leadership and commitment and cannot completely abdicate accountability",
-                "Conformity, provided a formal board resolution explicitly granting full proxy exists",
-                "Opportunity for Improvement (OFI) asking the CEO to retroactively countersign review meeting minutes"
-            ],
-            ans: 1,
-            exp: "Clause 5.1 mandates that Top Management itself must demonstrate leadership and commitment regarding the ISMS."
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO/IEC 27001:2022 Certification Prep & Exam Simulator</title>
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            --hero-text: #ffffff;
+            --secondary: #2563eb;
+            --accent: #38bdf8;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --gold: #d97706;
+            --footer-bg: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
         }
-    },
-    {
-        id: 6,
-        ref: "ISO/IEC 27001:2022 - Clause 5.2",
-        ar: {
-            q: "سياسة أمن المعلومات في شركة تجزئة صيغت ببراعة وتم اعتمادها من المدير التنفيذي. لكن أثناء المراجعة، تبين أنها محفوظة في مجلد آمن لا يستطيع الوصول إليه سوى مدراء الأقسام، ولم تنشر أو تتاح للموظفين أو المتعاقدين. ما هو التصنيف المعياري؟",
-            opts: [
-                "مطابقة، لحماية وثيقة السياسة من التعديل غير المصرح به وضمان سريتها",
-                "عدم مطابقة للبند 5.2، لأن المعيار يفرض إتاحة السياسة كمعلومات موثقة ونشرها داخل المؤسسة وإتاحتها للأطراف المهتمة عند الاقتضاء",
-                "ملاحظة تحسين (OFI)، تطلب إرسال ملخص السياسة عبر البريد الإلكتروني للموظفين الجدد",
-                "مطابقة، طالما أن مدراء الأقسام يقومون بتوجيه مرؤوسيهم شفهياً"
-            ],
-            ans: 1,
-            exp: "البند 5.2 ينص صراحة على أن سياسة أمن المعلومات يجب أن تكون متاحة كمعلومات موثقة، وتُبلغ داخل المنظمة، وتكون متاحة للأطراف المهتمة."
-        },
-        en: {
-            q: "A retail firm's Information Security Policy was signed by the CEO. However, it was saved in a restricted folder accessible only to Department Heads and was never communicated to staff or contractors. Audit ruling?",
-            opts: [
-                "Conformity, to protect the policy document from unauthorized modifications and preserve confidentiality",
-                "Nonconformity against Clause 5.2, because the policy must be communicated within the organization and available to relevant interested parties",
-                "Opportunity for Improvement (OFI), recommending emailing a policy summary to new hires during onboarding",
-                "Conformity, provided Department Heads verbally instruct their team members on policy expectations"
-            ],
-            ans: 1,
-            exp: "Clause 5.2 explicitly requires the policy to be available as documented information, communicated within the organization, and available to interested parties."
+
+        [data-theme="dark"] {
+            --bg-primary: #0b0f19;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --hero-bg: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+            --hero-text: #f8fafc;
+            --secondary: #3b82f6;
+            --accent: #38bdf8;
+            --footer-bg: #0f172a;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.4);
         }
-    },
-    {
-        id: 7,
-        ref: "ISO/IEC 27001:2022 - Clause 5.3",
-        ar: {
-            q: "في شركة استشارات، تم إسناد مسؤولية الإبلاغ عن أداء نظام ISMS إلى الإدارة العليا لمسؤول أمن المعلومات (CISO)، لكن الوصف الوظيفي والهيكل لم يمنحه السلطة والصلاحية (Authority) اللازمة لإيقاف الأنظمة المخالفة أو استدعاء الموظفين للتحقيق. ما تقييم المراجع؟",
-            opts: [
-                "مطابقة، لأن إسناد المسؤولية (Responsibility) يكفي لتلبية متطلبات المعيار دون الحاجة لمنح صلاحيات تشغيلية",
-                "عدم مطابقة للبند 5.3، لأن الإدارة العليا يجب أن تضمن تحديد وإسناد وإبلاغ المسؤوليات والصلاحيات (Responsibilities & Authorities)",
-                "ملاحظة تحسين (OFI)، تطلب تعديل الهيكل الوظيفي في المراجعة السنوية القادمة",
-                "مطابقة، طالما أن المدير التنفيذي يتدخل شخصياً عند حدوث الاختراقات"
-            ],
-            ans: 1,
-            exp: "البند 5.3 يتطلب إسناد ونقل المسؤوليات والصلاحيات (Authorities) معاً لضمان مطابقة النظام والإبلاغ عن الأداء."
-        },
-        en: {
-            q: "In a consulting firm, the CISO was assigned the responsibility to report ISMS performance to Top Management, but was given no authority to halt non-compliant systems or enforce security audits. How is this assessed?",
-            opts: [
-                "Conformity, as assigning responsibility alone fulfills standard requirements without requiring operational powers",
-                "Nonconformity against Clause 5.3, because Top Management must ensure both responsibilities AND authorities for relevant roles are assigned",
-                "Opportunity for Improvement (OFI), suggesting HR updates job descriptions during the annual performance review",
-                "Conformity, provided the CEO personally intervenes whenever a critical security breach occurs"
-            ],
-            ans: 1,
-            exp: "Clause 5.3 mandates assigning and communicating both responsibilities AND authorities for roles relevant to information security."
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
         }
+
+        .top-navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            z-index: 10;
+        }
+
+        .btn-toggle {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .btn-toggle:hover {
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-banner {
+            background: var(--hero-bg);
+            color: var(--hero-text);
+            padding: 110px 20px 80px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .hero-banner h1 {
+            font-size: clamp(2em, 5vw, 3em);
+            margin: 0 0 15px 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-banner p {
+            font-size: clamp(1em, 2.5vw, 1.25em);
+            color: #cbd5e1;
+            max-width: 780px;
+            margin: 0 auto 35px auto;
+            line-height: 1.6;
+        }
+
+        .btn-cta {
+            background: var(--accent);
+            color: #0f172a;
+            padding: 16px 36px;
+            font-size: 1.15em;
+            font-weight: 700;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.5);
+            background: #7dd3fc;
+        }
+
+        .landing-features {
+            max-width: 1050px;
+            margin: -40px auto 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 28px 24px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card h3 {
+            color: var(--secondary);
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .disclaimer-box {
+            max-width: 1050px;
+            margin: 0 auto 30px auto;
+            padding: 16px 20px;
+            background: rgba(217, 119, 6, 0.08);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            border-radius: 12px;
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            box-sizing: border-box;
+        }
+
+        .disclaimer-box strong { color: var(--gold); }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            flex: 1;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .dashboard-header {
+            background: var(--hero-bg);
+            color: white;
+            padding: 28px 24px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .dashboard-title h1 { margin: 0; font-size: 1.6em; font-weight: 700; }
+        .dashboard-title p { margin: 5px 0 0 0; color: #94a3b8; font-size: 0.9em; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-card .number { font-size: 2em; font-weight: 800; color: var(--secondary); }
+        .stat-card .label { color: var(--text-secondary); font-size: 0.85em; font-weight: 600; text-transform: uppercase; margin-top: 4px; }
+
+        .timer-badge {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.05em;
+            border: 1px solid #38bdf8;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .settings-card {
+            background: var(--bg-card);
+            padding: 22px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .settings-row { display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 160px; }
+        .checkbox-group { display: flex; align-items: center; gap: 8px; font-size: 0.88em; cursor: pointer; color: var(--text-secondary); font-weight: 600; }
+
+        label { font-weight: 700; font-size: 0.88em; }
+        select, input[type="number"], input[type="text"] {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95em;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            box-sizing: border-box;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            font-size: 0.95em;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-success { background: var(--success); }
+        .btn-danger { background: var(--danger); }
+        .btn-outline { background: transparent; border: 2px solid var(--secondary); color: var(--secondary); }
+
+        .table-responsive { width: 100%; overflow-x: auto; border-radius: 8px; -webkit-overflow-scrolling: touch; }
+        .history-table, .leaderboard-table {
+            width: 100%; border-collapse: collapse; margin-top: 10px; background: var(--bg-card); font-size: 0.9em; min-width: 550px;
+        }
+
+        .history-table th, .history-table td, .leaderboard-table th, .leaderboard-table td {
+            padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border-color);
+        }
+
+        [dir="rtl"] .history-table th, [dir="rtl"] .history-table td,
+        [dir="rtl"] .leaderboard-table th, [dir="rtl"] .leaderboard-table td { text-align: right; }
+
+        .history-table th, .leaderboard-table th { background: rgba(148, 163, 184, 0.1); font-weight: 700; color: var(--text-secondary); }
+
+        .question-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        [dir="rtl"] .question-card { border-left: 1px solid var(--border-color); border-right: 5px solid var(--secondary); }
+
+        .q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 0.88em; }
+        .badge { background: rgba(148, 163, 184, 0.2); color: var(--text-primary); padding: 4px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 700; }
+
+        .options-list { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .option-item {
+            padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 0.95em; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease;
+        }
+        .option-item:hover { background: rgba(148, 163, 184, 0.1); border-color: var(--secondary); }
+
+        .explanation-box {
+            margin-top: 15px; padding: 15px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; font-size: 0.9em; line-height: 1.5;
+        }
+        .ref-tag { font-weight: 700; display: inline-block; margin-bottom: 5px; color: var(--accent); }
+
+        /* Pagination Styles */
+        .pagination-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding: 15px 0;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .page-info { font-weight: 700; font-size: 0.9em; color: var(--text-secondary); }
+
+        #simulator-app, #exam-screen, #result-screen, #leaderboard-section { display: none; }
+
+        footer {
+            text-align: center; padding: 20px; margin-top: auto; color: var(--text-secondary); font-size: 0.88em; font-weight: 600; border-top: 1px solid var(--border-color); background: var(--footer-bg); transition: background-color 0.3s;
+        }
+
+        @media (max-width: 640px) {
+            .settings-row { flex-direction: column; align-items: stretch; }
+            .btn-success { width: 100%; }
+            .top-navbar { padding: 10px 15px; }
+            .btn-toggle { font-size: 0.78em; padding: 6px 12px; }
+            .hero-banner { padding-top: 90px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-navbar">
+    <button class="btn-toggle" onclick="toggleTheme()" id="btn-theme-toggle">🌙 Dark Mode</button>
+    <button class="btn-toggle" onclick="toggleLanguageGlobal()" id="btn-lang-toggle">🌐 العربية</button>
+</div>
+
+<div id="landing-page">
+    <div class="hero-banner">
+        <h1 id="landing-title">ISO/IEC 27001:2022 Exam Preparation</h1>
+        <p id="landing-desc">Master Information Security Management Systems (ISMS), audit scenarios, and Annex A controls with Practice Questions derived directly from standard & lead auditor documentation.</p>
+        <button class="btn-cta" onclick="launchSimulator()" id="btn-cta-text">Launch Exam Simulator 🚀</button>
+    </div>
+
+    <div class="landing-features">
+        <div class="feature-card">
+            <h3>📚 <span id="feat1-title">Scenario Questions</span></h3>
+            <p id="feat1-desc">Extensive scenario-based questions covering Clauses 4-10 and Annex A Controls.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🌐 <span id="feat2-title">Dual Language Support</span></h3>
+            <p id="feat2-desc">Switch seamlessly between English and Arabic at any time with full ISO standard references.</p>
+        </div>
+        <div class="feature-card">
+            <h3>📊 <span id="feat3-title">Performance & Live Leaderboard</span></h3>
+            <p id="feat3-desc">Track your elapsed time, local history, review wrong answers with clause rationale, and view top ranks.</p>
+        </div>
+    </div>
+
+    <div class="disclaimer-box">
+        <strong id="disc-title">⚠️ Disclaimer:</strong> 
+        <span id="disc-text">This platform is an independent educational tool provided solely at your personal request and choice. Questions are practice/simulated materials designed to facilitate exam preparation. The platform owner is not responsible for any data entered, processed, or submitted by users in any manner.</span>
+    </div>
+</div>
+
+<div class="container" id="simulator-app">
+    <div class="dashboard-header">
+        <div class="dashboard-title">
+            <h1 id="app-title">ISO/IEC 27001:2022 Exam Simulator</h1>
+            <p id="app-subtitle">Exam Simulation, Performance Dashboard & History Tracker</p>
+        </div>
+        <div>
+            <button class="btn btn-danger" onclick="clearLocalHistory()" id="btn-clear-history">Clear Local History 🗑️</button>
+        </div>
+    </div>
+
+    <div id="dashboard-view">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number" id="stat-attempts">0</div>
+                <div class="label" id="lbl-attempts">Total Attempts</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="stat-avg-score">0%</div>
+                <div class="label" id="lbl-avg-score">Average Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="stat-best-score">0%</div>
+                <div class="label" id="lbl-best-score">Best Score</div>
+            </div>
+        </div>
+
+        <div class="settings-card">
+            <div class="settings-row">
+                <div class="form-group" style="flex: 2;">
+                    <label id="lbl-trainee">Trainee Name:</label>
+                    <input type="text" id="input-trainee" placeholder="Enter your name here...">
+                </div>
+                <div class="form-group">
+                    <label id="lbl-qcount">Question Count:</label>
+                    <input type="number" id="input-qcount" value="10" min="1">
+                </div>
+                <div class="form-group" style="flex: 0 0 auto;">
+                    <button class="btn btn-success" onclick="startExam()" id="btn-start" style="height: 42px;">Start Exam Now 🚀</button>
+                </div>
+            </div>
+            <label class="checkbox-group">
+                <input type="checkbox" id="chk-leaderboard" checked>
+                <span id="lbl-join-lb">Join Public Leaderboard & view top ranks 🏆</span>
+            </label>
+        </div>
+
+        <div id="leaderboard-section" style="background: var(--bg-card); padding:20px; border-radius:16px; border:1px solid var(--border-color); margin-bottom: 25px; box-shadow: var(--shadow-sm);">
+            <h3 style="color: var(--gold); margin-top:0; font-size:1.15em;" id="lb-title">🏆 Public Leaderboard (Opted-in Trainees)</h3>
+            <div class="table-responsive">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th id="th-lb-name">Trainee Name</th>
+                            <th id="th-lb-pct">Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="background: var(--bg-card); padding:20px; border-radius:16px; border:1px solid var(--border-color); margin-bottom: 20px; box-shadow: var(--shadow-sm);">
+            <h3 id="tbl-title" style="margin-top:0; font-size:1.15em;">Past Attempts History</h3>
+            <div class="table-responsive">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th id="th-name">Trainee Name</th>
+                            <th id="th-date">Date & Time</th>
+                            <th id="th-lang">Language</th>
+                            <th id="th-time">Time Taken</th>
+                            <th id="th-score">Score</th>
+                            <th id="th-pct">Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="disclaimer-box">
+            <strong id="disc-title-dash">⚠️ Disclaimer:</strong> 
+            <span id="disc-text-dash">Participation is entirely voluntary and based on your own personal request. Practice questions are provided for preparation purposes only. The developer bears no liability for any user-submitted data.</span>
+        </div>
+    </div>
+
+    <div id="exam-screen">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
+            <h2 id="exam-progress-title" style="font-size:1.3em; margin:0;">Question 1 of 10</h2>
+            <div class="timer-badge" id="exam-timer">⏱️ 00:00</div>
+            <button class="btn btn-outline" onclick="exitExam()" id="btn-cancel">Cancel Exam</button>
+        </div>
+        <form id="quiz-form">
+            <div id="questions-container"></div>
+            
+            <!-- Pagination Controls -->
+            <div class="pagination-container" id="pagination-controls">
+                <button type="button" class="btn btn-outline" onclick="changePage(-1)" id="btn-prev-page">⬅️ Previous</button>
+                <span class="page-info" id="page-indicator">Page 1 of 1</span>
+                <button type="button" class="btn btn-outline" onclick="changePage(1)" id="btn-next-page">Next ➡️</button>
+            </div>
+
+            <button type="button" class="btn btn-success" style="font-size:1.05em; padding:14px; width:100%; margin-top:20px;" onclick="submitExam()" id="btn-submit">Submit & Save Attempt</button>
+        </form>
+    </div>
+
+    <div id="result-screen">
+        <div class="stat-card" style="margin-bottom:20px;">
+            <h2 id="res-title" style="margin-top:0;">Exam Result</h2>
+            <h3 id="res-trainee-name" style="color:var(--secondary); margin-top:-5px; font-size:1.2em;"></h3>
+            <div class="number" id="res-score">0 / 10</div>
+            <p style="font-weight: 700; color: var(--accent); margin: 6px 0;" id="res-time-taken">⏱️ Time Taken: 00:00</p>
+            <p id="res-feedback" style="font-size:1.05em; color:var(--text-secondary);"></p>
+        </div>
+
+        <div id="review-container"></div>
+
+        <button class="btn" style="width:100%; margin-top:20px; padding:12px;" onclick="showDashboard()" id="btn-back-dash">Back to Dashboard</button>
+    </div>
+</div>
+
+<footer>
+    <div>created by Mohamed Elkadi</div>
+    <div style="font-size: 0.8em; margin-top: 4px; opacity: 0.8;" id="footer-disc">Data submission is voluntary. Author assumes no liability for entered content.</div>
+</footer>
+
+<!-- IMPORT EXTERNAL QUESTIONS FILE -->
+<script src="questions.js"></script>
+
+<script>
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby5hBkCWyyaYbr4qlVMGZBVOuqaQ9An-c1x-Gic5RIrHvyyHRk0mhrUp5EsLuQOFF6OpA/exec";
+
+let currentLang = 'en';
+let activeQuestions = [];
+let userAnswers = {};
+let currentTrainee = '';
+let joinLeaderboard = true;
+let timerInterval = null;
+let secondsElapsed = 0;
+let attemptsHistory = JSON.parse(localStorage.getItem('iso_attempts_history') || '[]');
+
+// Pagination Variables (Max 25 questions per page)
+let currentPage = 1;
+const PAGE_SIZE = 25; 
+
+function getAvailableBankLength() {
+    return (typeof questionBank !== 'undefined' && Array.isArray(questionBank)) ? questionBank.length : 0;
+}
+
+const i18n = {
+    ar: {
+        landingTitle: "التحضير لشهادة ISO/IEC 27001:2022",
+        landingDesc: "أتقن أنظمة إدارة أمن المعلومات (ISMS)، سيناريوهات المراجعة، وضوابط Annex A بأسئلة محاكاة مبنية على معايير المراجعة ومراجع فورية.",
+        btnCtaText: "تشغيل محاكي الامتحان 🚀",
+        feat1Title: "أسئلة سيناريوهات حقيقية",
+        feat1Desc: "تغطية تدريبية شاملة للبنود 4-10 وضوابط Annex A بأسئلة قصصية عميقة.",
+        feat2Title: "دعم كامل للغتين",
+        feat2Desc: "تنقل بسلاسة بين اللغة العربية والإنجليزية في أي وقت مع إشارات فورية للبنود.",
+        feat3Title: "متابع الوقت والأداء",
+        feat3Desc: "تتبع الوقت المستغرق، سجلك المحلي، راجع الإجابات الخاطئة مع التعليل، وانضم للوحة الأوائل.",
+        discTitle: "⚠️ إخلاء مسؤولية:",
+        discText: "هذه المنصة هي أداة تعليمية وتدريبية مستقلة صُممت بناءً على طلبك واستخدامك الشخصي. الأسئلة عبارة عن نماذج تدريبية ومحاكاة مجهزة لتسهيل التدريب والتحضير للامتحان.",
+        discTitleDash: "⚠️ إخلاء مسؤولية:",
+        discTextDash: "المشاركة اختيارية تماماً وبناءً على طلبك الشخصي. الأسئلة مخصصة للتدريب فقط.",
+        footerDisc: "إدخال البيانات اختياري بالكامل. المطور لا يتحمل أي مسؤولية عن المحتوى المدخل.",
+        appTitle: "ISO/IEC 27001:2022 Exam Simulator",
+        appSubtitle: "نظام محاكاة الامتحانات ومتابعة الأداء وإدارة المحاولات",
+        btnClearHistory: "مسح السجل المحلي 🗑️",
+        lblAttempts: "إجمالي المحاولات",
+        lblAvgScore: "متوسط الدرجات",
+        lblBestScore: "أعلى درجة محققة",
+        lblTrainee: "اسم المتدرب (Trainee Name):",
+        lblJoinLb: "الانضمام للوحة الأوائل العامة ورؤية المراتب الأولى 🏆",
+        lbTitle: "🏆 لوحة ترتيب الأوائل العامة المباشرة",
+        thLbName: "اسم المتدرب",
+        thLbPct: "النسبة المئوية",
+        lblQCount: `عدد الأسئلة:`,
+        btnStart: "ابدأ الاختبار الآن 🚀",
+        tblTitle: "سجل المحاولات السابقة",
+        thName: "اسم المتدرب",
+        thDate: "التاريخ والوقت",
+        thLang: "اللغة",
+        thTime: "المدة المستغرقة",
+        thScore: "الدرجة",
+        thPct: "النسبة",
+        btnCancel: "إلغاء وتراجع",
+        btnSubmit: "إنهاء الامتحان وتسجيل المحاولة",
+        resTitle: "نتيجة المحاولة",
+        btnBackDash: "العودة للوحة التحكم"
     },
+    en: {
+        landingTitle: "ISO/IEC 27001:2022 Exam Preparation",
+        landingDesc: "Master Information Security Management Systems (ISMS), audit scenarios, and Annex A controls with real practice questions and instant clause references.",
+        btnCtaText: "Launch Exam Simulator 🚀",
+        feat1Title: "Real Audit Scenarios",
+        feat1Desc: "Comprehensive practice coverage of Clauses 4-10 and Annex A Controls.",
+        feat2Title: "Dual Language Support",
+        feat2Desc: "Switch seamlessly between English and Arabic at any time with full ISO standard references.",
+        feat3Title: "Performance & Timer Tracker",
+        feat3Desc: "Track your elapsed time, local history, review wrong answers, and join the public Leaderboard.",
+        discTitle: "⚠️ Disclaimer:",
+        discText: "This platform is an independent educational tool provided solely at your personal request and choice. Questions are practice/simulated materials designed to facilitate exam preparation.",
+        discTitleDash: "⚠️ Disclaimer:",
+        discTextDash: "Participation is entirely voluntary and based on your own personal request. Practice questions are provided for preparation purposes only.",
+        footerDisc: "Data submission is voluntary. Author assumes no liability for entered content.",
+        appTitle: "ISO/IEC 27001:2022 Exam Simulator",
+        appSubtitle: "Exam Simulation, Performance Dashboard & History Tracker",
+        btnClearHistory: "Clear Local History 🗑️",
+        lblAttempts: "Total Attempts",
+        lblAvgScore: "Average Score",
+        lblBestScore: "Best Score",
+        lblTrainee: "Trainee Name:",
+        lblJoinLb: "Join Public Leaderboard & view top ranks 🏆",
+        lbTitle: "🏆 Public Live Leaderboard (Opted-in Trainees)",
+        thLbName: "Trainee Name",
+        thLbPct: "Percentage",
+        lblQCount: `Question Count:`,
+        btnStart: "Start Exam Now 🚀",
+        tblTitle: "Past Attempts History",
+        thName: "Trainee Name",
+        thDate: "Date & Time",
+        thLang: "Language",
+        thTime: "Time Taken",
+        thScore: "Score",
+        thPct: "Percentage",
+        btnCancel: "Cancel Exam",
+        btnSubmit: "Submit & Save Attempt",
+        resTitle: "Exam Result",
+        btnBackDash: "Back to Dashboard"
+    }
+};
+
+function toggleTheme() {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.body.setAttribute('data-theme', newTheme);
+    document.getElementById('btn-theme-toggle').innerText = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+
+function toggleLanguageGlobal() {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    document.getElementById('btn-lang-toggle').innerText = currentLang === 'en' ? '🌐 العربية' : '🌐 English';
+    
+    document.getElementById('html-root').setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+    document.getElementById('html-root').setAttribute('lang', currentLang);
+
+    const t = i18n[currentLang];
+    document.getElementById('landing-title').innerText = t.landingTitle;
+    document.getElementById('landing-desc').innerText = t.landingDesc;
+    document.getElementById('btn-cta-text').innerText = t.btnCtaText;
+    document.getElementById('feat1-title').innerText = t.feat1Title;
+    document.getElementById('feat1-desc').innerText = t.feat1Desc;
+    document.getElementById('feat2-title').innerText = t.feat2Title;
+    document.getElementById('feat2-desc').innerText = t.feat2Desc;
+    document.getElementById('feat3-title').innerText = t.feat3Title;
+    document.getElementById('feat3-desc').innerText = t.feat3Desc;
+    document.getElementById('disc-title').innerText = t.discTitle;
+    document.getElementById('disc-text').innerText = t.discText;
+    document.getElementById('disc-title-dash').innerText = t.discTitleDash;
+    document.getElementById('disc-text-dash').innerText = t.discTextDash;
+    document.getElementById('footer-disc').innerText = t.footerDisc;
+
+    document.getElementById('app-title').innerText = t.appTitle;
+    document.getElementById('app-subtitle').innerText = t.appSubtitle;
+    document.getElementById('btn-clear-history').innerText = t.btnClearHistory;
+    document.getElementById('lbl-attempts').innerText = t.lblAttempts;
+    document.getElementById('lbl-avg-score').innerText = t.lblAvgScore;
+    document.getElementById('lbl-best-score').innerText = t.lblBestScore;
+    document.getElementById('lbl-trainee').innerText = t.lblTrainee;
+    document.getElementById('lbl-join-lb').innerText = t.lblJoinLb;
+    document.getElementById('lb-title').innerText = t.lbTitle;
+    document.getElementById('th-lb-name').innerText = t.thLbName;
+    document.getElementById('th-lb-pct').innerText = t.thLbPct;
+    
+    let totalAvail = getAvailableBankLength();
+    document.getElementById('lbl-qcount').innerText = `${t.lblQCount} ${totalAvail > 0 ? '(Max: ' + totalAvail + ')' : ''}`;
+    
+    document.getElementById('btn-start').innerText = t.btnStart;
+    document.getElementById('tbl-title').innerText = t.tblTitle;
+    document.getElementById('th-name').innerText = t.thName;
+    document.getElementById('th-date').innerText = t.thDate;
+    document.getElementById('th-lang').innerText = t.thLang;
+    document.getElementById('th-time').innerText = t.thTime;
+    document.getElementById('th-score').innerText = t.thScore;
+    document.getElementById('th-pct').innerText = t.thPct;
+    document.getElementById('btn-cancel').innerText = t.btnCancel;
+    document.getElementById('btn-submit').innerText = t.btnSubmit;
+    document.getElementById('res-title').innerText = t.resTitle;
+    document.getElementById('btn-back-dash').innerText = t.btnBackDash;
+
+    updateDashboardStats();
+}
+
+function launchSimulator() {
+    document.getElementById('landing-page').style.display = 'none';
+    document.getElementById('simulator-app').style.display = 'block';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function formatTime(totalSeconds) {
+    let mins = Math.floor(totalSeconds / 60);
+    let secs = totalSeconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+function startTimer() {
+    secondsElapsed = 0;
+    document.getElementById('exam-timer').innerText = `⏱️ ${formatTime(secondsElapsed)}`;
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        secondsElapsed++;
+        document.getElementById('exam-timer').innerText = `⏱️ ${formatTime(secondsElapsed)}`;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+function updateDashboardStats() {
+    document.getElementById('stat-attempts').innerText = attemptsHistory.length;
+    if (attemptsHistory.length > 0) {
+        let sum = attemptsHistory.reduce((acc, curr) => acc + curr.pct, 0);
+        let avg = Math.round(sum / attemptsHistory.length);
+        let best = Math.max(...attemptsHistory.map(a => a.pct));
+        document.getElementById('stat-avg-score').innerText = `${avg}%`;
+        document.getElementById('stat-best-score').innerText = `${best}%`;
+    } else {
+        document.getElementById('stat-avg-score').innerText = '0%';
+        document.getElementById('stat-best-score').innerText = '0%';
+    }
+
+    const lbSection = document.getElementById('leaderboard-section');
+    const hasJoinedLb = localStorage.getItem('iso_joined_leaderboard') === 'true';
+
+    if (hasJoinedLb) {
+        lbSection.style.display = 'block';
+        fetchLiveLeaderboard();
+    } else {
+        lbSection.style.display = 'none';
+    }
+
+    const tbody = document.getElementById('history-tbody');
+    tbody.innerHTML = '';
+    attemptsHistory.slice().reverse().forEach((att, idx) => {
+        let tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${attemptsHistory.length - idx}</td>
+            <td><strong>${att.traineeName || 'N/A'}</strong></td>
+            <td>${att.timestamp}</td>
+            <td>${att.lang === 'ar' ? 'العربية' : 'English'}</td>
+            <td><strong>${att.timeTaken || '00:00'}</strong></td>
+            <td>${att.score} / ${att.total}</td>
+            <td><strong>${att.pct}%</strong></td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function fetchLiveLeaderboard() {
+    const tbody = document.getElementById('leaderboard-tbody');
+    tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">⌛ Loading Live Leaderboard...</td></tr>`;
+
+    if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_WEB_APP_URL_HERE") {
+        fetch(GOOGLE_SCRIPT_URL)
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "success" && data.leaderboard) {
+                    renderLeaderboard(data.leaderboard);
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">No entries yet.</td></tr>`;
+                }
+            })
+            .catch(err => {
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">Unable to load public leaderboard.</td></tr>`;
+            });
+    } else {
+        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">Live Leaderboard URL not configured.</td></tr>`;
+    }
+}
+
+function renderLeaderboard(list) {
+    const tbody = document.getElementById('leaderboard-tbody');
+    tbody.innerHTML = '';
+
+    if (list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">No entries yet.</td></tr>`;
+        return;
+    }
+
+    list.slice(0, 10).forEach((item, idx) => {
+        let tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="font-weight:700; color:${idx === 0 ? 'var(--gold)' : 'inherit'}">${idx === 0 ? '🥇 #1' : (idx === 1 ? '🥈 #2' : (idx === 2 ? '🥉 #3' : `#${idx+1}`))}</td>
+            <td><strong>${item.name}</strong></td>
+            <td><strong>${item.pct}%</strong></td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function shuffle(array) {
+    if (!array || !Array.isArray(array)) return [];
+    let arr = JSON.parse(JSON.stringify(array));
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function startExam() {
+    let nameInput = document.getElementById('input-trainee').value.trim();
+    if (!nameInput) {
+        alert(currentLang === 'ar' ? 'يرجى إدخال اسم المتدرب أولاً!' : 'Please enter trainee name first!');
+        return;
+    }
+
+    let bankLen = getAvailableBankLength();
+    if (bankLen === 0) {
+        alert(currentLang === 'ar' 
+            ? 'خطأ: لم يتم تحميل أسئلة الاختبار (questions.js غير موجود أو يحتوي على أخطاء برمجية)!' 
+            : 'Error: questions.js is not loaded or contains syntax errors!');
+        return;
+    }
+
+    currentTrainee = nameInput;
+    joinLeaderboard = document.getElementById('chk-leaderboard').checked;
+    localStorage.setItem('iso_joined_leaderboard', joinLeaderboard ? 'true' : 'false');
+
+    let countInput = parseInt(document.getElementById('input-qcount').value) || 10;
+    let count = Math.min(Math.max(countInput, 1), bankLen);
+
+    let shuffledBank = shuffle(questionBank);
+    activeQuestions = shuffledBank.slice(0, count);
+    userAnswers = {};
+    currentPage = 1;
+
+    document.getElementById('dashboard-view').style.display = 'none';
+    document.getElementById('exam-screen').style.display = 'block';
+
+    startTimer();
+    renderExamQuestions();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function renderExamQuestions() {
+    const container = document.getElementById('questions-container');
+    container.innerHTML = '';
+
+    let totalPages = Math.ceil(activeQuestions.length / PAGE_SIZE);
+    let startIndex = (currentPage - 1) * PAGE_SIZE;
+    let endIndex = Math.min(startIndex + PAGE_SIZE, activeQuestions.length);
+
+    document.getElementById('exam-progress-title').innerText = `${currentLang === 'ar' ? 'الأسئلة' : 'Questions'} ${startIndex + 1} - ${endIndex} ${currentLang === 'ar' ? 'من' : 'of'} ${activeQuestions.length}`;
+
+    for (let idx = startIndex; idx < endIndex; idx++) {
+        let q = activeQuestions[idx];
+        let data = q[currentLang];
+        let card = document.createElement('div');
+        card.className = 'question-card';
+
+        let optsWithIndex = data.opts.map((opt, i) => ({ text: opt, originalIdx: i }));
+        let shuffledOpts = shuffle(optsWithIndex);
+
+        let optsHtml = `
+            <div class="options-list">
+                ${shuffledOpts.map(o => `
+                    <label class="option-item">
+                        <input type="radio" name="q_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="userAnswers[${idx}]=${o.originalIdx}">
+                        ${o.text}
+                    </label>
+                `).join('')}
+            </div>
+        `;
+
+        card.innerHTML = `
+            <div class="q-header">
+                <span class="badge">Q${idx + 1} / ${activeQuestions.length}</span>
+                <span class="ref-tag">${q.ref}</span>
+            </div>
+            <div style="font-weight:700; font-size:1.05em; margin-bottom:12px; line-height:1.5;">${data.q}</div>
+            ${optsHtml}
+        `;
+        container.appendChild(card);
+    }
+
+    const pageIndicator = document.getElementById('page-indicator');
+    pageIndicator.innerText = `${currentLang === 'ar' ? 'صفحة' : 'Page'} ${currentPage} ${currentLang === 'ar' ? 'من' : 'of'} ${totalPages}`;
+
+    document.getElementById('btn-prev-page').style.visibility = currentPage === 1 ? 'hidden' : 'visible';
+    document.getElementById('btn-next-page').style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
+
+    document.getElementById('pagination-controls').style.display = activeQuestions.length > PAGE_SIZE ? 'flex' : 'none';
+    document.getElementById('btn-submit').style.display = currentPage === totalPages ? 'block' : 'none';
+}
+
+function changePage(direction) {
+    let totalPages = Math.ceil(activeQuestions.length / PAGE_SIZE);
+    currentPage += direction;
+    if (currentPage < 1) currentPage = 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    renderExamQuestions();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function exitExam() {
+    stopTimer();
+    document.getElementById('exam-screen').style.display = 'none';
+    document.getElementById('dashboard-view').style.display = 'block';
+}
+
+function submitExam() {
+    stopTimer();
+    let finalTimeStr = formatTime(secondsElapsed);
+
+    let score = 0;
+    activeQuestions.forEach((q, idx) => {
+        let selected = userAnswers[idx];
+        if (selected !== undefined && selected === q[currentLang].ans) {
+            score++;
+        }
+    });
+
+    let pct = Math.round((score / activeQuestions.length) * 100);
+    let now = new Date();
+    let timeStr = now.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US');
+
+    let newAttempt = {
+        traineeName: currentTrainee,
+        timestamp: timeStr,
+        lang: currentLang,
+        timeTaken: finalTimeStr,
+        score: score,
+        total: activeQuestions.length,
+        pct: pct,
+        consent: joinLeaderboard
+    };
+
+    attemptsHistory.push(newAttempt);
+    localStorage.setItem('iso_attempts_history', JSON.stringify(attemptsHistory));
+
+    if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_WEB_APP_URL_HERE") {
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newAttempt)
+        }).catch(err => console.log('Syncing error:', err));
+    }
+
+    showResultScreen(score, pct, finalTimeStr);
+}
+
+function showResultScreen(score, pct, timeTakenStr) {
+    document.getElementById('exam-screen').style.display = 'none';
+    document.getElementById('result-screen').style.display = 'block';
+
+    document.getElementById('res-trainee-name').innerText = `${currentLang === 'ar' ? 'المتدرب:' : 'Trainee:'} ${currentTrainee}`;
+    document.getElementById('res-score').innerText = `${score} / ${activeQuestions.length} (${pct}%)`;
+    document.getElementById('res-time-taken').innerText = `⏱️ ${currentLang === 'ar' ? 'المدة المستغرقة:' : 'Time Taken:'} ${timeTakenStr}`;
+    
+    let feedback = '';
+    if (pct >= 85) feedback = currentLang === 'ar' ? 'أداء ممتاز جداً! أنت جاهز لاجتياز الامتحان بنجاح 🎯' : 'Excellent performance! You are fully ready for the exam 🎯';
+    else if (pct >= 70) feedback = currentLang === 'ar' ? 'أداء جيد! يرجى مراجعة النقاط الخاطئة لضمان الدرجة النهائية 👍' : 'Good effort! Review incorrect answers for perfection 👍';
+    else feedback = currentLang === 'ar' ? 'يحتاج إلى مزيد من المراجعة للبناء المعياري والضوابط 📚' : 'Needs more review of clauses and controls 📚';
+    
+    document.getElementById('res-feedback').innerText = feedback;
+
+    const reviewContainer = document.getElementById('review-container');
+    reviewContainer.innerHTML = '<h3>' + (currentLang === 'ar' ? 'تفاصيل المراجعة والتعليل المعياري:' : 'Detailed Review & References:') + '</h3>';
+
+    activeQuestions.forEach((q, idx) => {
+        let data = q[currentLang];
+        let userAns = userAnswers[idx];
+        let isCorrect = userAns === data.ans;
+
+        let userText = userAns !== undefined ? data.opts[userAns] : (currentLang === 'ar' ? 'لم تجب' : 'Not answered');
+        let correctText = data.opts[data.ans];
+
+        let box = document.createElement('div');
+        box.style.cssText = "background:var(--bg-card); padding:16px; border-radius:12px; margin-bottom:12px; border:1px solid var(--border-color); font-size:0.95em;";
+        box.innerHTML = `
+            <div><strong>Q${idx + 1}: ${data.q}</strong></div>
+            <div style="margin:8px 0;">
+                <span style="color:${isCorrect ? 'var(--success)' : 'var(--danger)'}; font-weight:700;">
+                    ${currentLang === 'ar' ? 'إجابتك:' : 'Your answer:'} ${userText}
+                </span>
+                ${!isCorrect ? `<br><span style="color:var(--success); font-weight:700;">${currentLang === 'ar' ? 'الإجابة الصحيحة:' : 'Correct answer:'} ${correctText}</span>` : ''}
+            </div>
+            <div class="explanation-box">
+                <span class="ref-tag">📌 Reference: ${q.ref}</span><br>
+                💡 ${data.exp}
+            </div>
+        `;
+        reviewContainer.appendChild(box);
+    });
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function showDashboard() {
+    document.getElementById('result-screen').style.display = 'none';
+    document.getElementById('dashboard-view').style.display = 'block';
+    updateDashboardStats();
+}
+
+function clearLocalHistory() {
+    let confirmMsg = currentLang === 'ar' 
+        ? 'هل أنت تأكد من رغبتك في مسح سجل المحاولات المحلي الخاص بك من هذا المتصفح؟' 
+        : 'Are you sure you want to clear your local attempt history from this browser?';
+    
+    if (confirm(confirmMsg)) {
+        attemptsHistory = [];
+        localStorage.removeItem('iso_attempts_history');
+        localStorage.removeItem('iso_joined_leaderboard');
+        updateDashboardStats();
+    }
+}
+
+window.onload = () => {
+    let bankLen = getAvailableBankLength();
+    const qInput = document.getElementById('input-qcount');
+    if (qInput && bankLen > 0) {
+        qInput.max = bankLen;
+    }
+    updateDashboardStats();
+};
+</script>
+</body>
+</html>
