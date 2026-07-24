@@ -304,7 +304,6 @@
 
         .history-table th, .leaderboard-table th { background: rgba(148, 163, 184, 0.1); font-weight: 700; color: var(--text-secondary); }
 
-        /* Question Cards with Explicit Left/Right Colored Borders */
         .question-card {
             background: var(--bg-card);
             padding: 18px;
@@ -346,7 +345,6 @@
         .option-item:hover { background: rgba(148, 163, 184, 0.1); border-color: var(--secondary); }
         .option-item input { margin-top: 3px; }
 
-        /* Perfect Dropdown Full Width and Wrapped Text Support */
         .custom-dropdown-select {
             width: 100% !important;
             max-width: 100% !important;
@@ -587,7 +585,6 @@ let timerInterval = null;
 let secondsElapsed = 0;
 let attemptsHistory = JSON.parse(localStorage.getItem('iso_attempts_history') || '[]');
 
-// Strict 10 questions per page limit
 let currentPage = 1;
 const PAGE_SIZE = 10; 
 
@@ -881,7 +878,7 @@ function startExam() {
 
     let shuffledBank = shuffle(questionBank);
     
-    // Assign a display UI type to each question in array (0 = Radio, 1 = Dropdown, 2 = Checkbox)
+    // Assign display UI types: 0 = Radio, 1 = Dropdown, 2 = True Multiselect Checkbox
     activeQuestions = shuffledBank.slice(0, count).map((q, idx) => {
         let type = idx % 3; 
         return { ...q, uiType: type };
@@ -898,13 +895,18 @@ function startExam() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-function handleCheckboxSelection(qIdx, val, currentEl) {
-    if (currentEl.checked) {
-        document.querySelectorAll(`.q_cb_${qIdx}`).forEach(cb => {
-            if (cb !== currentEl) cb.checked = false;
-        });
-        userAnswers[qIdx] = val;
+function handleCheckboxChange(qIdx, val, checkboxEl) {
+    if (!Array.isArray(userAnswers[qIdx])) {
+        userAnswers[qIdx] = [];
+    }
+    if (checkboxEl.checked) {
+        if (!userAnswers[qIdx].includes(val)) {
+            userAnswers[qIdx].push(val);
+        }
     } else {
+        userAnswers[qIdx] = userAnswers[qIdx].filter(item => item !== val);
+    }
+    if (userAnswers[qIdx].length === 0) {
         delete userAnswers[qIdx];
     }
 }
@@ -946,7 +948,7 @@ function renderExamQuestions() {
                 </div>
             `;
         } else if (q.uiType === 1) {
-            // Dropdown Select (Purple) - Full width, fully visible wrapped text
+            // Dropdown Select (Purple)
             cardClass = 'card-type-dropdown';
             badgeHtml = `<span class="badge-type badge-dropdown">${currentLang === 'ar' ? 'قائمة منسدلة' : 'Dropdown Select'}</span>`;
             optsHtml = `
@@ -964,14 +966,15 @@ function renderExamQuestions() {
                 </div>
             `;
         } else {
-            // Checkboxes (Teal / Green)
+            // Multiselect Checkboxes (Teal) - Allows selecting multiple options
             cardClass = 'card-type-checkbox';
-            badgeHtml = `<span class="badge-type badge-checkbox">${currentLang === 'ar' ? 'مربع اختيار' : 'Multiple Choice'}</span>`;
+            badgeHtml = `<span class="badge-type badge-checkbox">${currentLang === 'ar' ? 'متعدد الاختيارات' : 'Multiselect Checkboxes'}</span>`;
+            let selectedArr = Array.isArray(userAnswers[idx]) ? userAnswers[idx] : [];
             optsHtml = `
                 <div class="options-list">
                     ${shuffledOpts.map(o => `
                         <label class="option-item">
-                            <input type="checkbox" class="q_cb_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="handleCheckboxSelection(${idx}, ${o.originalIdx}, this)">
+                            <input type="checkbox" class="q_cb_${idx}" value="${o.originalIdx}" ${selectedArr.includes(o.originalIdx) ? 'checked' : ''} onchange="handleCheckboxChange(${idx}, ${o.originalIdx}, this)">
                             <span>${o.text}</span>
                         </label>
                     `).join('')}
@@ -994,7 +997,6 @@ function renderExamQuestions() {
         container.appendChild(card);
     }
 
-    // Render Page Indicators (Top and Bottom)
     let pageStr = `${currentLang === 'ar' ? 'صفحة' : 'Page'} ${currentPage} ${currentLang === 'ar' ? 'من' : 'of'} ${totalPages}`;
     document.querySelectorAll('.page-indicator').forEach(el => el.innerText = pageStr);
 
@@ -1004,7 +1006,6 @@ function renderExamQuestions() {
     let showPagination = activeQuestions.length > PAGE_SIZE;
     document.querySelectorAll('.pagination-controls-bar').forEach(bar => bar.style.display = showPagination ? 'flex' : 'none');
 
-    // Show submit button only on the last page
     document.getElementById('btn-submit').style.display = currentPage === totalPages ? 'block' : 'none';
 }
 
@@ -1030,9 +1031,19 @@ function submitExam() {
 
     let score = 0;
     activeQuestions.forEach((q, idx) => {
-        let selected = userAnswers[idx];
-        if (selected !== undefined && selected === q[currentLang].ans) {
-            score++;
+        let userAns = userAnswers[idx];
+        let correctAns = q[currentLang].ans;
+
+        if (q.uiType === 2) {
+            // Checkboxes evaluation (Multiselect)
+            if (Array.isArray(userAns) && userAns.length === 1 && userAns[0] === correctAns) {
+                score++;
+            }
+        } else {
+            // Standard Single Choice / Dropdown evaluation
+            if (userAns !== undefined && userAns === correctAns) {
+                score++;
+            }
         }
     });
 
@@ -1087,10 +1098,26 @@ function showResultScreen(score, pct, timeTakenStr) {
     activeQuestions.forEach((q, idx) => {
         let data = q[currentLang];
         let userAns = userAnswers[idx];
-        let isCorrect = userAns === data.ans;
+        let correctAns = data.ans;
+        let isCorrect = false;
 
-        let userText = userAns !== undefined ? data.opts[userAns] : (currentLang === 'ar' ? 'لم تجب' : 'Not answered');
-        let correctText = data.opts[data.ans];
+        if (q.uiType === 2) {
+            if (Array.isArray(userAns) && userAns.length === 1 && userAns[0] === correctAns) {
+                isCorrect = true;
+            }
+        } else {
+            if (userAns !== undefined && userAns === correctAns) {
+                isCorrect = true;
+            }
+        }
+
+        let userText = '';
+        if (Array.isArray(userAns)) {
+            userText = userAns.length > 0 ? userAns.map(i => data.opts[i]).join(', ') : (currentLang === 'ar' ? 'لم تجب' : 'Not answered');
+        } else {
+            userText = userAns !== undefined ? data.opts[userAns] : (currentLang === 'ar' ? 'لم تجب' : 'Not answered');
+        }
+        let correctText = data.opts[correctAns];
 
         let box = document.createElement('div');
         box.style.cssText = "background:var(--bg-card); padding:16px; border-radius:12px; margin-bottom:12px; border:1px solid var(--border-color); font-size:0.95em;";
