@@ -1,88 +1,86 @@
 /**
- * ISO/IEC 27001:2022 Unpredictable & Mind-Bending Question Bank (300 Questions)
- * Built specifically for Lead Auditor scenarios, ambiguous audit cases, and standard traps.
+ * ISO/IEC 27001:2022 Story-Based & Deep Analytical Question Bank (300 Questions)
+ * Crafted specifically around realistic workplace audit stories, gray-area traps, 
+ * and deep understanding of ISO/IEC 27001:2022 intent & requirements.
  */
 
 const questionBank = [
     // =========================================================================
-    // SECTION 1: DETAILED REAL-WORLD AUDIT TRAPS & COMPLEX SCENARIOS
+    // SECTION 1: DETAILED STORY-BASED AUDIT SCENARIOS
     // =========================================================================
     {
         id: 1,
-        difficulty: "vhard",
-        ref: "Audit Questions - Scenario 16 / Clause 6.1.2 & Annex A 5.24",
+        ref: "ISO/IEC 27001:2022 - Clause 6.1.2 & Annex A 5.24",
         ar: {
-            q: "مدير تنفيذي فقد حقيبته في المطار وبها لاب توب، هاتف ذكي، وفلاشة. تقرير الـ IT أثبت أن اللاب توب والفلاشة مشفرين بالكامل، وتم مسح الهاتف عن بعد بكتالوج أمني مغلق. الـ IT أغلقت البلاغ. أثناء المراجعة اكتشفت أن الحقيبة كان بها أيضاً أجندة ورقية بها ملاحظات واجتماعات سرية لم يفحصها أحد. ما هو التصرف المعتمد للمراجع؟",
+            q: "قصة المطار: مدير تنفيذي نسي شنطته في المطار وكان فيها لاب توب، هاتف، وفلاشة، ومفكرة ورقية فيها تفاصيل اجتماعات سريّة جداً. فريق الـ IT عمل مسح للهاتف عن بُعد وشفر اللاب توب وأغلق بلاغ الحادثة فوراً. المراجع أثناء الفحص اكتشف إن مفيش أي حد سال عن الورق أو قيّم خطورة تسريبه. المراجع يوثق ده إزاي؟",
             opts: [
-                "اعتبار الإجراء سليماً ومكتفياً لأن الأجهزة الإلكترونية تم تأمينها بنجاح",
-                "إصدار حالة عدم مطابقة (NC) وفق 6.1.2 و Annex A 5.24 لأن تقييم الحادثة أهمل تقييم المخاطر على الأصول غير الرقمية (المستندات الورقية)",
-                "توصية شفهية للمدير بعدم حمل أجندة ورقية في السفر مرة أخرى",
-                "إلغاء نظام إدارة الحوادث بالشركة فوراً"
+                "يعتبر الإجراء سليماً ومكتفياً لأن الأجهزة الرقمية الرئيسية تم تأمينها بنجاح وفق خطة الحوادث",
+                "يسجل حالة عدم مطابقة وفق البند 6.1.2 و Annex A 5.24 لأن تقييم الحادثة أهمل تقييم الأثر والمخاطر على الأصول غير الرقمية (المستندات الورقية)",
+                "يعطي ملاحظة تحسين شفهية للمدير بعدم السفر بمستندات ورقية مستقبلاً",
+                "يسجل عدم مطابقة للبند 7.5.3 لعدم وجود ختم حماية على الورق"
             ],
             ans: 1,
-            exp: "إدارة الحوادث وتقييم المخاطر تفرض فحص كافة الأصول (الرقمية والورقية) التي تم إفشاؤها أو فقدها لإكمال معالجة الحادثة بنجاح[cite: 1, 2]."
+            exp: "إدارة الحوادث وتقييم المخاطر (6.1.2 و A.5.24) بتفرض تحليل الأثر والسرية لكافة أشكال المعلومات (سواء رقمية أو ورقية) لضمان المعالجة الكاملة للحادثة[cite: 1, 2]."
         },
         en: {
-            q: "A senior exec lost a briefcase with an encrypted laptop, smartphone, and paper notebooks with sensitive notes. IT wiped the phone remotely and closed the ticket without checking the notebooks. What is the Auditor's finding?",
+            q: "The Airport Case: An executive forgot a briefcase containing a laptop, phone, USB drive, and a paper notebook filled with confidential strategy notes. IT remotely wiped the phone, encrypted the laptop, and closed the incident ticket immediately. During the audit, it was revealed nobody assessed the risk of the leaked paper notes. What is the auditor's finding?",
             opts: [
-                "Fully compliant since all electronic devices were secured and encrypted",
-                "Issue a Nonconformity under Clause 6.1.2 & Control A.5.24 for failing to assess exposure risks on non-digital paper assets",
-                "Verbal advice asking the executive not to travel with notebooks",
-                "Cancel the company's incident management protocol entirely"
+                "Consider the response fully compliant as key electronic assets were successfully secured per incident plans",
+                "Issue a Nonconformity under Clause 6.1.2 & Control A.5.24 as risk and incident analysis failed to analyze exposure of non-digital paper assets",
+                "Give verbal advice asking the executive not to travel with paper notebooks in the future",
+                "Issue a Nonconformity under Clause 7.5.3 for missing physical confidentiality stamps on paper"
             ],
             ans: 1,
-            exp: "Incident assessment must analyze confidentiality breaches across ALL asset types including physical paper[cite: 1, 2]."
+            exp: "Incident assessment and risk management (6.1.2 & A.5.24) require evaluating confidentiality breaches across all asset formats including physical paper[cite: 1, 2]."
         }
     },
     {
         id: 2,
-        difficulty: "hard",
-        ref: "Audit Questions - Scenario 17 / Clause 8.1 & Annex A 5.12",
+        ref: "ISO/IEC 27001:2022 - Clause 8.1 & Annex A 5.12",
         ar: {
-            q: "إدارة المراسلات ترسل خطابات للعملاء بها بيانات شخصية. 15% من الخطابات ترجع سنوياً بسبب خطأ في العناوين أو وضع جوابين لعميلين مختلفين في نفس الظرف! مديرة القسم قالت: 'إحنا عارفين، بس تكلفة مراجعة الجوابات هتخسرنا لأن العقد ربحه قليل، وإعادة الطباعة أرخص'. كيف يتصرف المراجع؟",
+            q: "قصة جوابات العملاء: قسم البريد يرسل خطابات تحتوي على بيانات مالية شخصية، وتبين وجود نسبة أخطاء 15% بسبب وضع جوابين لعميلين مختلفين في نفس الظرف بالخطأ. المديرة قالت للمراجع: 'إحنا عارفين، بس تكلفة تعيين مراجعين يفتشوا على الجوابات قبل الإرسال هتخسرنا أكتر من تكلفة إعادة الطباعة'. كيف يقيم المراجع هذا التبرير المالي؟",
             opts: [
-                "قبول التبرير طالما الإدارة أثبتت بالدراسة المالية أن إعادة الطباعة أوفر للمؤسسة",
-                "توصية بسيطة بتغيير شركة الشحن",
-                "تسجيل حالة عدم مطابقة (NC) صريحة وفق البند 8.1 و Annex A 5.12 لعدم وجود ضبط تشغيلي يحمي سرية البيانات ويمنع الخلط وتصنيف المعلومات",
-                "تحويل مديرة القسم للتحقيق الجنائي"
+                "يقبل التبرير كقرار مشروع لمعالجة المخاطر (Risk Treatment) طالما تم حسابه مالياً بصورة دقيقة",
+                "يسجل عدم مطابقة للبند 8.1 و Annex A 5.12 لعدم وجود ضبط تشغيلي يمنع خرق السرية وتسريب البيانات للغير",
+                "يعتبرها مجرد ملاحظة تحسين (OFI) للبند 9.1 لمراقبة أداء المراسلات",
+                "يطالب بحذف قسم المراسلات واستبداله بالإيميل فوراً"
             ],
-            ans: 2,
-            exp: "تسريب بيانات عميل لعميل آخر يمثل خرقاً صريحاً لسرية البيانات، والتحليل المالي لا يلغي التزام الضبط التشغيلي للبند 8.1[cite: 1, 2]."
+            ans: 1,
+            exp: "تسريب بيانات عميل لعميل آخر يمثل خرقاً صريحاً لسرية البيانات، والتحليل المالي أو توفير التكلفة لا يبرر إغفال الضبط التشغيلي لحماية السرية وفق البند 8.1[cite: 1, 2]."
         },
         en: {
-            q: "A mass-mail unit has a 15% error rate resulting in clients receiving other clients' private letters. Management says inspecting letters costs more than re-printing. Auditor decision?",
+            q: "The Mailroom Case: A mailing department sends confidential financial statements. 15% of dispatches result in putting two different clients' letters in one envelope. The manager argued: 'Checking every letter costs more than re-printing, so it saves money.' How does the auditor evaluate this financial argument?",
             opts: [
-                "Accept this as a valid cost-benefit risk acceptance decision",
-                "Suggest changing the postal delivery service vendor",
-                "Raise a Nonconformity under Clause 8.1 & Control A.5.12 for lack of operational controls protecting data confidentiality",
-                "Refer the unit manager for legal action"
+                "Accept the justification as a valid Risk Treatment choice since financial savings were proved",
+                "Raise a Nonconformity under Clause 8.1 & Control A.5.12 for lack of operational controls protecting client confidentiality and preventing data leaks",
+                "Log an Opportunity for Improvement (OFI) under Clause 9.1 to monitor mail error metrics",
+                "Demand liquidating the postal department and forcing email delivery"
             ],
-            ans: 2,
-            exp: "Data leaks to unintended recipients breach core confidentiality and operational control requirements under Clause 8.1[cite: 1, 2]."
+            ans: 1,
+            exp: "Cross-mailing private data directly breaches data confidentiality. Cost efficiency cannot override mandatory operational controls required by Clause 8.1[cite: 1, 2]."
         }
     },
     {
         id: 3,
-        difficulty: "vhard",
-        ref: "Audit Questions - Scenario 15 / Clause 4.2 & Annex A 5.31",
+        ref: "ISO/IEC 27001:2022 - Clause 4.2 & Annex A 5.31",
         ar: {
-            q: "شركة تدريب جددت عقدها مع جهة حكومية. العقد الجديد احتوى على بند إضافي يفرض التوافق مع 'الإجراء الحكومي 853' لحماية بيانات المتدربين. مدير العقود اعترف بأنه لم يقرأ البند واكتفى بمراجعة الأعداد والأسعار، والشركة تطبق أساليبها القديمة. ما قرار كبير المراجعين؟",
+            q: "قصة العقد الحكومي: شركة تدريب جددت عقدها السنوي مع جهة حكومية. العقد احتوى على بند إضافي يفرض التوافق مع 'الإجراء الحكومي 853' لحماية بيانات المتدربين. مدير العقود اعترف بأنه لم يقرأ البند واكتفى بمراجعة الأسعار والأعداد، والشركة ما زالت تطبق إجراءاتها القديمة. كيف يوثق كبير المراجعين الموقف؟",
             opts: [
-                "إصدار عدم مطابقة للبند 4.2 و Annex A 5.31 لإخفاق المنظمة في تحديد ومراجعة وتطبيق المتطلبات التعاقدية والتنظيمية الجديدة",
-                "مطابقة طالما أن الشركة تطبق إجراءاتها الداخلية الخاصة بشكل جيد",
-                "طلب تعديل العقد الحكومي لحذف هذا البند التعجيزي",
-                "إعطاء مهلة سنتين للمؤسسة لتطبيق الإجراء الحكومي"
+                "يسجل عدم مطابقة للبند 4.2 و Annex A 5.31 لإخفاق المنظمة في تحديد ومراجعة وتطبيق المتطلبات التعاقدية والتنظيمية الجديدة",
+                "يعتبرها مطابقة تامة طالما أن الإجراءات الداخلية للشركة توفر حماية جيدة بالأساس",
+                "يطالب بتعديل العقد الحكومي لإلغاء هذا البند التعجيزي",
+                "يعطي مهلة سنتين للمؤسسة لتسوية أوضاعها مع الجهة الحكومية"
             ],
             ans: 0,
-            exp: "البند 4.2 و Annex A 5.31 يفرضان تحديد ومراجعة وتحديث المتطلبات التعاقدية والتنظيمية والتأكد من الامتثال لها[cite: 1, 2]."
+            exp: "البند 4.2 و Annex A 5.31 يفرضان تحديد ومراجعة وتحديث المتطلبات التعاقدية والتنظيمية الجديدة والتأكد من الامتثال الفعلي لها[cite: 1, 2]."
         },
         en: {
-            q: "A vendor renewed a government contract with a new student privacy requirement (Proc 853). The Contract Manager admitted he only checked budget figures and ignored the new clause. Finding?",
+            q: "The Government Contract Case: A training firm renewed a contract containing a mandatory new student data protection rule (Procedure 853). The Contract Manager admitted he signed without reading it, continuing with old internal routines. Lead Auditor decision?",
             opts: [
-                "Nonconformity against Clause 4.2 & Control A.5.31 for failing to identify, review, and fulfill contractual compliance requirements",
-                "Conformity since internal company procedures were fully maintained",
-                "Demand changing the customer's contract terms",
-                "Grant a 2-year grace period to learn the requirement"
+                "Issue a Nonconformity against Clause 4.2 & Control A.5.31 for failing to identify, review, and fulfill contractual compliance requirements",
+                "Issue full conformity as long as existing internal procedures provide reasonable protection",
+                "Demand renegotiating the government contract to remove the strict clause",
+                "Grant a 2-year grace period to adapt to the new regulation"
             ],
             ans: 0,
             exp: "Clause 4.2 & A.5.31 explicitly dictate identifying, documenting, and implementing contractual and regulatory security requirements[cite: 1, 2]."
@@ -90,53 +88,51 @@ const questionBank = [
     },
     {
         id: 4,
-        difficulty: "vhard",
-        ref: "Audit Questions - Scenario 18 / Clause 10.2 & 7.2",
+        ref: "ISO/IEC 27001:2022 - Clause 10.2 & 7.2",
         ar: {
-            q: "شركة وساطة مالية أرسلت بيانات كشف حساب حساس بالخطأ لعميل آخر بسبب تشابه الأسماء. التحقيق أثبت أن الموظفين الجدد أدو العمل بدون إشراف بسبب نقص العمالة. الشركة دفعت تعويضاً للعميل وأتمت تدريب الموظفين وأغلقت الملف. ما ملاحظة المراجع؟",
+            q: "قصة موظفين المشتريات الجدد: شركة مالية سربت بيانات حسابات حساس للعلانية بسبب عمل موظفين جدد بدون إشراف لقلة العمالة. الشركة عوضت العميل مالياً وأتمت دورات تدريب الموظفين وأغلقت المشكلة بدون ما تعالج مشكلة نقص العمالة والإشراف. ما قرار المراجع؟",
             opts: [
-                "إغلاق الملف واعتبار المشكلة انتهت بدفع التعويض المرضي للعميل",
-                "مطابقة لأن الموظفين أصبحوا أكفاء بعد إتمام التدريب",
-                "عدم مطابقة للبند 10.2 لإغلاق عدم المطابقة دون تحديد واتخاذ إجراءات تصحيحية للسبب الجذر (نقص الإشراف والعمالة) لمنع التكرار",
-                "إصدار عدم مطابقة للبند 4.1 فقط"
+                "إغلاق الحالة باعتبار أن التعويض المالي وإتمام الدورات يمثلان معالجة كافية ومكتملة لعدم المطابقة",
+                "تسجيل عدم مطابقة للبند 10.2 لإغلاق عدم المطابقة دون تحليل الأسباب الجذرية (Root Cause) واتخاذ إجراء تصحيحي يمنع تكرار نقص الإشراف",
+                "تسجيل عدم مطابقة للبند 7.2 لعدم توفير مؤهلات كافية للموظفين قبل التعيين",
+                "إصدار ملاحظة تحسين (OFI) لإعادة ترتيب الهيكل التنظيمي"
             ],
-            ans: 2,
-            exp: "البند 10.2 يطلب تحليل الأسباب الجذرية (Root Causes) -وهي هنا غياب الإشراف- واتخاذ إجراءات تصحيحية تضمن عدم تكرار الخلل مستقبلاً[cite: 1, 2]."
+            ans: 1,
+            exp: "البند 10.2 يفرض تحليل الأسباب الجذرية (Root Causes) للخلل -وهي هنا غياب الإشراف والعمالة- واتخاذ إجراءات تضمن عدم تكرار الخلل[cite: 1, 2]."
         },
         en: {
-            q: "A financial firm leaked customer statements due to unsupervised trainees. The firm compensated the client and completed trainee courses, then closed the incident without fixing the supervisor shortage. Finding?",
+            q: "The Unsupervised Trainees Case: A financial firm leaked data because new hires worked unsupervised due to staff shortages. The firm compensated the client, completed staff training, and closed the ticket without addressing the supervisor shortage. Auditor ruling?",
             opts: [
-                "Close the audit finding as the financial settlement satisfied the customer",
-                "Conformity because trainees completed their training modules",
-                "Nonconformity against Clause 10.2 for failing to address the root cause (lack of supervision) to prevent recurrence",
-                "Nonconformity against Clause 4.1 only"
+                "Close the issue as compensation and completed training represent a closed corrective action cycle",
+                "Issue a Nonconformity against Clause 10.2 for closing the issue without root cause analysis and actions preventing recurrence of supervision gaps",
+                "Issue a Nonconformity against Clause 7.2 for inadequate pre-employment qualifications",
+                "Log an Opportunity for Improvement (OFI) under Clause 5.3 to adjust organizational charts"
             ],
-            ans: 2,
-            exp: "Clause 10.2 demands root cause analysis and corrective action implementation to eliminate causes and prevent recurrence[cite: 1, 2]."
+            ans: 1,
+            exp: "Clause 10.2 requires evaluating root causes (staff/supervision gaps) and implementing corrective actions to eliminate causes and prevent recurrence[cite: 1, 2]."
         }
     },
     {
         id: 5,
-        difficulty: "vhard",
-        ref: "Audit Questions - Scenario 19 / Clause 6.1.2",
+        ref: "ISO/IEC 27001:2022 - Clause 6.1.2",
         ar: {
-            q: "مدير مشروع لتطوير السيرفرات السحابية صرح للمراجع: 'نحن نستخدم أداة إلكترونية معقدة وممتازة لتقييم المخاطر، لكننا لا نملك عملية موثقة مكتوبة لتقييم المخاطر لأن البرمجية كافية'. ما تقييم المراجع وفق المعيار؟",
+            q: "قصة برنامج تقييم المخاطر الذكي: مدير مشروع سحابي صرح للمراجع: 'احنا بنستخدم أداة إلكترونية ممتازة جداً في تقييم المخاطر، بس معندناش وثيقة مكتوبة بتشرح المنهجية لأن السيستم بيشرح نفسه'. ما موقف المراجع المظبوط؟",
             opts: [
-                "عدم مطابقة للبند 6.1.2 لأن نص المعيار يفرض صراحة الاحتفاظ بمعلومات موثقة (Documented Information) عن عملية تقييم المخاطر",
-                "مطابقة تامة لأن الأداة البرمجية تعتبر وثيقة بديلة تلقائياً",
-                "ملاحظة تحسين بسيطة لشراء نسخة أحدث من البرنامج",
-                "إصدار عدم مطابقة للبند 5.1 الخاصة بالقيادة"
+                "يسجل عدم مطابقة للبند 6.1.2 لأن نص المعيار يفرض صراحة الاحتفاظ بمعلومات موثقة (Documented Information) عن عملية تقييم المخاطر",
+                "يعتبرها مطابقة تامة لأن البرمجيات الحديثة تعوض الوثائق الورقية والمنهجيات المكتوبة",
+                "يعطي ملاحظة تحسين (OFI) للبند 7.5.2 لإضافة رقم الإصدار جوة البرمجية",
+                "يسجل عدم مطابقة للبند 8.2 لعدم تنفيذ تقييم المخاطر بانتظام"
             ],
             ans: 0,
             exp: "ينص البند 6.1.2 صراحة في نهايته: 'The organization shall retain documented information about the information security risk assessment process'[cite: 1, 2]."
         },
         en: {
-            q: "A project manager states: 'We use a sophisticated software tool for risk management, but we do not maintain a documented risk assessment process on paper.' Auditor evaluation?",
+            q: "The Automated Risk Tool Case: A cloud project manager states: 'We use an advanced software tool for risk management, but we maintain no written process document because the tool logic is self-explanatory.' Auditor decision?",
             opts: [
-                "Nonconformity against Clause 6.1.2 as the standard explicitly requires retaining documented information about the risk assessment process",
-                "Full conformity because dynamic software tools replace static documents",
-                "Opportunity for Improvement to update software licenses",
-                "Nonconformity against Clause 5.1 only"
+                "Issue a Nonconformity against Clause 6.1.2 as the standard strictly requires retaining documented information about the risk assessment process",
+                "Grant full conformity as automated software engines replace static documents in modern ISMS setups",
+                "Log an Opportunity for Improvement (OFI) under Clause 7.5.2 to embed version numbers in software code",
+                "Issue a Nonconformity against Clause 8.2 for failing to conduct risk assessments at planned intervals"
             ],
             ans: 0,
             exp: "Clause 6.1.2 explicitly mandates retaining documented information about the risk assessment process[cite: 1, 2]."
@@ -145,132 +141,118 @@ const questionBank = [
 ];
 
 // =========================================================================
-// SECTION 2: DYNAMICALLY GENERATED UNPREDICTABLE AUDIT SCENARIOS (UP TO 300)
-// Using varied story angles, traps, gray areas, and randomized answer indices
+// SECTION 2: DYNAMIC GENERATOR FOR 300 REAL-LIFE AUDIT STORIES & TRAPS
+// Generating narrative-based questions covering Clauses 4-10 and Annex A controls
 // =========================================================================
-(function buildHighTensionAuditBank() {
-    const targetCount = 300;
-    const difficulties = ["easy", "medium", "hard", "vhard"];
+(function generate300StoryDrivenQuestions() {
+    const totalTarget = 300;
 
-    const scenarioEngines = [
+    const storyEngines = [
         {
-            clause: "Clause 4.3 (Scope)",
-            arTitle: "استثناء الفرع الجديد من النطاق",
-            arQ: "شركة تجارة إلكترونية افتتحت فرعاً للتوصيل السريع يتعامل مع بيانات البطاقات البنكية، لكنها استبعدته من نطاق الـ ISMS دون توثيق الأثر المتبادل مع الشبكة الرئيسية. مدير أمن المعلومات برر ذلك بأن الفرع لا يزال في فترة تجريبية. ما قرار المراجع؟",
-            enQ: "An e-commerce firm opened a logistics hub processing credit cards but excluded it from the ISMS scope without documenting inter-network interfaces, claiming it's in a 'trial phase'. Auditor verdict?",
-            arWrong1: "قبول التبرير وإعطاء مهلة سنة لحين انتهاء الفترة التجريبية",
-            arWrong2: "مطابقة تامة لأن تحديد النطاق قرار مطلق للإدارة العليا",
-            arWrong3: "تغيير نطاق الشهادة لتشمل الدول المجاورة تلقائياً",
-            arCorrect: "عدم مطابقة للبند 4.3 لعدم مراعاة الواجهات والاعتماديات التبادلية والالتزامات عند تحديد وتوثيق النطاق",
-            enWrong1: "Accept justification and grant a 1-year grace period for trial phase completion",
-            enWrong2: "Full conformity as scoping is solely at Top Management's discretion",
-            enWrong3: "Automatically expand certificate scope to neighboring countries",
-            enCorrect: "Nonconformity against Clause 4.3 for failing to consider interfaces, dependencies, and requirements when documenting scope",
+            clause: "Clause 4.3 vs 4.1",
+            arTitle: "قصة الفرع الجديد المستبعد من النطاق",
+            arQ: "شركة تجارة إلكترونية افتتحت فرعاً لوجستياً جديداً يتداول بيانات البطاقات البنكية للعملاء. الإدارة استبعدت هذا الفرع تماماً من نطاق شهادة الـ ISMS من غير ما توثق الاعتماديات المتبادلة والشبكات الرابطة بينه وبين السيرفر الرئيسي. المدير برر ده بأن الفرع لسه تحت التجربة. كيف يتصرف المراجع؟",
+            enQ: "An e-commerce company launched a new logistics hub handling credit cards but excluded it entirely from the ISMS scope without documenting network interfaces with the main data center, claiming it is still in a 'pilot phase'. Auditor verdict?",
+            arAnsCorrect: "يسجل عدم مطابقة للبند 4.3 لعدم توثيق ومراعاة الواجهات والاعتماديات التبادلية والحدود عند تحديد نطاق الـ ISMS",
+            arAnsWrong1: "يقبل التبرير ويعطي فرصة سنة لحين انتهاء الفترة التجريبية للفرع",
+            arAnsWrong2: "يعتبرها مطابقة تامة لأن تحديد النطاق قرار اختياري مطلق للإدارة العليا",
+            arAnsWrong3: "يطالب بإغلاق الفرع اللوجستي لحين الحصول على التعديل",
+            enAnsCorrect: "Issue a Nonconformity against Clause 4.3 for failing to consider boundaries, dependencies, and interfaces when documenting the ISMS scope",
+            enAnsWrong1: "Accept the justification and grant a 1-year grace period for the pilot phase",
+            enAnsWrong2: "Grant full conformity as scope boundaries are entirely at Top Management's discretion",
+            enAnsWrong3: "Demand shutting down the logistics hub until scope amendments are approved",
             expAr: "البند 4.3 يوجب مراعاة الاعتماديات والواجهات والبيانات الموثقة لنطاق ISMS دون استثناءات عشوائية[cite: 1].",
             expEn: "Clause 4.3 mandates evaluating dependencies, interfaces, and documented information when bounding the scope[cite: 1]."
         },
         {
-            clause: "Annex A 8.24 (Cryptography)",
-            arTitle: "تشفير البيانات في حالة النقل",
-            arQ: "أثناء مراجعة تطبيق بنكي، تبين أن بيانات الاعتماد (اسم المستخدم وكلمة السر) تنتقل بين السيرفرات الداخلية كنص واضح (Plaintext) اعتماداً على أن الشبكة الداخلية مؤمنة بجدار ناري. الـ SoA أقر ضابط A.8.24 كـ Mapped Control. كيف يصنف المراجع هذا الموقف؟",
-            arOpts: "عدم مطابقة صريحة لـ Annex A 8.24 للبند 8.1 لعدم تطبيق قواعد التشفير المعتمدة في SoA لحماية البيانات الحساسة أثناء النقل",
-            arWrong1: "مطابقة لأن الجدار الناري الخارجي يحمي الشبكة الداخلية بالكامل",
-            arWrong2: "ملاحظة تحسين شفاهية بزيادة طول كلمة السر",
-            arWrong3: "إلغاء السيرفرات واستبدالها بنظام يدوي",
-            enCorrect: "Nonconformity against Annex A 8.24 and Clause 8.1 for failing to enforce cryptographic rules declared in the SoA to protect transit data",
-            enWrong1: "Conformity as the perimeter firewall completely secures internal traffic",
+            clause: "Clause 9.2.2 vs Annex A 5.35",
+            topic: "قصة حيادية المراجع الداخلي",
+            arQ: "مدير قسم تكنولوجيا المعلومات (IT Director) قام بمراجعة ضوابط قسمه بنفسه في المراجعة الداخلية وكتب التقرير لنفسه. لما المراجع الخارجي سأله، رد وقال: 'مفيش حد في الشركة فاهم في تفاصيل السيرفرات والتشفير غيري، فمحدش ينفع يراجع عليا'. كيف يقيم المراجع هذا الموقف؟",
+            enQ: "The IT Director audited his own department's security controls during internal audits and wrote the report. When questioned, he claimed: 'Nobody else in the company understands server encryption, so nobody else can audit me.' How is this evaluated?",
+            arAnsCorrect: "يسجل عدم مطابقة للبند 9.2.2 (b) لعدم ضمان الموضوعية والحيادية (Objectivity & Impartiality) في عملية المراجعة الداخلية واختيار المراجعين",
+            arAnsWrong1: "يعتبرها مطابقة تامة طالما أن مدير الـ IT هو الأكثر خبرة وكفاءة بأنظمته",
+            arAnsWrong2: "يعطي ملاحظة تحسين (OFI) لتدريب باقي المدراء على فنيات التشفير مستقبلاً",
+            arAnsWrong3: "يعتبر التقرير مقبولاً بشرط اعتماده النهائي من مدير الجودة",
+            enAnsCorrect: "Issue a Nonconformity against Clause 9.2.2 (b) for failing to select auditors that ensure objectivity and impartiality of the audit process",
+            enAnsWrong1: "Grant full conformity because the IT Director is the most qualified person to evaluate his own systems",
+            enWrong2: "Log an Opportunity for Improvement (OFI) to train other managers in encryption skills",
+            enWrong3: "Accept the audit report provided it is counter-signed by the Quality Manager",
+            expAr: "ينص البند 9.2.2 (b) صراحة على اختيار مراجعين يضمنون الموضوعية والحيادية (لا يراجع أحد عمله الخاص)[cite: 1, 2].",
+            expEn: "Clause 9.2.2 (b) explicitly mandates selecting auditors to ensure objectivity and the impartiality of the internal audit process[cite: 1, 2]."
+        },
+        {
+            clause: "Annex A 8.24 vs Clause 8.1",
+            topic: "قصة نقل البيانات بدون تشفير",
+            arQ: "أثناء مراجعة تطبيق بنكي، تبين أن بيانات الاعتماد (اسم المستخدم وكلمة السر) تنتقل بين السيرفرات الداخلية كنص واضح (Plaintext) اعتماداً على أن الشبكة الداخلية مؤمنة بجدار ناري. وثيقة الـ SoA كانت أفرت ضابط التشفير A.8.24 كـ Mapped Control. كيف يصنف المراجع ذلك؟",
+            enQ: "In a banking application, user credentials travel between internal servers as plaintext because the internal network is behind a firewall. However, Control Annex A 8.24 was marked as Applicable in the SoA. Auditor verdict?",
+            arAnsCorrect: "يسجل عدم مطابقة لـ Annex A 8.24 والبند 8.1 لعدم تطبيق قواعد التشفير المعتمدة في SoA لحماية البيانات الحساسة أثناء النقل",
+            arAnsWrong1: "يعتبرها مطابقة لأن الجدار الناري الخارجي يحمي الشبكة الداخلية بالكامل",
+            arAnsWrong2: "يعطي ملاحظة تحسين شفهية بزيادة طول كلمة السر",
+            arAnsWrong3: "يطالب بحذف السيرفرات واستبدالها بنظام يدوي",
+            enAnsCorrect: "Issue a Nonconformity against Annex A 8.24 & Clause 8.1 for failing to enforce cryptographic rules declared in the SoA to protect transit data",
+            enAnsWrong1: "Grant conformity as the perimeter firewall completely secures internal server traffic",
             enWrong2: "Verbal suggestion to increase password length requirements",
-            enWrong3: "Decommission servers and revert to paper records",
+            enWrong3: "Decommission servers and revert to paper ledgers",
             expAr: "تخفيض التشفير للبيانات الحساسة أثناء النقل رغم إقراره في SoA يمثل عدم مطابقة لـ Annex A 8.24 و 8.1[cite: 1, 2].",
-            expEn: "Transmitting plain-text credentials breaches Annex A 8.24 and operational implementation rules under 8.1[cite: 1, 2]."
+            expEn: "Transmitting plaintext credentials breaches Annex A 8.24 and operational implementation rules under Clause 8.1[cite: 1, 2]."
         },
         {
-            clause: "Clause 9.2 (Internal Audit Objectivity)",
-            arTitle: "حيادية المراجع الداخلي",
-            arQ: "مدير قسم تكنولوجيا المعلومات هو نفسه المراجع الداخلي المعتمد الذي قام بمراجعة وضبط ضوابط الأمن الخاصة بقسم IT وكتب التقرير لنفسه. عند سؤال مدير الجودة، أفاد بقلة الكوادر المتاحة. ما تقييم المراجع الخارجي؟",
-            arCorrect: "عدم مطابقة صريحة للبند 9.2.2 (b) لعدم ضمان الموضوعية والحيادية (Objectivity & Impartiality) في عملية المراجعة الداخلية",
-            arWrong1: "مطابقة طالما أن مدير الـ IT هو الأكثر كفاءة وخبرة بأنظمته",
-            arWrong2: "قبول التقرير بشرط توقيعه من المدير التنفيذي",
-            arWrong3: "إلغاء قسم تكنولوجيا المعلومات من المؤسسة",
-            enCorrect: "Nonconformity against Clause 9.2.2 (b) for failing to select auditors that ensure objectivity and impartiality of the audit process",
-            enWrong1: "Conformity because the IT Manager is the most competent person to audit his own setup",
-            enWrong2: "Accept the audit report provided the CEO counter-signs it",
-            enWrong3: "Abolish the IT department from the organizational structure",
-            expAr: "البند 9.2.2 (b) ينص بوضوح على أن اختيار المراجعين يجب أن يضمن الموضوعية والحيادية الكاملة (لا يراجع أحد عمله الخص)[cite: 1, 2].",
-            expEn: "Clause 9.2.2 (b) strictly dictates selecting auditors to ensure objectivity and the impartiality of the audit process[cite: 1, 2]."
-        },
-        {
-            clause: "Annex A 5.18 (Access Rights)",
-            arTitle: "حقوق الوصول عند تغيير الوظيفة",
-            arQ: "ترقى موظف من مهندس شبكات إلى مدير مشتريات. المراجع لاحظ أن حسابه لا يزال يملك صلاحيات Root Access على أجهزة الرواتر للشركة. الموظف أكد أنه لا يستخدمها إلا عند الطوارئ فقط. كيف يوثق المراجع هذه الحالة؟",
-            arCorrect: "حالة عدم مطابقة لضابط Annex A 5.18 والبند 8.1 لعدم مراجعة وإزالة حقوق الوصول الممتازة فور تغيير المسمى الوظيفي",
-            arWrong1: "مطابقة طالما أن الموظف حسَن النية ولا يستخدم الصلاحية إلا بالطوارئ",
-            arWrong2: "توصية شفهية بتقليل عدد ساعات الطوارئ",
-            arWrong3: "خصم شهري من راتب الموظف وإغلاق المراجعة",
-            enCorrect: "Nonconformity against Control Annex A 5.18 and Clause 8.1 for failing to modify and remove privileged access rights upon role change",
-            enWrong1: "Conformity since the trusted employee only uses access during emergencies",
-            enWrong2: "Verbal suggestion to restrict emergency hours",
-            enWrong3: "Apply a salary penalty on the employee and close the file",
-            expAr: "الضابط Annex A 5.18 يوجب تعديل وإزالة حقوق الوصول فور تغيير الأدوار الوظيفية لمنع التجاوزات[cite: 1, 2].",
-            expEn: "Control A.5.18 dictates provisioning, modifying, and removing access rights strictly aligned with role changes[cite: 1, 2]."
-        },
-        {
-            clause: "Clause 5.1 (Leadership & Resources)",
-            arTitle: "توفير الموارد لنظام ISMS",
-            arQ: "مسؤول أمن المعلومات قدم 3 طلبات رسمية لتمويل تحديث نظام النسخ الاحتياطي التالف، وتم رفض الطلبات متكرراً من الإدارة العليا بحجة ترشيد النفقات مما أدى لفقدان بيانات جزئي. كيف يوجه المراجع حالة عدم المطابقة؟",
-            arCorrect: "عدم مطابقة صريحة للإدارة العليا وفق البند 5.1 (c) لعدم ضمان توفير الموارد اللازمة لنظام إدارة أمن المعلومات",
-            arWrong1: "إصدار عدم مطابقة لمسؤول أمن المعلومات لأنه لم يصر على موقفه",
-            arWrong2: "اعتبار الموقف مطاقاً لأن الترشيد المالي من حق الشركة",
-            arWrong3: "توصية بشراء أجهزة مستعملة بسعر أرخص",
-            enCorrect: "Nonconformity against Top Management under Clause 5.1 (c) for failing to ensure that resources needed for the ISMS are available",
-            enWrong1: "Issue Nonconformity against the CISO for not persisting aggressively enough",
-            enWrong2: "Conformity as financial cost-cutting is a valid corporate priority",
-            enWrong3: "Recommend purchasing second-hand backup hardware",
-            expAr: "البند 5.1 (c) يضع مسؤولية توفير الموارد المادية والبشرية للـ ISMS مباشرة على عاتق الإدارة العليا (Top Management)[cite: 1]."
+            clause: "Annex A 5.18 vs Annex A 8.2",
+            topic: "قصة الموظف المنقول وصلاحيات الأدمن",
+            arQ: "ترقى مهندس شبكات إلى وظيفة مدير مشتريات. المراجع لاحظ أن حسابه لا يزال يمتلك صلاحيات Domain Admin على السيرفرات. الموظف أكد أنه لا يستخدمها إلا عند الطوارئ وبناءً على طلب زملائه المباشرين لمساعدتهم. كيف يتصرف المراجع؟",
+            enQ: "A network engineer transferred to Procurement Manager but retains Domain Admin rights. He states he only uses them during emergencies when former teammates ask for troubleshooting help. Auditor decision?",
+            arAnsCorrect: "يسجل عدم مطابقة للضابط Annex A 5.18 والبند 8.1 لعدم مراجعة وإزالة حقوق الوصول الممتازة فور تغيير المسمى والور الوظيفي",
+            arAnsWrong1: "يعتبرها مطابقة طالما أن الموظف حسن النية ولا يستخدم الصلاحية إلا بالطوارئ",
+            arAnsWrong2: "يعطي ملاحظة تحسين (OFI) لحصر استخدام حسابات الأدمن في أوقات العمل الرسمية فقط",
+            arAnsWrong3: "يطالب بخصم شهري من راتب الموظف وإغلاق الملف",
+            enAnsCorrect: "Issue a Nonconformity against Control Annex A 5.18 and Clause 8.1 for failing to modify and remove privileged access rights upon role changes",
+            enAnsWrong1: "Grant conformity since the trusted employee only uses access during emergencies",
+            enAnsWrong2: "Log an Opportunity for Improvement (OFI) to restrict admin account usage to official working hours",
+            enAnsWrong3: "Apply a salary penalty on the employee and close the file",
+            expAr: "الضابط A.5.18 يتطلب مراجعة وتعديل وإزالة حقوق الوصول فور تغير المسؤوليات أو الأدوار الوظيفية[cite: 1, 2].",
+            expEn: "Control A.5.18 dictates provisioning, modifying, and removing access rights strictly aligned with employment role changes[cite: 1, 2]."
         }
     ];
 
-    let curId = questionBank.length + 1;
+    let cId = questionBank.length + 1;
 
-    while (curId <= targetCount) {
-        let engine = scenarioEngines[(curId - 1) % scenarioEngines.length];
-        let diff = difficulties[(curId - 1) % difficulties.length];
+    while (cId <= totalTarget) {
+        let engine = storyEngines[(cId - 1) % storyEngines.length];
         
-        // Randomize correct option index between 0, 1, 2, 3
-        let targetAnsIndex = (curId * 11) % 4;
+        // Pseudo-randomize correct answer position (0, 1, 2, or 3)
+        let targetIndex = (cId * 13) % 4;
 
-        let arOptsList = [engine.arWrong1, engine.arWrong2, engine.arWrong3, engine.arCorrect];
-        let enOptsList = [engine.enWrong1, engine.enWrong2, engine.enWrong3, engine.enCorrect];
+        let arOpts = [engine.arAnsWrong1, engine.arAnsWrong2, engine.arAnsWrong3, engine.arAnsCorrect];
+        let enOpts = [engine.enAnsWrong1, engine.enAnsWrong2, engine.enAnsWrong3, engine.enAnsCorrect];
 
-        // Swap the correct answer (index 3) into the target randomized index
-        if (targetAnsIndex !== 3) {
-            let tmpAr = arOptsList[targetAnsIndex];
-            arOptsList[targetAnsIndex] = arOptsList[3];
-            arOptsList[3] = tmpAr;
+        // Swap target correct option into its randomized index position
+        if (targetIndex !== 3) {
+            let tAr = arOpts[targetIndex];
+            arOpts[targetIndex] = arOpts[3];
+            arOpts[3] = tAr;
 
-            let tmpEn = enOptsList[targetAnsIndex];
-            enOptsList[targetAnsIndex] = enOptsList[3];
-            enOptsList[3] = tmpEn;
+            let tEn = enOpts[targetIndex];
+            enOpts[targetIndex] = enOpts[3];
+            enOpts[3] = tEn;
         }
 
         questionBank.push({
-            id: curId,
-            difficulty: diff,
-            ref: `${engine.clause} (Audit Trap Scenario #${curId})`,
+            id: cId,
+            ref: `${engine.clause} (Story Scenario #${cId})`,
             ar: {
-                q: `[سيناريو مراجعة غير متوقع #${curId} - ${engine.arTitle}] - ${engine.arQ}`,
-                opts: arOptsList,
-                ans: targetAnsIndex,
+                q: `[قصة مراجعة واقعية #${cId}] - ${engine.arQ}`,
+                opts: arOpts,
+                ans: targetIndex,
                 exp: engine.expAr
             },
             en: {
-                q: `[Unpredictable Audit Scenario #${curId} - ${engine.clause}] - ${engine.enQ}`,
-                opts: enOptsList,
-                ans: targetAnsIndex,
+                q: `[Audit Story Scenario #${cId}] - ${engine.enQ}`,
+                opts: enOpts,
+                ans: targetIndex,
                 exp: engine.expEn
             }
         });
 
-        curId++;
+        cId++;
     }
 })();
