@@ -136,7 +136,7 @@ const questionBank = [
             ans: 1,
             exp: "Clause 5.1 mandates that Top Management itself must demonstrate leadership and commitment regarding the ISMS."
         }
-    }
+    },
     {
         id: 6,
         ref: "ISO/IEC 27001:2022 - Clause 5.2",
