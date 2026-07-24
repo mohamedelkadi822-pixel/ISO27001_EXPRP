@@ -333,9 +333,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 25px;
-            padding: 15px 0;
+            margin: 15px 0;
+            padding: 12px 0;
             border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             flex-wrap: wrap;
             gap: 10px;
         }
@@ -487,13 +488,20 @@
             <button class="btn btn-outline" onclick="exitExam()" id="btn-cancel">Cancel Exam</button>
         </div>
         <form id="quiz-form">
+            <!-- Top Pagination Controls -->
+            <div class="pagination-container pagination-controls-bar" id="pagination-controls-top">
+                <button type="button" class="btn btn-outline btn-prev-page" onclick="changePage(-1)">⬅️ Previous</button>
+                <span class="page-info page-indicator">Page 1 of 1</span>
+                <button type="button" class="btn btn-outline btn-next-page" onclick="changePage(1)">Next ➡️</button>
+            </div>
+
             <div id="questions-container"></div>
             
-            <!-- Pagination Controls -->
-            <div class="pagination-container" id="pagination-controls">
-                <button type="button" class="btn btn-outline" onclick="changePage(-1)" id="btn-prev-page">⬅️ Previous</button>
-                <span class="page-info" id="page-indicator">Page 1 of 1</span>
-                <button type="button" class="btn btn-outline" onclick="changePage(1)" id="btn-next-page">Next ➡️</button>
+            <!-- Bottom Pagination Controls -->
+            <div class="pagination-container pagination-controls-bar" id="pagination-controls-bottom">
+                <button type="button" class="btn btn-outline btn-prev-page" onclick="changePage(-1)">⬅️ Previous</button>
+                <span class="page-info page-indicator">Page 1 of 1</span>
+                <button type="button" class="btn btn-outline btn-next-page" onclick="changePage(1)">Next ➡️</button>
             </div>
 
             <button type="button" class="btn btn-success" style="font-size:1.05em; padding:14px; width:100%; margin-top:20px;" onclick="submitExam()" id="btn-submit">Submit & Save Attempt</button>
@@ -535,9 +543,9 @@ let timerInterval = null;
 let secondsElapsed = 0;
 let attemptsHistory = JSON.parse(localStorage.getItem('iso_attempts_history') || '[]');
 
-// Pagination Variables (Max 25 questions per page)
+// Set exact 10 questions per page limit
 let currentPage = 1;
-const PAGE_SIZE = 25; 
+const PAGE_SIZE = 10; 
 
 function getAvailableBankLength() {
     return (typeof questionBank !== 'undefined' && Array.isArray(questionBank)) ? questionBank.length : 0;
@@ -840,6 +848,17 @@ function startExam() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
+function handleCheckboxSelection(qIdx, val, currentEl) {
+    if (currentEl.checked) {
+        document.querySelectorAll(`.q_cb_${qIdx}`).forEach(cb => {
+            if (cb !== currentEl) cb.checked = false;
+        });
+        userAnswers[qIdx] = val;
+    } else {
+        delete userAnswers[qIdx];
+    }
+}
+
 function renderExamQuestions() {
     const container = document.getElementById('questions-container');
     container.innerHTML = '';
@@ -859,16 +878,51 @@ function renderExamQuestions() {
         let optsWithIndex = data.opts.map((opt, i) => ({ text: opt, originalIdx: i }));
         let shuffledOpts = shuffle(optsWithIndex);
 
-        let optsHtml = `
-            <div class="options-list">
-                ${shuffledOpts.map(o => `
-                    <label class="option-item">
-                        <input type="radio" name="q_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="userAnswers[${idx}]=${o.originalIdx}">
-                        ${o.text}
-                    </label>
-                `).join('')}
-            </div>
-        `;
+        // Switch between 3 display types: 0 = Radio Choices, 1 = Dropdown Select, 2 = Checkboxes
+        let qType = idx % 3; 
+        let optsHtml = '';
+
+        if (qType === 0) {
+            // Radio Buttons
+            optsHtml = `
+                <div class="options-list">
+                    ${shuffledOpts.map(o => `
+                        <label class="option-item">
+                            <input type="radio" name="q_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="userAnswers[${idx}]=${o.originalIdx}">
+                            ${o.text}
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+        } else if (qType === 1) {
+            // Dropdown Select
+            optsHtml = `
+                <div style="margin-top:12px;">
+                    <select onchange="userAnswers[${idx}]=parseInt(this.value)">
+                        <option value="" disabled ${userAnswers[idx] === undefined ? 'selected' : ''}>
+                            ${currentLang === 'ar' ? '-- اختر الإجابة الصحيحة --' : '-- Select Correct Answer --'}
+                        </option>
+                        ${shuffledOpts.map(o => `
+                            <option value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'selected' : ''}>
+                                ${o.text}
+                            </option>
+                        `).join('')}
+                    </select>
+                </div>
+            `;
+        } else {
+            // Checkboxes
+            optsHtml = `
+                <div class="options-list">
+                    ${shuffledOpts.map(o => `
+                        <label class="option-item">
+                            <input type="checkbox" class="q_cb_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="handleCheckboxSelection(${idx}, ${o.originalIdx}, this)">
+                            ${o.text}
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+        }
 
         card.innerHTML = `
             <div class="q-header">
@@ -881,13 +935,17 @@ function renderExamQuestions() {
         container.appendChild(card);
     }
 
-    const pageIndicator = document.getElementById('page-indicator');
-    pageIndicator.innerText = `${currentLang === 'ar' ? 'صفحة' : 'Page'} ${currentPage} ${currentLang === 'ar' ? 'من' : 'of'} ${totalPages}`;
+    // Update Pagination indicators & controls (Top and Bottom)
+    let pageStr = `${currentLang === 'ar' ? 'صفحة' : 'Page'} ${currentPage} ${currentLang === 'ar' ? 'من' : 'of'} ${totalPages}`;
+    document.querySelectorAll('.page-indicator').forEach(el => el.innerText = pageStr);
 
-    document.getElementById('btn-prev-page').style.visibility = currentPage === 1 ? 'hidden' : 'visible';
-    document.getElementById('btn-next-page').style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
+    document.querySelectorAll('.btn-prev-page').forEach(btn => btn.style.visibility = currentPage === 1 ? 'hidden' : 'visible');
+    document.querySelectorAll('.btn-next-page').forEach(btn => btn.style.visibility = currentPage === totalPages ? 'hidden' : 'visible');
 
-    document.getElementById('pagination-controls').style.display = activeQuestions.length > PAGE_SIZE ? 'flex' : 'none';
+    let showPagination = activeQuestions.length > PAGE_SIZE;
+    document.querySelectorAll('.pagination-controls-bar').forEach(bar => bar.style.display = showPagination ? 'flex' : 'none');
+
+    // Show submit button only on the last page
     document.getElementById('btn-submit').style.display = currentPage === totalPages ? 'block' : 'none';
 }
 
