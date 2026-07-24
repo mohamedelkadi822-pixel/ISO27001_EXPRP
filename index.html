@@ -494,7 +494,7 @@
         <form id="quiz-form">
             <div id="questions-container"></div>
             
-            <!-- Pagination Navigation -->
+            <!-- Pagination Navigation Controls -->
             <div class="pagination-container" id="pagination-controls">
                 <button type="button" class="btn btn-outline" onclick="changePage(-1)" id="btn-prev-page">⬅️ Previous</button>
                 <span class="page-info" id="page-indicator">Page 1 of 1</span>
@@ -541,9 +541,9 @@ let timerInterval = null;
 let secondsElapsed = 0;
 let attemptsHistory = JSON.parse(localStorage.getItem('iso_attempts_history') || '[]');
 
-// Pagination Variables
+// Pagination Variables (Max 25 questions per page)
 let currentPage = 1;
-const PAGE_SIZE = 25; // Maximum questions per page
+const PAGE_SIZE = 25; 
 
 const MAX_QUESTIONS_LIMIT = typeof questionBank !== 'undefined' ? questionBank.length : 300;
 
@@ -818,7 +818,7 @@ function startExam() {
 
     let countInput = parseInt(document.getElementById('input-qcount').value) || 10;
     
-    // Fix: Select the exact requested question count from the full question bank
+    // Select the exact requested question count from the question bank
     let count = Math.min(Math.max(countInput, 1), MAX_QUESTIONS_LIMIT);
 
     let shuffledBank = shuffle(questionBank);
@@ -859,39 +859,17 @@ function renderExamQuestions() {
         else if (q.difficulty === 'hard') { diffClass = 'diff-hard'; diffLabel = currentLang === 'ar' ? 'صعب' : 'Hard'; }
         else if (q.difficulty === 'vhard') { diffClass = 'diff-vhard'; diffLabel = currentLang === 'ar' ? 'صعب جداً (سيناريو)' : 'Very Hard (Scenario)'; }
 
-        // Render alternating UI types: Choice list vs Dropdown menu
-        let isDropdownType = (q.id % 2 === 0); 
-        let optsHtml = '';
-
-        if (isDropdownType) {
-            let selectOptions = shuffledOpts.map(o => `
-                <option value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'selected' : ''}>
-                    ${o.text}
-                </option>
-            `).join('');
-
-            optsHtml = `
-                <div style="margin-top:12px;">
-                    <select onchange="userAnswers[${idx}]=parseInt(this.value)">
-                        <option value="" disabled ${userAnswers[idx] === undefined ? 'selected' : ''}>
-                            ${currentLang === 'ar' ? '-- اختر الإجابة الصحيحة --' : '-- Select Correct Answer --'}
-                        </option>
-                        ${selectOptions}
-                    </select>
-                </div>
-            `;
-        } else {
-            optsHtml = `
-                <div class="options-list">
-                    ${shuffledOpts.map(o => `
-                        <label class="option-item">
-                            <input type="radio" name="q_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="userAnswers[${idx}]=${o.originalIdx}">
-                            ${o.text}
-                        </label>
-                    `).join('')}
-                </div>
-            `;
-        }
+        // ALL QUESTIONS ARE MULTIPLE CHOICE (RADIO BUTTONS)
+        let optsHtml = `
+            <div class="options-list">
+                ${shuffledOpts.map(o => `
+                    <label class="option-item">
+                        <input type="radio" name="q_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="userAnswers[${idx}]=${o.originalIdx}">
+                        ${o.text}
+                    </label>
+                `).join('')}
+            </div>
+        `;
 
         card.innerHTML = `
             <div class="q-header">
@@ -913,6 +891,9 @@ function renderExamQuestions() {
 
     document.getElementById('btn-prev-page').style.visibility = currentPage === 1 ? 'hidden' : 'visible';
     document.getElementById('btn-next-page').style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
+
+    // Show pagination bar only if total questions exceed PAGE_SIZE (25)
+    document.getElementById('pagination-controls').style.display = activeQuestions.length > PAGE_SIZE ? 'flex' : 'none';
 
     // Show submit button only on the last page
     document.getElementById('btn-submit').style.display = currentPage === totalPages ? 'block' : 'none';
