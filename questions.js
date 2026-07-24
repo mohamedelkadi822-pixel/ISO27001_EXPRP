@@ -1,6 +1,6 @@
 /**
- * ISO/IEC 27001:2022 Best Practices Exam Simulator
- * BATCH 1 (Questions 1 to 50) - Real-World Scenarios & Non-Obvious Answers
+ * ISO/IEC 27001:2022 Professional Lead Auditor Exam Bank
+ * Author: Mohamed Elkadi
  */
 
 const questionBank = [
@@ -61,7 +61,7 @@ const questionBank = [
         id: 3,
         ref: "ISO/IEC 27001:2022 - Clause 4.3",
         ar: {
-            q: "بنك تجاري قرر إدخال خدمة التمويل السريع عبر تطبيق الموبايل، واستبعد سيرفرات معالجة معمل التطوير (DevOps) الخارجي من نطاق الـ ISMS بحجة أن المعمل يدار بواسطة طرف ثالث. المراجع وجد أن سيرفرات التمويل ترتبط مستمر بأجهزة المعمل لنقل التحديثات. ما هو القرار المعياري؟",
+            q: "بنك تجاري قرر إدخال خدمة التمويل السريع عبر تطبيق الموبايل، واستبعد سيرفرات معالجة معمل التطوير (DevOps) الخارجي من نطاق الـ ISMS بحجة أن المعمل يدار بواسطة طرف ثالث. المراجع وجد أن سيرفرات التمويل ترتبط بصفة مستمرة بأجهزة المعمل لنقل التحديثات. ما هو القرار المعياري؟",
             opts: [
                 "قبول الاستبعاد، لأن الطرف الثالث يخضع للضوابط التشغيلية الواردة في الملحق Annex A 5.19",
                 "تسجيل عدم مطابقة للبند 4.3، لأن تحديد النطاق يفرض مراعاة الواجهات والاعتماديات (Interfaces & Dependencies) بين أنشطة البنك والجهات الخارجية",
@@ -87,7 +87,7 @@ const questionBank = [
         id: 4,
         ref: "ISO/IEC 27001:2022 - Clause 4.4",
         ar: {
-            q: "شركة خدمات لوجستية وضعت وثائق ممتازة لنظام ISMS، لكن أثناء المراجعة الميدانية تبين أن العمليات الفعلية لتشغيل مراكز البيانات تتم بناءً على اجتهادات شفهية وتواصل عبر واتساب بين المهندسين دون اتباع التفاعلات الموثقة للعمليات. مدير المباشرة أفاد: 'النتائج ممتازة والأهم هو استقرار الخدمة'. ما تصنيف الخلل؟",
+            q: "شركة خدمات لوجستية وضعت وثائق ممتازة لنظام ISMS، لكن أثناء المراجعة الميدانية تبين أن العمليات الفعلية لتشغيل مراكز البيانات تتم بناءً على اجتهادات شفهية وتواصل عبر تطبيقات الدردشة دون اتباع التفاعلات الموثقة للعمليات. مدير التشغيل أفاد: 'النتائج ممتازة والأهم هو استقرار الخدمة'. ما تصنيف الخلل؟",
             opts: [
                 "مطابقة، لأن المعيار يهتم بالنتائج المرجوة (Intended Outcomes) وليس بطريقة التواصل اليومية",
                 "عدم مطابقة للبند 4.4 لعدم إنشاء وتطبيق وصيانة نظام ISMS والعمليات المحتاجة وتفاعلاتها وفقاً للمعيار",
@@ -98,7 +98,7 @@ const questionBank = [
             exp: "البند 4.4 ينص على وجوب 'إنشاء وتطبيق وصيانة وتحسين مستمر' لنظام الـ ISMS والعمليات اللازمة وتفاعلاتها، وليس مجرد كتابة الوثائق."
         },
         en: {
-            q: "A logistics firm documented a flawless ISMS on paper. Field audits showed data center maintenance relies on informal WhatsApp chats among engineers rather than process interactions defined in ISMS files. Management claimed service uptime is 100%. Assessment?",
+            q: "A logistics firm documented a flawless ISMS on paper. Field audits showed data center maintenance relies on informal instant chats among engineers rather than process interactions defined in ISMS files. Management claimed service uptime is 100%. Assessment?",
             opts: [
                 "Conformity, as the standard prioritizes achieving intended outcomes over daily operational channels",
                 "Nonconformity against Clause 4.4 for failing to establish, implement, and maintain the ISMS processes and their interactions",
@@ -115,7 +115,7 @@ const questionBank = [
         id: 5,
         ref: "ISO/IEC 27001:2022 - Clause 5.1",
         ar: {
-            q: "المدير التنفيذي لشركة تداول تفويض مدير تكنولوجيا المعلومات بالكامل للتوقيع على جميع سياسات ومخرجات نظام إدارة أمن المعلومات، ورفض حضور اجتماعات مراجعة الإدارة (Management Review) أو مراجعة الأهداف بحجة انشغاله بتوسع الشركة. كيف يتعامل المراجع مع هذا التفويض؟",
+            q: "المدير التنفيذي لشركة تداول قام بتفويض مدير تكنولوجيا المعلومات بالكامل للتوقيع على جميع سياسات ومخرجات نظام إدارة أمن المعلومات، ورفض حضور اجتماعات مراجعة الإدارة (Management Review) أو مراجعة الأهداف بحجة انشغاله بتوسع الشركة. كيف يتعامل المراجع مع هذا التفويض؟",
             opts: [
                 "قبول التفويض، لأن المعيار يسمح بتعيين ممثل للإدارة (Management Representative) لقيادة الـ ISMS",
                 "تسجيل عدم مطابقة للبند 5.1، لأن الإدارة العليا يجب أن تُظهر بنفسها القيادة والالتزام ولا يمكنها تفويض مسؤوليتها المباشرة بالكامل",
@@ -136,12 +136,12 @@ const questionBank = [
             ans: 1,
             exp: "Clause 5.1 mandates that Top Management itself must demonstrate leadership and commitment regarding the ISMS."
         }
-    },
+    }
     {
         id: 6,
         ref: "ISO/IEC 27001:2022 - Clause 5.2",
         ar: {
-            q: "سياسة أمن المعلومات في شركة تجزئة صيغت ببراعة وتم اعتمادها من المدير التنفيذي. لكن أثناء المراجعة، تبين أنها محفوظة في مجلد آمن لا يستطيع الوصول إليه سوى مدراء الأقسام، ولم ينشر أو يتاح للموظفين أو المتعاقدين. ما هو التصنيف المعياري؟",
+            q: "سياسة أمن المعلومات في شركة تجزئة صيغت ببراعة وتم اعتمادها من المدير التنفيذي. لكن أثناء المراجعة، تبين أنها محفوظة في مجلد آمن لا يستطيع الوصول إليه سوى مدراء الأقسام، ولم تنشر أو تتاح للموظفين أو المتعاقدين. ما هو التصنيف المعياري؟",
             opts: [
                 "مطابقة، لحماية وثيقة السياسة من التعديل غير المصرح به وضمان سريتها",
                 "عدم مطابقة للبند 5.2، لأن المعيار يفرض إتاحة السياسة كمعلومات موثقة ونشرها داخل المؤسسة وإتاحتها للأطراف المهتمة عند الاقتضاء",
@@ -149,7 +149,7 @@ const questionBank = [
                 "مطابقة، طالما أن مدراء الأقسام يقومون بتوجيه مرؤوسيهم شفهياً"
             ],
             ans: 1,
-            exp: "البند 5.2 ينص صراحة على أن سياسة أمن المعلومات يجب أن تكون متاحـة كمعلومات موثقة، وتُبلغ داخل المنظمة، وتكون متاحة للأطراف المهتمة."
+            exp: "البند 5.2 ينص صراحة على أن سياسة أمن المعلومات يجب أن تكون متاحة كمعلومات موثقة، وتُبلغ داخل المنظمة، وتكون متاحة للأطراف المهتمة."
         },
         en: {
             q: "A retail firm's Information Security Policy was signed by the CEO. However, it was saved in a restricted folder accessible only to Department Heads and was never communicated to staff or contractors. Audit ruling?",
@@ -170,7 +170,7 @@ const questionBank = [
             q: "في شركة استشارات، تم إسناد مسؤولية الإبلاغ عن أداء نظام ISMS إلى الإدارة العليا لمسؤول أمن المعلومات (CISO)، لكن الوصف الوظيفي والهيكل لم يمنحه السلطة والصلاحية (Authority) اللازمة لإيقاف الأنظمة المخالفة أو استدعاء الموظفين للتحقيق. ما تقييم المراجع؟",
             opts: [
                 "مطابقة، لأن إسناد المسؤولية (Responsibility) يكفي لتلبية متطلبات المعيار دون الحاجة لمنح صلاحيات تشغيلية",
-                "عدم مطابقة للبند 5.3، لأن الإدارة العليا يجب أن تضمن تحديد وإسناد وإبلاغ المسؤوليات والـصلاحيات (Responsibilities & Authorities)",
+                "عدم مطابقة للبند 5.3، لأن الإدارة العليا يجب أن تضمن تحديد وإسناد وإبلاغ المسؤوليات والصلاحيات (Responsibilities & Authorities)",
                 "ملاحظة تحسين (OFI)، تطلب تعديل الهيكل الوظيفي في المراجعة السنوية القادمة",
                 "مطابقة، طالما أن المدير التنفيذي يتدخل شخصياً عند حدوث الاختراقات"
             ],
@@ -188,7 +188,7 @@ const questionBank = [
             ans: 1,
             exp: "Clause 5.3 mandates assigning and communicating both responsibilities AND authorities for roles relevant to information security."
         }
-// --- CLAUSE 5: LEADERSHIP (CONTINUED) ---
+    },
     {
         id: 8,
         ref: "ISO/IEC 27001:2022 - Clause 5.3",
@@ -215,8 +215,6 @@ const questionBank = [
             exp: "Clause 5.3 dictates assigning authorities to ensure ISMS conformity and governance, preventing unmonitored self-authorization."
         }
     },
-
-    // --- CLAUSE 6: PLANNING ---
     {
         id: 9,
         ref: "ISO/IEC 27001:2022 - Clause 6.1.1",
@@ -347,8 +345,6 @@ const questionBank = [
             exp: "Clause 6.3 dictates that changes to the ISMS shall be carried out in a planned manner."
         }
     },
-
-    // --- CLAUSE 7: SUPPORT ---
     {
         id: 14,
         ref: "ISO/IEC 27001:2022 - Clause 7.1",
@@ -509,7 +505,7 @@ const questionBank = [
         id: 20,
         ref: "ISO/IEC 27001:2022 - Clause 7.5.3",
         ar: {
-            q: "شركة حتفظ بملفات وسجلات المراجعات الداخلية وتقارير المخاطر على محرك أقراص مشترك مفتوح للجميع دون أي صلاحيات حماية أو ضبط للوصول (Access control). السجلات تعرضت للتعديل والحذف العشوائي. ما هو التصنيف؟",
+            q: "شركة تحتفظ بملفات وسجلات المراجعات الداخلية وتقارير المخاطر على محرك أقراص مشترك مفتوح للجميع دون أي صلاحيات حماية أو ضبط للوصول (Access control). السجلات تعرضت للتعديل والحذف العشوائي. ما هو التصنيف؟",
             opts: [
                 "مطابقة، لأن الشفافية بين الموظفين تدعم بيئة العمل",
                 "حالة عدم مطابقة للبند 7.5.3، لأن المعلومات الموثقة المطلوبة بالنظام يجب ضبطها لضمان حمايتها بشكل كافٍ من فقدان السرية أو الاستخدام غير الملائم أو فقدان السلامة",
@@ -531,8 +527,6 @@ const questionBank = [
             exp: "Clause 7.5.3 explicitly demands controlling documented information to ensure adequate protection against loss of confidentiality, improper use, or loss of integrity."
         }
     },
-
-    // --- CLAUSE 8: OPERATION ---
     {
         id: 21,
         ref: "ISO/IEC 27001:2022 - Clause 8.1",
@@ -662,8 +656,7 @@ const questionBank = [
             ans: 1,
             exp: "Clause 9.2.1 explicitly states: 'The organization shall conduct internal audits at planned intervals to provide information on whether the ISMS conforms...'"
         }
-    }
-// --- CLAUSE 9: PERFORMANCE EVALUATION (CONTINUED) ---
+    },
     {
         id: 26,
         ref: "ISO/IEC 27001:2022 - Clause 9.2.2",
@@ -687,7 +680,7 @@ const questionBank = [
                 "Conformity, provided final reports are submitted to the CEO"
             ],
             ans: 1,
-            exp: "Clause 9.2.2 mandates that when establishing internal audit programmes, the organization shall consider the importance of processes concerned and results of previous audits[cite: 1, 2]."
+            exp: "Clause 9.2.2 mandates that when establishing internal audit programmes, the organization shall consider the importance of processes concerned and results of previous audits."
         }
     },
     {
@@ -702,7 +695,7 @@ const questionBank = [
                 "مطابقة، بشرط وجود توقيع المدير التنفيذي على محضر الاجتماع"
             ],
             ans: 1,
-            exp: "البند 9.3.2 يحدد قائمة مدخلات إلزامية يجب أن تتضمنها مراجعة الإدارة مثل التغيرات في القضايا، نتائج تقييم المخاطر، وتغذية الأطراف المهتمة[cite: 1, 2]."
+            exp: "البند 9.3.2 يحدد قائمة مدخلات إلزامية يجب أن تتضمنها مراجعة الإدارة مثل التغيرات في القضايا، نتائج تقييم المخاطر، وتغذية الأطراف المهتمة."
         },
         en: {
             q: "Management Review minutes covered only previous audit results, corrective action status, and prior decisions, omitting changes in context, risk assessment results, and interested party feedback. Finding?",
@@ -713,7 +706,7 @@ const questionBank = [
                 "Conformity, provided the CEO signed the meeting minutes"
             ],
             ans: 1,
-            exp: "Clause 9.3.2 explicitly details mandatory inputs that management reviews must evaluate, including context changes, risk assessment results, and feedback[cite: 1, 2]."
+            exp: "Clause 9.3.2 explicitly details mandatory inputs that management reviews must evaluate, including context changes, risk assessment results, and feedback."
         }
     },
     {
@@ -728,7 +721,7 @@ const questionBank = [
                 "مطابقة، طالما تم الاحتفاظ بمستندات المدخلات"
             ],
             ans: 1,
-            exp: "البند 9.3.3 ينص على أن نتائج ومخرجات مراجعة الإدارة يجب أن تشمل قرارات متعلقة بفرص التحسين المستمر وأي احتياجات للتغيير في النظام[cite: 1]."
+            exp: "البند 9.3.3 ينص على أن نتائج ومخرجات مراجعة الإدارة يجب أن تشمل قرارات متعلقة بفرص التحسين المستمر وأي احتياجات للتغيير في النظام."
         },
         en: {
             q: "Management review minutes showed thorough input discussions but listed zero decisions or outputs regarding continual improvement opportunities or system changes. Quality Lead said verbal talks were enough. Verdict?",
@@ -739,11 +732,9 @@ const questionBank = [
                 "Conformity, provided input documents were properly archived"
             ],
             ans: 1,
-            exp: "Clause 9.3.3 mandates that results of management review shall include decisions related to continual improvement and any needs for changes to the ISMS[cite: 1]."
+            exp: "Clause 9.3.3 mandates that results of management review shall include decisions related to continual improvement and any needs for changes to the ISMS."
         }
     },
-
-    // --- CLAUSE 10: IMPROVEMENT ---
     {
         id: 29,
         ref: "ISO/IEC 27001:2022 - Clause 10.1",
@@ -756,7 +747,7 @@ const questionBank = [
                 "مطابقة، طالما أن الشهادة تُجدد سنوياً بدون مشاكل"
             ],
             ans: 1,
-            exp: "البند 10.1 يفرض صراحة أن المنظمة يجب أن تحسن باستمرار (Continually improve) ملاءمة وكفاية وفاعلية نظام الـ ISMS[cite: 1]."
+            exp: "البند 10.1 يفرض صراحة أن المنظمة يجب أن تحسن باستمرار (Continually improve) ملاءمة وكفاية وفاعلية نظام الـ ISMS."
         },
         en: {
             q: "A certified firm maintained identical controls and metrics for 5 years despite evolving threats, claiming system stability proves perfection. How should the auditor classify this?",
@@ -767,7 +758,7 @@ const questionBank = [
                 "Conformity, as long as annual recertification visits pass successfully"
             ],
             ans: 1,
-            exp: "Clause 10.1 explicitly requires that the organization shall continually improve the suitability, adequacy, and effectiveness of the ISMS[cite: 1]."
+            exp: "Clause 10.1 explicitly requires that the organization shall continually improve the suitability, adequacy, and effectiveness of the ISMS."
         }
     },
     {
@@ -782,7 +773,7 @@ const questionBank = [
                 "عدم مطابقة للبند 4.1 فقط"
             ],
             ans: 1,
-            exp: "البند 10.2 يتطلب عند حدوث عدم مطابقة التفاعل معها، وتقييم الحاجة لإجراء لإزالة الأسباب حتى لا تتكرر، والاحتفاظ بمعلومات موثقة كدليل[cite: 1, 2]."
+            exp: "البند 10.2 يتطلب عند حدوث عدم مطابقة التفاعل معها، وتقييم الحاجة لإجراء لإزالة الأسباب حتى لا تتكرر، والاحتفاظ بمعلومات موثقة كدليل."
         },
         en: {
             q: "Following a breach, a firm rebooted the compromised server to restore service, but performed no root-cause evaluation to prevent recurrence and logged no records. Ruling?",
@@ -793,11 +784,9 @@ const questionBank = [
                 "Nonconformity against Clause 4.1 only"
             ],
             ans: 1,
-            exp: "Clause 10.2 requires reacting to nonconformities, evaluating the need for action to eliminate causes so it does not recur, and retaining evidence[cite: 1, 2]."
+            exp: "Clause 10.2 requires reacting to nonconformities, evaluating the need for action to eliminate causes so it does not recur, and retaining evidence."
         }
     },
-
-    // --- ANNEX A 5: ORGANIZATIONAL CONTROLS (CONTINUED) ---
     {
         id: 31,
         ref: "ISO/IEC 27001:2022 - Annex A 5.5 & 5.6",
@@ -810,7 +799,7 @@ const questionBank = [
                 "مطابقة، طالما أن الفريق التقني يحاول فك التشفير بمفرده"
             ],
             ans: 1,
-            exp: "الضوابط Annex A 5.5 و 5.6 تفرض إنشاء والحفاظ على اتصالات مع السلطات ذات الصلة ومع مجموعات الاهتمام المتخصصة أو المنتديات الأمنية[cite: 1]."
+            exp: "الضوابط Annex A 5.5 و 5.6 تفرض إنشاء والحفاظ على اتصالات مع السلطات ذات الصلة ومع مجموعات الاهتمام المتخصصة أو المنتديات الأمنية."
         },
         en: {
             q: "A firm hit by ransomware had zero established contact channels with law enforcement authorities or specialist security forums. CISO claimed external contacts are optional. Assessment?",
@@ -821,7 +810,7 @@ const questionBank = [
                 "Conformity, provided internal engineers attempt decryption independently"
             ],
             ans: 1,
-            exp: "Controls A.5.5 and A.5.6 mandate establishing and maintaining contact with relevant authorities and special interest groups or professional associations[cite: 1]."
+            exp: "Controls A.5.5 and A.5.6 mandate establishing and maintaining contact with relevant authorities and special interest groups or professional associations."
         }
     },
     {
@@ -836,7 +825,7 @@ const questionBank = [
                 "مطابقة، طالما أن فريق المشروع يتبع منهجية Agile"
             ],
             ans: 1,
-            exp: "الضابط Annex A 5.8 ينص بوضوح على وجوب دمج أمن المعلومات في إدارة المشاريع (Information security shall be integrated into project management)[cite: 1]."
+            exp: "الضابط Annex A 5.8 ينص بوضوح على وجوب دمج أمن المعلومات في إدارة المشاريع (Information security shall be integrated into project management)."
         },
         en: {
             q: "A major software project plan omitted security requirements and risk evaluations across all project phases. Project Manager stated security testing happens post-delivery. Finding?",
@@ -847,14 +836,14 @@ const questionBank = [
                 "Conformity, provided the project team utilizes Agile development frameworks"
             ],
             ans: 1,
-            exp: "Control A.5.8 explicitly dictates: 'Information security shall be integrated into project management.'[cite: 1]"
+            exp: "Control A.5.8 explicitly dictates: 'Information security shall be integrated into project management.'"
         }
     },
     {
         id: 33,
         ref: "ISO/IEC 27001:2022 - Annex A 5.11",
         ar: {
-            q: "عند إنهاء خدمة أحد كبار الاستشاريين، تبين أنه ما زال يحتفظ بأجهزة أبتوب ومفاتيح تشفير وبرمجيات خاصة بالشركة بعد مرور شهرين من استقالته. الشركة لم تملك عملية موثقة أو قائمة تحقق لإعادة الأصول (Return of assets). ما هو الخلل المعياري؟",
+            q: "عند إنهاء خدمة أحد كبار الاستشاريين، تبين أنه ما زال يحتفظ بأجهزة لابتوب ومفاتيح تشفير وبرمجيات خاصة بالشركة بعد مرور شهرين من استقالته. الشركة لم تملك عملية موثقة أو قائمة تحقق لإعادة الأصول (Return of assets). ما هو الخلل المعياري؟",
             opts: [
                 "مطابقة، طالما أن الاستشاري لم يسرب البيانات المخزنة على الجهاز",
                 "حالة عدم مطابقة للضابط Annex A 5.11، لأن الموظفين والأطراف المهتمة يجب أن يعيدوا جميع أصول المنظمة الموجودة بحوزتهم عند تغيير أو إنهاء توظيفهم أو عقودهم",
@@ -862,7 +851,7 @@ const questionBank = [
                 "عدم مطابقة للبند 4.1 فقط"
             ],
             ans: 1,
-            exp: "الضابط Annex A 5.11 يفرض إعادة جميع أصول المنظمة بحوزة الأفراد والأطراف المهتمة عند تغيير أو إنهاء التوظيف أو العقد[cite: 1]."
+            exp: "الضابط Annex A 5.11 يفرض إعادة جميع أصول المنظمة بحوزة الأفراد والأطراف المهتمة عند تغيير أو إنهاء التوظيف أو العقد."
         },
         en: {
             q: "Two months post-resignation, a consultant still retains corporate laptops and security tokens. The firm lacked any offboarding asset return checklist. What is the finding?",
@@ -873,7 +862,7 @@ const questionBank = [
                 "Nonconformity against Clause 4.1 only"
             ],
             ans: 1,
-            exp: "Control A.5.11 states: 'Personnel and other interested parties... shall return all the organization's assets in their possession upon change or termination...'[cite: 1]"
+            exp: "Control A.5.11 states: 'Personnel and other interested parties... shall return all the organization's assets in their possession upon change or termination...'"
         }
     },
     {
@@ -888,7 +877,7 @@ const questionBank = [
                 "مطابقة، طالما لم يشتكِ أي مستشفى من اعتراض الرسائل"
             ],
             ans: 1,
-            exp: "الضابط Annex A 5.14 ينص على وجوب وضع قواعد أو إجراءات أو اتفاقيات لنقل المعلومات لجميع أنواع وسائل النقل لحماية البيانات أثناء النقل[cite: 1]."
+            exp: "الضابط Annex A 5.14 ينص على وجوب وضع قواعد أو إجراءات أو اتفاقيات لنقل المعلومات لجميع أنواع وسائل النقل لحماية البيانات أثناء النقل."
         },
         en: {
             q: "Unencrypted patient records are emailed across the internet to external clinics with zero transfer rules or security agreements. IT claimed email is standard. Assessment?",
@@ -899,7 +888,7 @@ const questionBank = [
                 "Conformity, provided no clinic reported active email interception"
             ],
             ans: 1,
-            exp: "Control A.5.14 dictates: 'Information transfer rules, procedures, or agreements shall be in place for all types of transfer facilities within the organization and between...'[cite: 1]"
+            exp: "Control A.5.14 dictates: 'Information transfer rules, procedures, or agreements shall be in place for all types of transfer facilities within the organization and between...'"
         }
     },
     {
@@ -914,7 +903,7 @@ const questionBank = [
                 "عدم مطابقة للبند 8.1 فقط"
             ],
             ans: 1,
-            exp: "الضابط Annex A 5.23 (جديد في 2022) يتطلب إنشاء عمليات لاكتساب واستخدام وإدارة والخروج (Exit) من الخدمات السحابية وفقاً لمتطلبات الأمن[cite: 1]."
+            exp: "الضابط Annex A 5.23 (جديد في 2022) يتطلب إنشاء عمليات لاكتساب واستخدام وإدارة والخروج (Exit) من الخدمات السحابية وفقاً لمتطلبات الأمن."
         },
         en: {
             q: "A firm adopted a cloud SaaS platform without establishing processes for cloud service acquisition, management, or exit procedures (data retrieval upon contract termination). Finding?",
@@ -925,7 +914,7 @@ const questionBank = [
                 "Nonconformity against Clause 8.1 only"
             ],
             ans: 1,
-            exp: "Control A.5.23 (introduced in 2022 edition) specifies: 'Processes for acquisition, use, management and exit from cloud services shall be established...'[cite: 1]"
+            exp: "Control A.5.23 (introduced in 2022 edition) specifies: 'Processes for acquisition, use, management and exit from cloud services shall be established...'"
         }
     },
     {
@@ -940,7 +929,7 @@ const questionBank = [
                 "مطابقة، طالما أن الجدار الناري حظر العناوين المشبوهة تلقائياً"
             ],
             ans: 1,
-            exp: "الضابط Annex A 5.25 يفرض تقييم الأحداث الأمنية والبت في تصنيفها كحوادث، والضابط 5.26 يفرض الاستجابة للحوادث وفق الإجراءات الموثقة[cite: 1]."
+            exp: "الضابط Annex A 5.25 يفرض تقييم الأحداث الأمنية والبت في تصنيفها كحوادث، والضابط 5.26 يفرض الاستجابة للحوادث وفق الإجراءات الموثقة."
         },
         en: {
             q: "A SOC operator saw thousands of failed DB login attempts but ignored the alert, making no decision on classifying it as an Incident or initiating response protocols. Ruling?",
@@ -951,7 +940,7 @@ const questionBank = [
                 "Conformity, provided perimeter firewalls automatically auto-blocked suspicious IPs"
             ],
             ans: 1,
-            exp: "Control A.5.25 mandates assessing security events to decide if they constitute security incidents, and Control A.5.26 mandates responding per documented procedures[cite: 1]."
+            exp: "Control A.5.25 mandates assessing security events to decide if they constitute security incidents, and Control A.5.26 mandates responding per documented procedures."
         }
     },
     {
@@ -966,7 +955,7 @@ const questionBank = [
                 "مطابقة، طالما تم الإبلاغ عن الحادثة للشرطة"
             ],
             ans: 1,
-            exp: "الضابط Annex A 5.28 يتطلب إنشاء وتطبيق إجراءات للتعرف على الأدلة وجمعها واكتسابها وحفظها (Collection of evidence) المتعلقة بأحداث أمن المعلومات[cite: 1]."
+            exp: "الضابط Annex A 5.28 يتطلب إنشاء وتطبيق إجراءات للتعرف على الأدلة وجمعها واكتسابها وحفظها (Collection of evidence) المتعلقة بأحداث أمن المعلومات."
         },
         en: {
             q: "Following a breach, IT wiped and reinstalled servers without preserving forensic logs. The company maintained zero procedures for evidence identification, collection, and preservation. Finding?",
@@ -977,7 +966,7 @@ const questionBank = [
                 "Conformity, provided the incident was formally reported to local police authorities"
             ],
             ans: 1,
-            exp: "Control A.5.28 explicitly states: 'The organization shall establish and implement procedures for the identification, collection, acquisition and preservation of evidence...'[cite: 1]"
+            exp: "Control A.5.28 explicitly states: 'The organization shall establish and implement procedures for the identification, collection, acquisition and preservation of evidence...'"
         }
     },
     {
@@ -992,7 +981,7 @@ const questionBank = [
                 "مطابقة، طالما يتم عمل نسخ احتياطية يومية"
             ],
             ans: 1,
-            exp: "الضابط Annex A 5.30 (جديد في 2022) يفرض التخطيط والتطبيق والصيانة والاختبار لـ ICT readiness بناءً على أهداف استمرارية الأعمال ومتطلباتها[cite: 1]."
+            exp: "الضابط Annex A 5.30 (جديد في 2022) يفرض التخطيط والتطبيق والصيانة والاختبار لـ ICT readiness بناءً على أهداف استمرارية الأعمال ومتطلباتها."
         },
         en: {
             q: "An org established Business Continuity plans but never planned, maintained, or tested ICT Readiness to verify system recovery objectives, citing trust in hardware robustness. Ruling?",
@@ -1003,7 +992,7 @@ const questionBank = [
                 "Conformity, provided daily data backups run without failures"
             ],
             ans: 1,
-            exp: "Control A.5.30 dictates: 'ICT readiness shall be planned, implemented, maintained and tested based on business continuity objectives and ICT continuity requirements.'[cite: 1]"
+            exp: "Control A.5.30 dictates: 'ICT readiness shall be planned, implemented, maintained and tested based on business continuity objectives and ICT continuity requirements.'"
         }
     },
     {
@@ -1018,7 +1007,7 @@ const questionBank = [
                 "مطابقة، طالما لم يقم أي مستخدم برفع دعوى قضائية"
             ],
             ans: 1,
-            exp: "الضابط Annex A 5.34 يتطلب تحديد وتلبية المتطلبات المتعلقة بالحفاظ على الخصوصية وحماية معلومات الهوية الشخصية (PII) وفقاً للقوانين واللوائح المطبقة[cite: 1]."
+            exp: "الضابط Annex A 5.34 يتطلب تحديد وتلبية المتطلبات المتعلقة بالحفاظ على الخصوصية وحماية معلومات الهوية الشخصية (PII) وفقاً للقوانين واللوائح المطبقة."
         },
         en: {
             q: "An e-commerce firm processes customer PII but failed to identify applicable privacy legislation (e.g., GDPR) or deploy PII protection controls. CISO claimed ISO 27001 ignores privacy laws. Finding?",
@@ -1029,11 +1018,9 @@ const questionBank = [
                 "Conformity, provided no user has formally launched a privacy lawsuit"
             ],
             ans: 1,
-            exp: "Control A.5.34 explicitly dictates: 'The organization shall identify and meet the requirements regarding the preservation of privacy and protection of PII according to applicable laws...'"[cite: 1]
+            exp: "Control A.5.34 explicitly dictates: 'The organization shall identify and meet the requirements regarding the preservation of privacy and protection of PII according to applicable laws...'"
         }
     },
-
-    // --- ANNEX A 7: PHYSICAL CONTROLS (CONTINUED) ---
     {
         id: 40,
         ref: "ISO/IEC 27001:2022 - Annex A 7.7",
@@ -1046,7 +1033,7 @@ const questionBank = [
                 "عدم مطابقة للبند 4.1 فقط"
             ],
             ans: 1,
-            exp: "الضابط Annex A 7.7 يفرض تعريف وتطبيق قواعد المكتب النظيف (Clear desk) للأوراق ووسائط التخزين، وقواعد الشاشة النظيفة (Clear screen) لمرافق المعالجة[cite: 1]."
+            exp: "الضابط Annex A 7.7 يفرض تعريف وتطبيق قواعد المكتب النظيف (Clear desk) للأوراق ووسائط التخزين، وقواعد الشاشة النظيفة (Clear screen) لمرافق المعالجة."
         },
         en: {
             q: "During an after-hours walkthrough, sensitive financial printouts and USBs were left on open desks, and HR terminals remained unlocked. Management cited perimeter building guards. Finding?",
@@ -1057,7 +1044,7 @@ const questionBank = [
                 "Nonconformity against Clause 4.1 only"
             ],
             ans: 1,
-            exp: "Control A.7.7 dictates: 'Clear desk rules for papers and removable storage media and clear screen rules for information processing facilities shall be defined and appropriately enforced.'[cite: 1]"
+            exp: "Control A.7.7 dictates: 'Clear desk rules for papers and removable storage media and clear screen rules for information processing facilities shall be defined and appropriately enforced.'"
         }
     },
     {
@@ -1072,7 +1059,7 @@ const questionBank = [
                 "مطابقة، طالما تم شراء أقراص جديدة بديلة"
             ],
             ans: 1,
-            exp: "الضوابط Annex A 7.10 و 7.14 تفرض إدارة وسائط التخزين عبر دورة حياتها والتحقق من إزالة البيانات الحساسة أو التدمير الآمن للمعدات قبل التخلص منها[cite: 1]."
+            exp: "الضوابط Annex A 7.10 و 7.14 تفرض إدارة وسائط التخزين عبر دورة حياتها والتحقق من إزالة البيانات الحساسة أو التدمير الآمن للمعدات قبل التخلص منها."
         },
         en: {
             q: "Decommissioned hard drives containing customer ledgers were thrown into standard trash bins without secure wiping or physical destruction records. IT claimed drives were non-functional. Ruling?",
@@ -1083,7 +1070,7 @@ const questionBank = [
                 "Conformity, provided new replacement storage media was procured"
             ],
             ans: 1,
-            exp: "Controls A.7.10 and A.7.14 mandate managing storage media throughout lifecycle and verifying sensitive data removal or secure overwriting/destruction prior to disposal[cite: 1]."
+            exp: "Controls A.7.10 and A.7.14 mandate managing storage media throughout lifecycle and verifying sensitive data removal or secure overwriting/destruction prior to disposal."
         }
     },
     {
@@ -1098,7 +1085,7 @@ const questionBank = [
                 "عدم مطابقة للبند 4.1 فقط"
             ],
             ans: 1,
-            exp: "الضابط Annex A 7.11 ينص بوضوح على وجوب حماية مرافق معالجة المعلومات من انقطاع التيار الكهربائي والاضطرابات الناجمة عن فشل المرافق الداعمة[cite: 1]."
+            exp: "الضابط Annex A 7.11 ينص بوضوح على وجوب حماية مرافق معالجة المعلومات من انقطاع التيار الكهربائي والاضطرابات الناجمة عن فشل المرافق الداعمة."
         },
         en: {
             q: "A bank's primary data center lacks UPS batteries or backup generators. A power grid failure corrupted DB files and halted operations for 12 hours. CISO blamed the utility company. Verdict?",
@@ -1109,11 +1096,9 @@ const questionBank = [
                 "Nonconformity against Clause 4.1 only"
             ],
             ans: 1,
-            exp: "Control A.7.11 explicitly states: 'Information processing facilities shall be protected from power failures and other disruptions caused by failures in supporting utilities.'[cite: 1]"
+            exp: "Control A.7.11 explicitly states: 'Information processing facilities shall be protected from power failures and other disruptions caused by failures in supporting utilities.'"
         }
     },
-
-    // --- ANNEX A 8: TECHNOLOGICAL CONTROLS ---
     {
         id: 43,
         ref: "ISO/IEC 27001:2022 - Annex A 8.2",
@@ -1126,7 +1111,7 @@ const questionBank = [
                 "مطابقة، طالما أن الموظفين موثوقون ووقعوا اتفاقيات السرية"
             ],
             ans: 1,
-            exp: "الضابط Annex A 8.2 ينص على أن تخصيص واستخدام حقوق الوصول الممتازة (Privileged access rights) يجب تقييده وإدارته بصرامة[cite: 1]."
+            exp: "الضابط Annex A 8.2 ينص على أن تخصيص واستخدام حقوق الوصول الممتازة (Privileged access rights) يجب تقييده وإدارته بصرامة."
         },
         en: {
             q: "All tech support staff hold permanent, unrestricted root/admin access to live production DBs 24/7 with zero privilege restriction rules or just-in-time elevation. Finding?",
@@ -1137,7 +1122,7 @@ const questionBank = [
                 "Conformity, provided all support engineers signed confidentiality agreements"
             ],
             ans: 1,
-            exp: "Control A.8.2 explicitly dictates: 'The allocation and use of privileged access rights shall be restricted and managed.'[cite: 1]"
+            exp: "Control A.8.2 explicitly dictates: 'The allocation and use of privileged access rights shall be restricted and managed.'"
         }
     },
     {
@@ -1152,7 +1137,7 @@ const questionBank = [
                 "مطابقة، طالما أن الوصول يتم عبر أجهزة الشركة فقط"
             ],
             ans: 1,
-            exp: "الضابط Annex A 8.5 يتطلب تطبيق تقنيات وإجراءات المصادقة الآمنة (Secure authentication) بناءً على قيود الوصول وسياسة التحكم بالوصول[cite: 1]."
+            exp: "الضابط Annex A 8.5 يتطلب تطبيق تقنيات وإجراءات المصادقة الآمنة (Secure authentication) بناءً على قيود الوصول وسياسة التحكم بالوصول."
         },
         en: {
             q: "Remote VPN access to critical financial ledgers relies on a simple 4-digit PIN with zero Multi-Factor Authentication (MFA). CISO claimed complex usernames compensate. Finding?",
@@ -1163,14 +1148,14 @@ const questionBank = [
                 "Conformity, provided remote connections originate exclusively from company-issued laptops"
             ],
             ans: 1,
-            exp: "Control A.8.5 explicitly mandates implementing secure authentication technologies (e.g., MFA) based on information access restrictions[cite: 1]."
+            exp: "Control A.8.5 explicitly mandates implementing secure authentication technologies (e.g., MFA) based on information access restrictions."
         }
     },
     {
         id: 45,
         ref: "ISO/IEC 27001:2022 - Annex A 8.8",
         ar: {
-            q: "أعلنت إحدى الشركات العالمية عن ثغرة أمنية حرجة جداً (Zero-day) في نظام التشغيل المستعمل بالشركة. المراجع وجد أن المنظمة لا تملك عملية للحصول على معلومات الثغرات الفنية تقييم مدى تعرضها لها، ولم تتخذ أي تدابير لمواجهة الثغرة بعد شهرين من إعلانها. ما القرار؟",
+            q: "أعلنت إحدى الشركات العالمية عن ثغرة أمنية حرجة جداً (Zero-day) في نظام التشغيل المستعمل بالشركة. المراجع وجد أن المنظمة لا تملك عملية للحصول على معلومات الثغرات الفنية وتقييم مدى تعرضها لها، ولم تتخذ أي تدابير لمواجهة الثغرة بعد شهرين من إعلانها. ما القرار؟",
             opts: [
                 "مطابقة، لأن معالجة الثغرات ترتبط بتوفر التحديثات من المورد الخارجي فقط",
                 "حالة عدم مطابقة للضابط Annex A 8.8، لعدم الحصول على معلومات حول الثغرات الفنية للأنظمة المستخدمة، وعدم تقييم التعرض لها، وعدم اتخاذ التدابير المناسبة",
@@ -1178,7 +1163,7 @@ const questionBank = [
                 "مطابقة، طالما أن الثغرة لم تستغل في اختراق أمني فعلي حتى الآن"
             ],
             ans: 1,
-            exp: "الضابط Annex A 8.8 يفرض الحصول على معلومات الثغرات الفنية (Technical vulnerabilities)، وتقييم التعرض لها، واتخاذ التدابير المناسبة[cite: 1]."
+            exp: "الضابط Annex A 8.8 يفرض الحصول على معلومات الثغرات الفنية (Technical vulnerabilities)، وتقييم التعرض لها، واتخاذ التدابير المناسبة."
         },
         en: {
             q: "Two months after a critical zero-day exploit was published for core OS software, the firm had no vulnerability tracking workflow, executed zero risk evaluations, and applied no patches. Verdict?",
@@ -1189,7 +1174,7 @@ const questionBank = [
                 "Conformity, provided no active exploit attempts hit the infrastructure to date"
             ],
             ans: 1,
-            exp: "Control A.8.8 dictates obtaining technical vulnerability information, evaluating exposure, and executing appropriate remediation measures[cite: 1]."
+            exp: "Control A.8.8 dictates obtaining technical vulnerability information, evaluating exposure, and executing appropriate remediation measures."
         }
     },
     {
@@ -1204,7 +1189,7 @@ const questionBank = [
                 "عدم مطابقة للبند 4.1 فقط"
             ],
             ans: 1,
-            exp: "الضابط Annex A 8.9 (جديد في 2022) يفرض إنشاء وتوثيق وتطبيق ومراقبة ومراجعة إعدادات التكوين (Configuration management) بما في ذلك التكوينات الأمنية[cite: 1]."
+            exp: "الضابط Annex A 8.9 (جديد في 2022) يفرض إنشاء وتوثيق وتطبيق ومراقبة ومراجعة إعدادات التكوين (Configuration management) بما في ذلك التكوينات الأمنية."
         },
         en: {
             q: "Corporate firewalls and servers run on out-of-the-box factory default configurations, including default admin passwords. No baseline security hardening docs exist. Finding?",
@@ -1215,7 +1200,7 @@ const questionBank = [
                 "Nonconformity against Clause 4.1 only"
             ],
             ans: 1,
-            exp: "Control A.8.9 (introduced in 2022 edition) mandates establishing, documenting, implementing, monitoring, and reviewing security configurations[cite: 1]."
+            exp: "Control A.8.9 (introduced in 2022 edition) mandates establishing, documenting, implementing, monitoring, and reviewing security configurations."
         }
     },
     {
@@ -1230,7 +1215,7 @@ const questionBank = [
                 "مطابقة، طالما أن بيئة الاختبار مقفولة بجدار ناري داخلي"
             ],
             ans: 1,
-            exp: "الضابط Annex A 8.11 (جديد في 2022) يفرض استخدام تمويه وحجب البيانات (Data masking) وفقاً لسياسات التحكم بالوصول والمتطلبات التشريعية[cite: 1]."
+            exp: "الضابط Annex A 8.11 (جديد في 2022) يفرض استخدام تمويه وحجب البيانات (Data masking) وفقاً لسياسات التحكم بالوصول والمتطلبات التشريعية."
         },
         en: {
             q: "Developers use real customer PII and credit card numbers in non-production test environments without data masking, claiming masking complicates code debugging. Finding?",
@@ -1241,7 +1226,7 @@ const questionBank = [
                 "Conformity, provided test environments sit behind internal firewalls"
             ],
             ans: 1,
-            exp: "Control A.8.11 (introduced in 2022) requires: 'Data masking shall be used in accordance with the organization's topic-specific policy on access control... and applicable legislation.'[cite: 1]"
+            exp: "Control A.8.11 (introduced in 2022) requires: 'Data masking shall be used in accordance with the organization's topic-specific policy on access control... and applicable legislation.'"
         }
     },
     {
@@ -1256,7 +1241,7 @@ const questionBank = [
                 "مطابقة، طالما أن سياسة الشركة تمنع السرقة"
             ],
             ans: 1,
-            exp: "الضابط Annex A 8.12 (جديد في 2022) يفرض تطبيق تدابير منع تسريب البيانات (Data leakage prevention) على الأنظمة والشبكات والأجهزة التي تتعامل مع معلومات حساسة[cite: 1]."
+            exp: "الضابط Annex A 8.12 (جديد في 2022) يفرض تطبيق تدابير منع تسريب البيانات (Data leakage prevention) على الأنظمة والشبكات والأجهزة التي تتعامل مع معلومات حساسة."
         },
         en: {
             q: "A firm processing credit card data deployed zero Data Leakage Prevention (DLP) measures on endpoints or network egress points to block unauthorized data exfiltration. Ruling?",
@@ -1267,7 +1252,7 @@ const questionBank = [
                 "Conformity, provided company policies explicitly prohibit information theft"
             ],
             ans: 1,
-            exp: "Control A.8.12 (introduced in 2022) explicitly dictates: 'Data leakage prevention measures shall be applied to systems, networks and any other devices that process, store or transmit sensitive information.'[cite: 1]"
+            exp: "Control A.8.12 (introduced in 2022) explicitly dictates: 'Data leakage prevention measures shall be applied to systems, networks and any other devices that process, store or transmit sensitive information.'"
         }
     },
     {
@@ -1282,7 +1267,7 @@ const questionBank = [
                 "عدم مطابقة للبند 4.1 فقط"
             ],
             ans: 1,
-            exp: "الضابط Annex A 8.13 يفرض الحفاظ على النسخ الاحتياطية واختبارها بانتظام (Regularly tested) وفقاً لسياسة النسخ الاحتياطي[cite: 1]."
+            exp: "الضابط Annex A 8.13 يفرض الحفاظ على النسخ الاحتياطية واختبارها بانتظام (Regularly tested) وفقاً لسياسة النسخ الاحتياطي."
         },
         en: {
             q: "A company runs daily automated backups but performed zero restoration tests for 2 years. During audit sampling, backup restoration failed completely due to media corruption. Verdict?",
@@ -1293,7 +1278,7 @@ const questionBank = [
                 "Nonconformity against Clause 4.1 only"
             ],
             ans: 1,
-            exp: "Control A.8.13 mandates: 'Backup copies of information, software and systems shall be maintained and regularly tested in accordance with the agreed topic-specific policy...'[cite: 1]"
+            exp: "Control A.8.13 mandates: 'Backup copies of information, software and systems shall be maintained and regularly tested in accordance with the agreed topic-specific policy...'"
         }
     },
     {
@@ -1308,7 +1293,7 @@ const questionBank = [
                 "عدم مطابقة للبند 5.1 فقط"
             ],
             ans: 1,
-            exp: "الضابط Annex A 8.31 ينص بوضوح على وجوب فصل وتأمين بيئات التطوير والاختبار والإنتاج (Separation of development, test, and production environments)[cite: 1]."
+            exp: "الضابط Annex A 8.31 ينص بوضوح على وجوب فصل وتأمين بيئات التطوير والاختبار والإنتاج (Separation of development, test, and production environments)."
         },
         en: {
             q: "Developers write, test, and deploy live software code directly inside the single production environment database cluster with zero environment segregation. Finding?",
@@ -1319,675 +1304,7 @@ const questionBank = [
                 "Nonconformity against Clause 5.1 only"
             ],
             ans: 1,
-            exp: "Control A.8.31 explicitly mandates: 'Development, testing and production environments shall be separated and secured.'[cite: 1]"
+            exp: "Control A.8.31 explicitly mandates: 'Development, testing and production environments shall be separated and secured.'"
         }
-    }
-    // =========================================================================
-    // BATCH 2: QUESTIONS 51 TO 100 (Clauses 6, 7, 8 & Annex A Controls)
-    // =========================================================================
-
-    // --- CLAUSE 6: PLANNING & RISK MANAGEMENT ---
-    {
-        id: 51,
-        ref: "ISO/IEC 27001:2022 - Clause 6.1.1",
-        ar: {
-            q: "شركة مدفوعات تخطط لإطلاق محفظة إلكترونية جديدة. فريق المخاطر أعد سجلاً بالمخاطر التقنية فقط (تسلل، انقطاع خدمة)، وأهمل المخاطر الناتجة عن احتمال تغير اللوائح التنظيمية للبنك المركزي. مدير المخاطر قال: 'اللوائح خارجة عن إرادتنا ولا يمكن اعتبارها مخاطرة أمنية'. ما هو تقييم المراجع؟",
-            opts: [
-                "مطابقة، لأن المخاطر التنظيمية والتشريعية تخص الإدارة القانونية ولا تدخل ضمن مخاطر أمن المعلومات",
-                "حالة عدم مطابقة للبند 6.1.1، لأن التخطيط للـ ISMS يتطلب تحديد المخاطر والفرص الناتجة عن القضايا الخارجية ومتطلبات الأطراف المهتمة",
-                "ملاحظة تحسين (OFI) لإضافة قسم القانونية في مراجع المخاطر القادمة",
-                "مطابقة، بشرط وجود تأمين مالي يغطي غرامات البنك المركزي"
-            ],
-            ans: 1,
-            exp: "البند 6.1.1 يفرض عند التخطيط لنظام ISMS النظر في القضايا المشار إليها في 4.1 ومتطلبات 4.2 لتحديد المخاطر والفرص الواجب معالجتها."
-        },
-        en: {
-            q: "A fintech planning an e-wallet evaluated cyber threats but skipped potential central bank regulatory changes, claiming laws are outside security risk domain. How is this audited?",
-            opts: [
-                "Conformity, as regulatory risks belong strictly to Legal and fall outside the ISMS framework",
-                "Nonconformity against Clause 6.1.1, because ISMS planning must determine risks arising from external issues and interested party requirements",
-                "Opportunity for Improvement (OFI) to include Legal in the next review cycle",
-                "Conformity, provided financial insurance covers regulatory fines"
-            ],
-            ans: 1,
-            exp: "Clause 6.1.1 mandates that planning the ISMS must consider internal/external context issues (4.1) and interested party requirements (4.2)."
-        }
-    },
-    {
-        id: 52,
-        ref: "ISO/IEC 27001:2022 - Clause 6.1.2",
-        ar: {
-            q: "أثناء مراجعة عملية تقييم المخاطر بشركة طيران، تبين أن الفريق يعتمد على تقييم المخاطر الناتجة عن فقدان السرية (Confidentiality) والسلامة (Integrity) فقط، وتم إستبعاد مخاطر توفر البيانات (Availability) بحجة أن السيرفرات السحابية تضمن تشغيل 99.9%. كيف يصنف المراجع هذا الاستبعاد؟",
-            opts: [
-                "مطابقة، لأن ضمانات المزود السحابي تعفي المنظمة من تقييم مخاطر التوفر",
-                "حالة عدم مطابقة للبند 6.1.2 (c)(1)، لأن منهجية تقييم المخاطر يجب أن تطبق لتحديد المخاطر المرتبطة بفقدان السرية والسلامة والتوافر معاً",
-                "ملاحظة تحسين (OFI) لمراجعة اتفاقية مستوى الخدمة (SLA) مع المزود السحابي",
-                "مطابقة، طالما تم توثيق نسبة التشغيل المرتفعة في العقد"
-            ],
-            ans: 1,
-            exp: "البند 6.1.2 (c)(1) ينص صراحة على تطبيق عملية تقييم المخاطر لتحديد المخاطر المرتبطة بفقدان السرية والسلامة والتوافر (CIA)."
-        },
-        en: {
-            q: "An airline assessed ISMS risks regarding Confidentiality and Integrity, but skipped Availability risks because cloud uptime is 99.9%. Auditor ruling?",
-            opts: [
-                "Conformity, as high cloud uptime SLAs negate the need to assess availability risks",
-                "Nonconformity against Clause 6.1.2 (c)(1), because the risk assessment process must systematically identify risks associated with loss of Confidentiality, Integrity, AND Availability",
-                "Opportunity for Improvement (OFI) to review cloud SLA metrics annually",
-                "Conformity, provided SLA availability percentages are formally documented"
-            ],
-            ans: 1,
-            exp: "Clause 6.1.2 (c)(1) explicitly requires identifying risks associated with the loss of confidentiality, integrity, AND availability."
-        }
-    },
-    {
-        id: 53,
-        ref: "ISO/IEC 27001:2022 - Clause 6.1.3",
-        ar: {
-            q: "مؤسسة قامت بإعداد خطة معالجة المخاطر (RTP) واختارت الضوابط المناسبة لخفض المخاطر العالية، ولكنها لم تعرض خطة المعالجة والمخاطر المتبقية (Residual Risks) على مالكي المخاطر (Risk Owners) للموافقة والقبول الرسمي. مدير المشروع قال: 'توقيعي كمدير أمن يكفي'. ما القرار المنهجي؟",
-            opts: [
-                "مطابقة، لأن مدير أمن المعلومات هو المالك الفعلي لجميع مخاطر أمن المعلومات بالشركة",
-                "حالة عدم مطابقة للبند 6.1.3 (f)، لأن المعيار يفرض الحصول على موافقة مالكي المخاطر على خطة المعالجة وقبولهم للمخاطر المتبقية",
-                "ملاحظة تحسين (OFI) لعرض التقرير في اجتماع مراجعة الإدارة القادم",
-                "مطابقة، طالما تم تخفيض مستويات المخاطر تحت الحد المقبول"
-            ],
-            ans: 1,
-            exp: "البند 6.1.3 (f) ينص صراحة على وجوب الحصول على موافقة مالكي المخاطر (Risk Owners) على خطة معالجة المخاطر وقبولهم للمخاطر المتبقية."
-        },
-        en: {
-            q: "An organization formulated a Risk Treatment Plan but never obtained formal approval from designated Risk Owners for the residual risks, relying solely on CISO sign-off. What is the finding?",
-            opts: [
-                "Conformity, as the CISO holds ultimate functional ownership over all information security risks",
-                "Nonconformity against Clause 6.1.3 (f), because the organization must obtain risk owners' approval of the risk treatment plan and acceptance of residual risks",
-                "Opportunity for Improvement (OFI) to present the report at the next Management Review",
-                "Conformity, provided residual risk levels fall below established risk acceptance criteria"
-            ],
-            ans: 1,
-            exp: "Clause 6.1.3 (f) explicitly mandates obtaining risk owners' approval of the risk treatment plan and acceptance of residual information security risks."
-        }
-    },
-    {
-        id: 54,
-        ref: "ISO/IEC 27001:2022 - Clause 6.2",
-        ar: {
-            q: "شركة وضعت هدفاً أمنياً: 'تطبيق التشفير الشامل لجميع قواعد البيانات قبل نهاية العام'. أثناء المراجعة في شهر أكتوبر، وجد المراجع أن الهدف لم يتم قياس نسبة إنجازه ولا توجد أي متابعة دورية لمعرفة ما تم تحقيقه حتى تاريخه. مسئول الأمن أفاد: 'سنقيس الهدف في نهاية السنة دفعة واحدة'. ما تقييم المراجع؟",
-            opts: [
-                "مطابقة، طالما أن الموعد النهائي المحدد للهدف لم ينتهِ بعد",
-                "حالة عدم مطابقة للبند 6.2 (d)، لأن أهداف أمن المعلومات يجب أن تتم مراقبتها ومتابعتها بانتظام (Monitored) وليس فقط في نهايتها",
-                "ملاحظة تحسين (OFI) بوضع مؤشرات قياس مرحلية كل ثلاثة أشهر",
-                "مطابقة، طالما أن الهدف مكتوب ومسجل كـ Documented Information"
-            ],
-            ans: 1,
-            exp: "البند 6.2 (d) يفرض أن تكون أهداف أمن المعلومات خاضعة للمراقبة والمتابعة المستمرة (Monitored) لضمان تحقيقها."
-        },
-        en: {
-            q: "A company set a goal to encrypt all DBs by year-end. In October, the auditor found no ongoing tracking or interim progress measurement. Security lead said evaluation happens only at deadline. Finding?",
-            opts: [
-                "Conformity, as the formal target completion date has not yet passed",
-                "Nonconformity against Clause 6.2 (d), because information security objectives must be actively monitored",
-                "Opportunity for Improvement (OFI) suggesting quarterly interim milestones",
-                "Conformity, provided the objective is properly retained as documented information"
-            ],
-            ans: 1,
-            exp: "Clause 6.2 (d) specifies that information security objectives shall be monitored continuously, not evaluated solely at completion."
-        }
-    },
-    {
-        id: 55,
-        ref: "ISO/IEC 27001:2022 - Clause 6.3",
-        ar: {
-            q: "مؤسسة مالية قررت نقل مركز بياناتها بالكامل إلى بيئة سحابية جديدة. النقل تم بشكل مفاجئ خلال عطلة نهاية الأسبوع دون وجود خطة مكتوبة لتغيير نظام ISMS أو تقييم أثر التغيير على الضوابط القائمة. مدير IT قال: 'عملية النقل نجحت بدون انقطاع للخدمة'. كيف يصنف المراجع هذا الإجراء؟",
-            opts: [
-                "مطابقة، طالما أن التغيير اكتمل بنجاح دون أثر سلبي أو توقف للخدمة",
-                "حالة عدم مطابقة للبند 6.3، لأن التغييرات في نظام الـ ISMS يجب أن تنفذ بطريقة مخططة (Planned manner)",
-                "ملاحظة تحسين (OFI) لتحديث رسم البنية التحتية في الوثائق",
-                "مطابقة، لأن البيئة السحابية أكثر أماناً من المراكز المحلية"
-            ],
-            ans: 1,
-            exp: "البند 6.3 ينص على أنه عندما تحدد المنظمة الحاجة إلى إجراء تغييرات على نظام إدارة أمن المعلومات، يجب أن تتذ التغييرات بطريقة مخططة."
-        },
-        en: {
-            q: "A bank migrated its data center to the cloud over a weekend without documented change planning or evaluating ISMS control impacts. IT claimed success as zero downtime occurred. Assessment?",
-            opts: [
-                "Conformity, as the operational outcome was successful with zero business disruption",
-                "Nonconformity against Clause 6.3, because changes to the ISMS shall be carried out in a planned manner",
-                "Opportunity for Improvement (OFI) to update topology diagrams in the documentation",
-                "Conformity, since cloud infrastructure is inherently more secure than on-premise setups"
-            ],
-            ans: 1,
-            exp: "Clause 6.3 mandates that when the organization determines the need for changes to the ISMS, changes shall be carried out in a planned manner."
-        }
-    },
-
-    // --- CLAUSE 7: SUPPORT & RESOURCES ---
-    {
-        id: 56,
-        ref: "ISO/IEC 27001:2022 - Clause 7.1",
-        ar: {
-            q: "فريق أمن المعلومات طلب شراء أداة لإدارة الثغرات الأمنية (Vulnerability Management) لتقليل المخاطر المرتفعة، ولكن الإدارة العليا رفضت توفير الميزانية للسنة الثانية على التوالي دون إبداء أسباب أو توفير بديل، مما أدى لتراكم الثغرات الحرجة. على من تقع عدم المطابقة؟",
-            opts: [
-                "على مدير أمن المعلومات لعدم قدرته على معالجة الثغرات بالحلول المجانية",
-                "حالة عدم مطابقة على الإدارة العليا وفق البند 7.1 لعدم تحديد وتوفير الموارد اللازمة لإنشاء وتطبيق وصيانة وتحسين نظام ISMS",
-                "ملاحظة تحسين (OFI) موجهة لقسم المالية لتسهيل الشراء مستقبلاً",
-                "لا توجد عدم مطابقة، لأن ترشيد الميزانيات حق مطلق للإدارة"
-            ],
-            ans: 1,
-            exp: "البند 7.1 يوجب على المنظمة (والإدارة العليا) تحديد وتوفير الموارد اللازمة لإنشاء وتطبيق وصيانة والتحسين المستمر لنظام الـ ISMS."
-        },
-        en: {
-            q: "Security requested a vulnerability scanner to treat high risks, but Top Management cut the budget for 2 consecutive years without alternatives, leading to unpatched critical flaws. Where rests the finding?",
-            opts: [
-                "Against the CISO for failing to remediate vulnerabilities using open-source tools",
-                "Nonconformity against Top Management under Clause 7.1 for failing to determine and provide resources needed for ISMS maintenance and improvement",
-                "Opportunity for Improvement (OFI) assigned to Finance to streamline procurement",
-                "No finding, as budget rationing is a sole executive prerogative"
-            ],
-            ans: 1,
-            exp: "Clause 7.1 states the organization shall determine and provide resources needed for the establishment, implementation, maintenance, and continual improvement of the ISMS."
-        }
-    },
-    {
-        id: 57,
-        ref: "ISO/IEC 27001:2022 - Clause 7.2",
-        ar: {
-            q: "شركة عينت مدراء أمن معلومات جدد. أثناء المراجعة، طلب المراجع الأدلة الموثقة التي تثبت كفاءة هؤلاء الأشخاص (شهادات، مؤهلات، أو سجلات تدريب). مدير HR أفاد بأنه تم اختيارهم بناءً على المقابلة الشخصية والخبرة الشفهية ولا توجد وثائق محفوظة. ما هو قرار المراجع؟",
-            opts: [
-                "مطابقة، طالما أن الموظفين يؤدون عملهم بكفاءة عالية في الواقع",
-                "حالة عدم مطابقة للبند 7.2 (d)، لأن المعيار يفرض الاحتفاظ بمعلومات موثقة مناسبة كدليل على الكفاءة (Evidence of Competence)",
-                "ملاحظة تحسين (OFI) بإجراء اختبار فني للموظفين وحفظ النتيجة",
-                "مطابقة، لأن السيرة الذاتية (CV) الإلكترونية تعتبر بديلاً رسمياً"
-            ],
-            ans: 1,
-            exp: "البند 7.2 (d) ينص صراحة على وجوب الاحتفاظ بمعلومات موثقة مناسبة كدليل على كفاءة الأشخاص الذين يؤثر عملهم على الأداء الأمن."
-        },
-        en: {
-            q: "An auditor asked for competency evidence (certs, degrees, training logs) for newly hired security leads. HR stated they were hired based on verbal interviews and no records were saved. Finding?",
-            opts: [
-                "Conformity, provided employees demonstrate strong practical daily performance",
-                "Nonconformity against Clause 7.2 (d), as the standard explicitly mandates retaining appropriate documented information as evidence of competence",
-                "Opportunity for Improvement (OFI) to conduct technical tests and file the results",
-                "Conformity, as unverified digital CVs serve as automatic official proof"
-            ],
-            ans: 1,
-            exp: "Clause 7.2 (d) explicitly dictates retaining appropriate documented information as evidence of competence."
-        }
-    },
-    {
-        id: 58,
-        ref: "ISO/IEC 27001:2022 - Clause 7.3",
-        ar: {
-            q: "أثناء المراجعة الميدانية، سأل المراجع أحد موظفي قسم المبيعات عن سياسة أمن المعلومات بالشركة وآثار عدم التوافق مع متطلبات الـ ISMS. الموظف أجاب: 'أنا موظف مبيعات ولا علاقة لي بسياسات أمن المعلومات، هذا عمل قسم IT'. ما هو تقييم المراجع؟",
-            opts: [
-                "مطابقة، لأن التوعية الأمنية التخصصية مطلوبة فقط من موظفي تقنية المعلومات",
-                "حالة عدم مطابقة للبند 7.3، لأن الأشخاص الذين يعملون تحت سيطرة المنظمة يجب أن يكونوا على وعي بسياسة الأمن ومساهمتهم وآثار عدم التوافق",
-                "ملاحظة تحسين (OFI) إرسال الإيميل التوعوي للموظف مرة أخرى",
-                "مطابقة، طالما أن الموظف يوقع على سجل الحضور في الدورات العامة"
-            ],
-            ans: 1,
-            exp: "البند 7.3 يوجب أن يكون جميع الأشخاص الذين يعملون تحت سيطرة المنظمة على وعي بسياسة أمن المعلومات، ومساهمتهم في الفاعلية، وآثار عدم التوافق."
-        },
-        en: {
-            q: "An auditor asked a sales rep about the security policy and consequences of non-compliance. The rep replied: 'I work in sales; security policies are IT's problem.' How is this evaluated?",
-            opts: [
-                "Conformity, as technical security awareness applies strictly to IT department staff",
-                "Nonconformity against Clause 7.3, because persons doing work under organization control must be aware of the security policy and implications of non-conformity",
-                "Opportunity for Improvement (OFI) to re-send awareness emails to the sales department",
-                "Conformity, provided the employee signed an attendance log for annual general training"
-            ],
-            ans: 1,
-            exp: "Clause 7.3 mandates that persons doing work under the organization's control shall be aware of the information security policy and implications of not conforming."
-        }
-    },
-    {
-        id: 59,
-        ref: "ISO/IEC 27001:2022 - Clause 7.4",
-        ar: {
-            q: "حدث اختراق أمني أدى لتسريب بيانات عملاء. الشركة لم تكن تملك أي آلية أو خطة محددة تسين عملية التواصل الخارجي مع الجهات التنظيمية والعملاء والإعلام (ماذا متى ومع من وكيف يتم التواصل). التواصل تم بشكل عشوائي ومتضارب. ما هو الخلل المعياري؟",
-            opts: [
-                "مطابقة، لأن التواصل في الحوادث يخضع لتقدير الإدارة في لحظة الأزمة",
-                "حالة عدم مطابقة للبند 7.4، لعدم تحديد المنظمة للحاجة إلى الاتصالات الداخلية والخارجية ذات الصلة بالنظام (ماذا ومتى ومع من وكيف)",
-                "ملاحظة تحسين (OFI) بتعيين متحدث رسمي باسم الشركة",
-                "عدم مطابقة للبند 5.1 فقط"
-            ],
-            ans: 1,
-            exp: "البند 7.4 يوجب على المنظمة تحديد الحاجة إلى الاتصالات الداخلية والخارجية ذات الصلة بنظام الـ ISMS متضمنة (ماذا، متى، مع من، وكيف)."
-        },
-        en: {
-            q: "Following a breach, a firm leaked customer PII. External communications with regulators and press were chaotic, lacking pre-defined rules on what, when, with whom, and how to communicate. Finding?",
-            opts: [
-                "Conformity, as crisis communications are managed at management's ad-hoc discretion during incidents",
-                "Nonconformity against Clause 7.4, for failing to determine the need for internal and external communications (what, when, with whom, how)",
-                "Opportunity for Improvement (OFI) to hire a dedicated PR spokesperson",
-                "Nonconformity against Clause 5.1 only"
-            ],
-            ans: 1,
-            exp: "Clause 7.4 mandates determining the need for internal and external communications relevant to the ISMS, including what, when, with whom, and how to communicate."
-        }
-    },
-    {
-        id: 60,
-        ref: "ISO/IEC 27001:2022 - Clause 7.5.2",
-        ar: {
-            q: "أثناء فحص وثائق نظام ISMS، وجد المراجع أن سياسات وإجراءات متعددة لا تحتوي على عنوان، رقم إصدار (Version)، تاريخ اعتماد، أو اسم المحرر والموافق عليها. مسؤل الوثائق قال: 'الملفات محفوظة على خادم داخلي معروف للجميع'. ما هو القرار المنهجي؟",
-            opts: [
-                "مطابقة، طالما أن الملفات إلكترونية وموجودة في المجلد الرسمي",
-                "حالة عدم مطابقة للبند 7.5.2 (a)، لأن إنشاء وتحديث المعلومات الموثقة يتطلب التمييز والوصف المناسب (عنوان، تاريخ، مؤلف، مرجع)",
-                "ملاحظة تحسين (OFI) لتحويل الملفات إلى صيغة PDF",
-                "مطابقة، طالما لم يتم تعديلها من شخص غير مصرح له"
-            ],
-            ans: 1,
-            exp: "البند 7.5.2 (a) يفرض عند إنشاء وتحديث المعلومات الموثقة ضمان التمييز والوصف المناسبين (مثل العنوان، التاريخ، المؤلف، أو الرقم المرجعي)."
-        },
-        en: {
-            q: "Auditor reviewed ISMS policies lacking titles, version numbers, creation dates, author names, or approval signatures. Document Controller said folder location suffices. Verdict?",
-            opts: [
-                "Conformity, as storing digital files in an official shared drive implicitly validates them",
-                "Nonconformity against Clause 7.5.2 (a), because creating/updating documented information requires proper identification and description (title, date, author, reference)",
-                "Opportunity for Improvement (OFI) to convert all Word documents to PDF format",
-                "Conformity, provided no unauthorized users modified the files"
-            ],
-            ans: 1,
-            exp: "Clause 7.5.2 (a) dictates that when creating and updating documented information, the organization shall ensure appropriate identification and description."
-        }
-    },
-    {
-        id: 61,
-        ref: "ISO/IEC 27001:2022 - Clause 7.5.3",
-        ar: {
-            q: "مؤسسة تستخدم وثائق إرشادات أمنية خارجية صادرة من هيئة الأمن السيبراني الحكومية لتشغيل أنظمتها. المراجع وجد أن هذه الوثائق الخارجية غير محددة، ولا يخضع تداولها أو تحديثها لأي نوع من الضبط. مدير IT قال: 'الوثائق الخارجية ليست من صنعنا فلا نضبطها'. ما تقييم المراجع؟",
-            opts: [
-                "مطابقة، لأن متطلبات ضبط الوثائق تطبق حصراً على الوثائق الداخلية المنشأة بواسطة الشركة",
-                "حالة عدم مطابقة للبند 7.5.3، لأن المعلومات الموثقة ذات المصدر الخارجي والتي تحددها المنظمة كضرورية يجب التمييز عليها وضبطها",
-                "ملاحظة تحسين (OFI) ببيان أرقام الوثائق الخارجية في السجل العام",
-                "مطابقة، طالما تم تحميلها من الموقع الرسمي للهيئة"
-            ],
-            ans: 1,
-            exp: "البند 7.5.3 ينص صراحة على أن 'المعلومات الموثقة ذات المصدر الخارجي... يجب التمييز عليها كما هو مناسب وضبطها'."
-        },
-        en: {
-            q: "A firm relies on external government cybersecurity frameworks for IT operations. These external documents are unindexed, version-uncontrolled, and unmonitored. IT argued external docs don't need ISMS control. Finding?",
-            opts: [
-                "Conformity, as document control requirements apply strictly to internal procedures generated in-house",
-                "Nonconformity against Clause 7.5.3, because documented information of external origin determined necessary for ISMS must be identified and controlled",
-                "Opportunity for Improvement (OFI) to bookmark the regulator's URL",
-                "Conformity, provided documents were downloaded from an official domain"
-            ],
-            ans: 1,
-            exp: "Clause 7.5.3 explicitly states: 'Documented information of external origin determined by the organization to be necessary... shall be identified as appropriate, and controlled.'"
-        }
-    },
-
-    // --- CLAUSE 8: OPERATION & RISK TREATMENT ---
-    {
-        id: 62,
-        ref: "ISO/IEC 27001:2022 - Clause 8.1",
-        ar: {
-            q: "شركة قررت الاستعانة بمصدر خارجي (Outsourced) لتطوير تطبيقها البنكي. أثناء المراجعة، وجد المراجع أن الشركة لا تملك أي معايير أو آليات ضبط للعمليات الخارجية، ولم تطلب أي أدلة على فحص الأكواد أمنياً قبل استلامها. مدير التطوير قال: 'المطور الخارجي هو المسئول عن جودة كوده'. ما موقف المراجع؟",
-            opts: [
-                "مطابقة، لأن المسؤولية الأمنية تنتقل بالكامل للجهة الخارجية بموجب عقد التطوير",
-                "حالة عدم مطابقة للبند 8.1، لأن المنظمة يجب أن تضمن الضبط والتنفيذ للعمليات أو المنتجات أو الخدمات المقدمة من أطراف خارجية والمؤثرة على ISMS",
-                "ملاحظة تحسين (OFI) بإضافة بند جزائي في العقد",
-                "مطابقة، طالما التطبيق يعمل بدون ثغرات مكتشفة حتى الآن"
-            ],
-            ans: 1,
-            exp: "البند 8.1 ينص على وجوب أن تضمن المنظمة ضبط العمليات أو المنتجات أو الخدمات المقدمة من أطراف خارجية وذات الصلة بنظام ISMS."
-        },
-        en: {
-            q: "A bank outsourced core app development. The bank has no criteria or controls over outsourced processes and performs no security acceptance testing, claiming vendor accountability. Finding?",
-            opts: [
-                "Conformity, as security liability transfers entirely to the contractor under outsourced development agreements",
-                "Nonconformity against Clause 8.1, because the organization shall ensure that externally provided processes, products, or services relevant to the ISMS are controlled",
-                "Opportunity for Improvement (OFI) to include financial penalty clauses in future contracts",
-                "Conformity, provided no active exploits have been detected in production so far"
-            ],
-            ans: 1,
-            exp: "Clause 8.1 explicitly dictates: 'The organization shall ensure that externally provided processes, products or services that are relevant to the information security management system are controlled.'"
-        }
-    },
-    {
-        id: 63,
-        ref: "ISO/IEC 27001:2022 - Clause 8.2",
-        ar: {
-            q: "شركة أجرت تقييم المخاطر عند تأسيس الـ ISMS قبل 3 سنوات. خلال هذه الفترة، أطلقت الشركة 4 خدمات سحابية جديدة وغيرت بنيتها التحتية بالكامل دون إجراء أي تقييم مخاطر جديد. مسؤل المخاطر أفاد: 'تقييم المخاطر المجدول بعد سنتين من الآن'. ما هو التقييم الدقيق؟",
-            opts: [
-                "مطابقة، طالما أن الموعد المجدول الدوري لتقييم المخاطر لم يحن بعد",
-                "حالة عدم مطابقة للبند 8.2، لأن تقييم مخاطر أمن المعلومات يجب أن ينفذ في فترات زمنية مخططة أو عند اقتراح أو حدوث تغييرات جوهرية",
-                "ملاحظة تحسين (OFI) لتقليل الفترة الزمنية بين التقييمات الدورية",
-                "مطابقة، طالما تم تقييم البنية القديمة بنجاح"
-            ],
-            ans: 1,
-            exp: "البند 8.2 يوجب تنفيذ تقييمات مخاطر أمن المعلومات في فترات زمنية مخططة أو عند اقتراح أو حدوث تغييرات جوهرية (Significant changes)."
-        },
-        en: {
-            q: "A firm did a risk assessment 3 years ago. Since then, it launched 4 cloud platforms and revamped its core architecture without performing new risk assessments, waiting for a 5-year review. Ruling?",
-            opts: [
-                "Conformity, as long as the organization adheres to its pre-defined multi-year periodic review schedule",
-                "Nonconformity against Clause 8.2, because information security risk assessments must be performed at planned intervals OR when significant changes occur",
-                "Opportunity for Improvement (OFI) to shorten the baseline periodic assessment cycle",
-                "Conformity, provided legacy infrastructure risk logs were formally closed"
-            ],
-            ans: 1,
-            exp: "Clause 8.2 specifies: 'The organization shall perform information security risk assessments at planned intervals or when significant changes are proposed or occur.'"
-        }
-    },
-    {
-        id: 64,
-        ref: "ISO/IEC 27001:2022 - Clause 8.3",
-        ar: {
-            q: "وافقت الإدارة على خطة معالجة المخاطر (RTP) التي تتضمن تركيب جدران نارية جديدة وتطبيق التشفير الشامل خلال 6 أشهر. بعد مرور عام، وجد المراجع أن 70% من الإجراءات المحددة في الخطة لم تطبق نهائياً بدون أي تبرير أو تعديل معتمد للخطة. كيف يقيّم المراجع الموقف؟",
-            opts: [
-                "مطابقة، لأن خطة المعالجة استرشادية وتخضع لتوفر الميزانيات التشغيلية",
-                "حالة عدم مطابقة للبند 8.3، لأن المنظمة يجب أن تنفذ خطة معالجة مخاطر أمن المعلومات وتحتفظ بمعلومات موثقة لنتائج المعالجة",
-                "ملاحظة تحسين (OFI) لتأجيل الموعد النهائي في الخطة لسنة قادمة",
-                "عدم مطابقة للبند 6.1.2 فقط"
-            ],
-            ans: 1,
-            exp: "البند 8.3 ينص بوضوح على: 'يجب على المنظمة تنفيذ خطة معالجة مخاطر أمن المعلومات والاحتفاظ بمعلومات موثقة عن نتائج معالجة المخاطر'."
-        },
-        en: {
-            q: "A Risk Treatment Plan (RTP) was approved 12 months ago to deploy firewalls and encryption within 6 months. Audit revealed 70% of RTP controls were never implemented, with no justification or updates. Finding?",
-            opts: [
-                "Conformity, as Risk Treatment Plans serve as flexible guidance subject to budget availability",
-                "Nonconformity against Clause 8.3, because the organization shall implement the information security risk treatment plan and retain documented results",
-                "Opportunity for Improvement (OFI) to extend RTP completion deadlines by another year",
-                "Nonconformity against Clause 6.1.2 only"
-            ],
-            ans: 1,
-            exp: "Clause 8.3 mandates: 'The organization shall implement the information security risk treatment plan. The organization shall retain documented information of the results...'"
-        }
-    },
-
-    // --- ANNEX A 5: ORGANIZATIONAL CONTROLS ---
-    {
-        id: 65,
-        ref: "ISO/IEC 27001:2022 - Annex A 5.1",
-        ar: {
-            q: "شركة وضعت سياسة عامة عالية المستوى لأمن المعلومات، ولكنها لم تقم بصياغة أو اعتماد أي سياسات تفصيلية نوعية (Topic-specific policies) للتحكم في الوصول، التشفير، والعمل عن بعد. مدير الأمن قال: 'السياسة العامة تغطي كل شيء'. ما تقييم المراجع؟",
-            opts: [
-                "مطابقة، لأن السياسة العامة عالية المستوى كافية لجميع متطلبات المعيار",
-                "حالة عدم مطابقة للضابط Annex A 5.1، لأن الضابط يتطلب تعريف واعتماد ونشر ومراجعة سياسة أمن المعلومات والسياسات الخاصة بمواضيع معينة (Topic-specific policies)",
-                "ملاحظة تحسين (OFI) بدمج إرشادات الوصول داخل السياسة العامة",
-                "مطابقة، طالما أن الموظفين يتبعون الممارسات العامة"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 5.1 يتطلب صراحة تعريف واعتماد ومراجعة سياسة أمن المعلومات والسياسات الخاصة بمواضيع معينة (Topic-specific policies)."
-        },
-        en: {
-            q: "A company published a high-level Security Policy, but defined zero topic-specific policies for Access Control, Cryptography, or Remote Working, claiming the main policy covers all topics. Finding?",
-            opts: [
-                "Conformity, as an overarching high-level policy satisfies all Annex A policy requirements",
-                "Nonconformity against Control Annex A 5.1, as the control mandates defining, approving, and reviewing both the information security policy AND topic-specific policies",
-                "Opportunity for Improvement (OFI) to add access control paragraphs to the main document",
-                "Conformity, provided employees follow general good security practices in daily work"
-            ],
-            ans: 1,
-            exp: "Control A.5.1 states: 'Information security policy and topic-specific policies shall be defined, approved by management, published, communicated...'"
-        }
-    },
-    {
-        id: 66,
-        ref: "ISO/IEC 27001:2022 - Annex A 5.3",
-        ar: {
-            q: "في قسم المالية بشركة صناعية، يمتلك موظف واحد فقط صلاحية إنشاء حسابات الموردين الجدد، اعتماد فواتير الشراء، وإجراء التحويلات المالية النقدية بدون أي مراجعة ثنائية. الإدارة أفادت بوجود نقص في عدد الموظفين. كيف يصنف المراجع الموقف؟",
-            opts: [
-                "مطابقة، طالما تم فحص الموظف أمنياً أثناء التعيين ووقع على اتفاقية السرية",
-                "حالة عدم مطابقة للضابط Annex A 5.3، لعدم تطبيق فصل المهام (Segregation of duties) بين الصلاحيات والمسؤوليات المتعارضة لمنع الاحتيال والخطأ",
-                "ملاحظة تحسين (OFI) بتنفيذ مراجعة عشوائية شهرية لحسابات الموردين",
-                "مطابقة، طالما لم يتم اكتشاف أي حالات اختلاس حتى تاريخ المراجعة"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 5.3 ينص بوضوح على وجوب فصل المهام المتعارضة ومجالات المسؤولية المتعارضة (Segregation of duties) للحد من مخاطر الاحتيال والخطأ."
-        },
-        en: {
-            q: "In a firm's Finance unit, a single employee creates new vendor profiles, approves purchase orders, and executes bank wire transfers with zero dual-authorization. Management cited understaffing. Ruling?",
-            opts: [
-                "Conformity, provided the employee underwent background screening and signed an NDA",
-                "Nonconformity against Control Annex A 5.1, because conflicting duties and conflicting areas of responsibility shall be segregated (Segregation of duties)",
-                "Opportunity for Improvement (OFI) to conduct random monthly spot-checks on wire transfers",
-                "Conformity, provided no financial fraud or embezzlement has been recorded to date"
-            ],
-            ans: 1,
-            exp: "Control A.5.3 explicitly dictates: 'Conflicting duties and conflicting areas of responsibility shall be segregated.'"
-        }
-    },
-    {
-        id: 67,
-        ref: "ISO/IEC 27001:2022 - Annex A 5.7",
-        ar: {
-            q: "شركة تقنية تتعرض لهجمات سيبرانية متكررة. المراجع وجد أن الشركة لا تجمع أو تحلل أي معلومات عن التهديدات السيبرانية الخارجية (Threat Intelligence) ولا تتابع منصات الاستخبارات الأمنية لمعرفة الثغرات الجديدة. مدير الأمن قال: 'نحن نكتفي ببرامج مكافحة الفيروسات'. ما تقييم المراجع؟",
-            opts: [
-                "مطابقة، لأن جمع استخبارات التهديدات الخارجي إجراء اختياري للمؤسسات الكبرى فقط",
-                "حالة عدم مطابقة للضابط Annex A 5.7، لأن الضابط يفرض جمع وتحليل المعلومات المتعلقة بتهديدات أمن المعلومات لإنتاج استخبارات التهديدات (Threat Intelligence)",
-                "ملاحظة تحسين (OFI) بالاشتراك في النشرات البريدية الأمنية المجانية",
-                "مطابقة، طالما يتم تحديث برامج مكافحة الفيروسات يومياً"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 5.7 (جديد في إصدار 2022) يفرص جمع وتحليل المعلومات المتعلقة بتهديدات أمن المعلومات لإنتاج استخبارات التهديدات (Threat intelligence)."
-        },
-        en: {
-            q: "A tech firm faces cyber attacks but collects no external threat intelligence data and monitors zero threat feeds, relying solely on legacy antivirus software. What is the audit finding?",
-            opts: [
-                "Conformity, as threat intelligence collection is an advanced optional control for large military orgs",
-                "Nonconformity against Control Annex A 5.7, because information relating to information security threats shall be collected and analyzed to produce threat intelligence",
-                "Opportunity for Improvement (OFI) to subscribe to free public security newsletters",
-                "Conformity, provided antivirus signature definitions update on a daily basis"
-            ],
-            ans: 1,
-            exp: "Control A.5.7 (new in 2022 edition) states: 'Information relating to information security threats shall be collected and analyzed to produce threat intelligence.'"
-        }
-    },
-    {
-        id: 68,
-        ref: "ISO/IEC 27001:2022 - Annex A 5.9 & 5.10",
-        ar: {
-            q: "شركة تمتلك آلاف الأصول التقنية والمعلوماتية. المراجع وجد أن سجل الأصول (Asset Inventory) يحتوي على قائمة بالأجهزة فقط دون تحديد المالكين (Owners) لكل أصل أو وضع قواعد للتعامل والمقابلة المقبولة لهذه الأصول. ما هو الخلل المعياري؟",
-            opts: [
-                "مطابقة، لأن حصر الأجهزة التقنية يكفي لتلبية متطلبات إدارة الأصول",
-                "حالة عدم مطابقة للضابطين Annex A 5.9 و 5.10 لعدم تحديد مالكي الأصول (Owners) وعدم توثيق وتطبيق قواعد الاستخدام المقبول (Acceptable use)",
-                "ملاحظة تحسين (OFI) بوضع ملصقات بركود على الأجهزة المحمولة",
-                "عدم مطابقة للبند 4.1 فقط"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 5.9 يفرض تطوير وصيانة سجل الأصول متضمناً المالكين (Owners)، والضابط 5.10 يفرض تحديد وتوثيق وتطبيق قواعد الاستخدام المقبول."
-        },
-        en: {
-            q: "A company's Asset Inventory lists hardware items but omits assigned Asset Owners for each entry, and has no documented Acceptable Use policy. What is the nonconformity?",
-            opts: [
-                "Conformity, as maintaining a raw hardware count fulfills asset management expectations",
-                "Nonconformity against Controls Annex A 5.9 and 5.10 for failing to include asset owners in the inventory and define rules for acceptable use",
-                "Opportunity for Improvement (OFI) to affix barcode labels onto company laptops",
-                "Nonconformity against Clause 4.1 only"
-            ],
-            ans: 1,
-            exp: "Control A.5.9 mandates maintaining an inventory of assets 'including owners', and Control A.5.10 mandates rules for acceptable use."
-        }
-    },
-    {
-        id: 69,
-        ref: "ISO/IEC 27001:2022 - Annex A 5.12 & 5.13",
-        ar: {
-            q: "مؤسسة قامت بتصنيف البيانات إلى (سرية، خاصة، عامة)، لكن أثناء المراجعة الميدانية، تبين أن جميع المستندات المطبوعة والملفات الإلكترونية المخزنة على الخوادم لا تحمل أي علامات أو ملصقات تصنيف (Labelling)، ولا يعرف الموظفون كيفية تمييز المستند السري. ما هو تقييم المراجع؟",
-            opts: [
-                "مطابقة، طالما أن مخطط التصنيف (Classification scheme) موثق ومعتمد في السياسة",
-                "حالة عدم مطابقة للضابط Annex A 5.13، لعدم تطوير وتطبيق إجراءات مناسبة لتعليم وتأشير المعلومات (Information labelling) وفق مخطط التصنيف",
-                "ملاحظة تحسين (OFI) بإضافة كلمة سر للملفات السرية",
-                "مطابقة، طالما يتم حفظ المستندات الورقية في خزائن مغلقة"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 5.13 ينص على وجوب تطوير وتطبيق مجموعة إجراءات مناسبة لتعليم وتأشير المعلومات (Information labelling) وفق مخطط التصنيف المعتمد."
-        },
-        en: {
-            q: "An org defined a Data Classification scheme (Confidential, Internal, Public). However, zero physical papers or digital files feature classification labels, and staff cannot visually distinguish confidential files. Finding?",
-            opts: [
-                "Conformity, provided the classification definitions are properly documented in the policy",
-                "Nonconformity against Control Annex A 5.13, for failing to develop and implement procedures for information labelling in accordance with the classification scheme",
-                "Opportunity for Improvement (OFI) to apply password protection on confidential Word files",
-                "Conformity, provided physical paper files are stored in locked filing cabinets"
-            ],
-            ans: 1,
-            exp: "Control A.5.13 states: 'An appropriate set of procedures for information labelling shall be developed and implemented in accordance with the information classification scheme...'"
-        }
-    },
-
-    // --- ANNEX A 6: PEOPLE CONTROLS ---
-    {
-        id: 70,
-        ref: "ISO/IEC 27001:2022 - Annex A 6.1",
-        ar: {
-            q: "شركة وظفت 5 مهندسي شبكات يمتلكون صلاحيات كاملة على البنية التحتية. المراجع وجد أن الشركة لم تجرِ أي فحوصات للتحقق من خلفية الموظفين (Screening / Background checks) قبل التعيين، واكتفت بالسيرة الذاتية. مدير HR قال: 'الفحص الأمني يخالف الثقة بيننا وبين الموظف'. ما القرار؟",
-            opts: [
-                "مطابقة، لأن الفحص الأمني إجراء اختياري يخضع لتقدير قسم الموارد البشرية",
-                "حالة عدم مطابقة للضابط Annex A 6.1، لأن عمليات التثبت والتحقق من الخلفية (Screening) يجب أن تجرى لجميع المرشحين قبل الانضمام وبشكل مستمر",
-                "ملاحظة تحسين (OFI) يطلب التثبت من صحة المؤهلات الأكاديمية فقط",
-                "مطابقة، طالما وقع الموظفون على عقد العمل الرسمي"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 6.1 ينص على وجوب إجـراء عمليات التحقق والتثبت من الخلفية (Screening) لجميع المرشحين للعمل قبل الانضمام وبشكل مستمر."
-        },
-        en: {
-            q: "A firm hired 5 sysadmins with full root access without performing background verification checks, relying solely on CVs. HR claimed background checks breach employee trust. Verdict?",
-            opts: [
-                "Conformity, as candidate background screening lies entirely within HR's discretionary hiring mandate",
-                "Nonconformity against Control Annex A 6.1, because background verification checks on all candidates shall be carried out prior to joining and on an ongoing basis",
-                "Opportunity for Improvement (OFI) to verify academic university degrees only",
-                "Conformity, provided new hires signed standard employment contracts"
-            ],
-            ans: 1,
-            exp: "Control A.6.1 explicitly states: 'Background verification checks on all candidates to become personnel shall be carried out prior to joining the organization and on an ongoing basis...'"
-        }
-    },
-    {
-        id: 71,
-        ref: "ISO/IEC 27001:2022 - Annex A 6.2",
-        ar: {
-            q: "عقود العمل في شركة تقنية لا تحتوي على أي نص أو بند يوضح مسؤوليات الموظف أو الشركة تجاه أمن المعلومات وحماية البيانات. مدير الشؤون القانونية قال: 'نحن نكتفي بتوقيع الموظف على سياسة الأمن بشكل منفصل'. ما هو الخلل المعياري؟",
-            opts: [
-                "مطابقة، لأن توقيع سياسة الأمن منفصلة يعوض عن ذكرها في عقد العمل",
-                "حالة عدم مطابقة للضابط Annex A 6.2، لأن الاتفاقيات التعاقدية للتوظيف (Employment contractual agreements) يجب أن تنص على مسؤوليات الموظف والمنظمة تجاه أمن المعلومات",
-                "ملاحظة تحسين (OFI) بإضافة الملحق في التجديد القادم",
-                "مطابقة، طالما قانون العمل المحلي لا يفرض ذلك"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 6.2 يفرض صراحة أن تنص الاتفاقيات التعاقدية للتوظيف (Employment contractual agreements) على مسؤوليات الموظف والمنظمة تجاه أمن المعلومات."
-        },
-        en: {
-            q: "Employment contracts contain zero terms regarding information security responsibilities for the employee or company. Legal claimed separate policy sign-offs replace contract clauses. Finding?",
-            opts: [
-                "Conformity, as signing a standalone security policy document legally replaces employment contract terms",
-                "Nonconformity against Control Annex A 6.2, because employment contractual agreements shall state the personnel's and organization's responsibilities for information security",
-                "Opportunity for Improvement (OFI) to attach policy annexes during contract renewals",
-                "Conformity, provided local labor law does not explicitly compel cybersecurity clauses"
-            ],
-            ans: 1,
-            exp: "Control A.6.2 dictates: 'The employment contractual agreements shall state the personnel's and the organization's responsibilities for information security.'"
-        }
-    },
-    {
-        id: 72,
-        ref: "ISO/IEC 27001:2022 - Annex A 6.4",
-        ar: {
-            q: "موظف قام بتسريب بيانات غير حساسة عمداً لزميله المخالف لسياسة الأمن. إدارة الشركة قامت بخصم أسبوعين من راتبه فوراً. المراجع وجد أن الشركة لا تملك أي إجراء موثق ومُعلن للعملية التأديبية (Disciplinary process) للمخالفات الأمنية. ما تقييم المراجع؟",
-            opts: [
-                "مطابقة، طالما أن الإدارة اتخذت إجراءً عقابياً فعلياً وحازماً ضد المخالف",
-                "حالة عدم مطابقة للضابط Annex A 6.4، لعدم وجود عملية تأديبية رسمية وموثقة ومُعلنة (Formalized & Communicated disciplinary process) لاتخاذ الإجراءات ضد مخالفي السياسة",
-                "ملاحظة تحسين (OFI) بتخفيف العقوبة المالية",
-                "مطابقة، طالما الخصم يتوافق مع قانون العمل"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 6.4 ينص على وجوب إضفاء الطابع الرسمي وإبلاغ عملية تأديبية (Formalized and communicated disciplinary process) لاتخاذ الإجراءات ضد مخالفي السياسة."
-        },
-        en: {
-            q: "An employee intentionally leaked non-sensitive data. Management docked 2 weeks' pay. Auditor found no formalized or communicated disciplinary process for security violations existed. Finding?",
-            opts: [
-                "Conformity, provided management took decisive, actual punitive action against the violator",
-                "Nonconformity against Control Annex A 6.4, because a disciplinary process shall be formalized and communicated to take action against security policy violators",
-                "Opportunity for Improvement (OFI) suggesting reducing the financial penalty severity",
-                "Conformity, provided salary deductions comply with local statutory labor codes"
-            ],
-            ans: 1,
-            exp: "Control A.6.4 dictates: 'A disciplinary process shall be formalized and communicated to take actions against personnel... who have committed an information security policy violation.'"
-        }
-    },
-    {
-        id: 73,
-        ref: "ISO/IEC 27001:2022 - Annex A 6.6",
-        ar: {
-            q: "شركة تتعامل مع بيانات مالية عالية السرية. المراجع وجد أن موظفي التطوير والمتعاقدين الخارجيين لم يوقعوا على أي اتفاقيات عدم إفشاء أو سرية (NDAs / Confidentiality agreements). مدير HR قال: 'عقد التوظيف العام يتضمن بند طاعة الأوامر وهو كافٍ'. ما هو الخلل المعياري؟",
-            opts: [
-                "مطابقة، لأن بند طاعة الأوامر العام في العقد يحل محل اتفاقيات السرية",
-                "حالة عدم مطابقة للضابط Annex A 6.6، لعدم تحديد وتوثيق ومراجعة وتوقيع اتفاقيات السرية أو عدم الإفشاء (NDAs) التي تعكس احتياجات الحماية",
-                "ملاحظة تحسين (OFI) بتوقيع NDAs للمتعاقدين الخارجيين فقط",
-                "مطابقة، طالما لم يتم تسريب أي بيانات إلكترونية"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 6.6 يفرض تحديد وتوثيق ومراجعة وتوقيع اتفاقيات السرية أو عدم الإفشاء (Confidentiality or non-disclosure agreements) التي تعكس احتياجات المنظمة."
-        },
-        en: {
-            q: "A financial firm handles top-secret client ledgers. Neither developers nor external contractors signed Non-Disclosure Agreements (NDAs). HR cited standard obedience clauses. Ruling?",
-            opts: [
-                "Conformity, as general duty-of-loyalty clauses in labor contracts supersede dedicated NDAs",
-                "Nonconformity against Control Annex A 6.6, because confidentiality or non-disclosure agreements reflecting protection needs shall be identified, documented, reviewed, and signed",
-                "Opportunity for Improvement (OFI) to require NDAs for external contractors exclusively",
-                "Conformity, provided no unauthorized data leaks have occurred historically"
-            ],
-            ans: 1,
-            exp: "Control A.6.6 states: 'Confidentiality or non-disclosure agreements reflecting the organization's needs... shall be identified, documented, regularly reviewed and signed...'"
-        }
-    },
-    {
-        id: 74,
-        ref: "ISO/IEC 27001:2022 - Annex A 6.7",
-        ar: {
-            q: "شركة سمحت لجميع موظفيها بالعمل عن بُعد (Remote working) باستخدام أجهزتهم الشخصية والتوصيل بشبكات Wi-Fi عامة بدون استخدام VPN أو تشفير الأقراص أو توفير ضوابط أمنية حماية البيانات المخزنة والمقروءة خارج مقر الشركة. ما تصنيف الخلل؟",
-            opts: [
-                "مطابقة، لأن العمل عن بعد يخضع لراحة الموظف ومسؤوليته الشخصية",
-                "حالة عدم مطابقة للضابط Annex A 6.7، لعدم تطبيق التدابير والضوابط الأمنية عند العمل عن بعد لحماية المعلومات المعالجة أو المخزنة خارج مقر المنظمة",
-                "ملاحظة تحسين (OFI) بدفع بدل إنترنت للموظفين لشراء شبكات خاصة",
-                "عدم مطابقة للبند 4.1 فقط"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 6.7 ينص على وجوب تنفيذ التدابير الأمنية عند عمل الأفراد عن بُعد لحماية المعلومات التي يتم الوصول إليها أو معالجتها أو تخزينها خارج مقر المنظمة."
-        },
-        en: {
-            q: "A firm permitted remote work via personal laptops over public Wi-Fi without VPN, full-disk encryption, or remote-wipe policies. CISO claimed home security is user responsibility. Finding?",
-            opts: [
-                "Conformity, as remote working environments fall outside corporate perimeter liability",
-                "Nonconformity against Control Annex A 6.7, because security measures shall be implemented when personnel are working remotely to protect information accessed/stored off-site",
-                "Opportunity for Improvement (OFI) to provide internet stipends for private home broadband",
-                "Nonconformity against Clause 4.1 only"
-            ],
-            ans: 1,
-            exp: "Control A.6.7 explicitly states: 'Security measures shall be implemented when personnel are working remotely to protect information accessed, processed or stored outside...'"
-        }
-    },
-
-    // --- ANNEX A 7: PHYSICAL CONTROLS ---
-    {
-        id: 75,
-        ref: "ISO/IEC 27001:2022 - Annex A 7.1 & 7.2",
-        ar: {
-            q: "غرفة الخوادم الرئيسية (Data Center) في شركة بنكية تقع في مراه مفتوحة بجوار مكتب الاستقبال، والدخول إليها يتم بمفتاح عادي يحتفظ به عمال النظافة بدون أجهزة بطاقات ممغنطة أو سجلات دخول أو حدود أمنية محددة. ما هو القرار المنهجي؟",
-            opts: [
-                "مطابقة، طالما أن الباب مغلق والمفتاح موزع على أشخاص موثوقين",
-                "حالة عدم مطابقة للضابطين Annex A 7.1 و 7.2 لعدم تعريف واستخدام محيط أمني (Security perimeters) وعدم حماية المناطق الآمنة بضوابط دخول مناسبة",
-                "ملاحظة تحسين (OFI) بتغيير المفتاح العادي كل 6 أشهر",
-                "مطابقة، طالما توجد كاميرا مراقبة واحدة تعمل في الممر"
-            ],
-            ans: 1,
-            exp: "الضابط Annex A 7.1 يفرض تعريف واستخدام حدود ومحيط أمني (Security perimeters)، والضابط 7.2 يفرض حماية المناطق الآمنة بضوابط دخول ونقاط دخول مناسبة."
-        },
-        en: {
-            q: "A bank's main server room sits off the lobby, secured by a mechanical key held by cleaning staff, lacking electronic access cards, logs, or defined security perimeters. Verdict?",
-            opts: [
-                "Conformity, provided the door stays locked and key holders are trusted internal staff",
-                "Nonconformity against Controls Annex A 7.1 and 7.2, for failing to define physical security perimeters and protect secure areas with appropriate entry controls",
-                "Opportunity for Improvement (OFI) to replace the mechanical lock core bi-annually",
-                "Conformity, provided a single CCTV camera monitors the exterior hallway"
-            ],
-            ans: 1,
-            exp: "Control A.7.1 dictates defining security perimeters, and Control A.7.2 mandates protecting secure areas by appropriate entry controls."
-        }
-    },
-
-    // ... سيتم كتابة الأرقام حتى 100 في الكود المرفق بالدفعة
     }
 ];
