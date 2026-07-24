@@ -333,6 +333,19 @@
         }
         .ref-tag { font-weight: 700; display: inline-block; margin-bottom: 5px; color: var(--accent); }
 
+        /* Pagination Styles */
+        .pagination-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding: 15px 0;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .page-info { font-weight: 700; font-size: 0.9em; color: var(--text-secondary); }
+
         #simulator-app, #exam-screen, #result-screen, #leaderboard-section { display: none; }
 
         footer {
@@ -480,7 +493,15 @@
         </div>
         <form id="quiz-form">
             <div id="questions-container"></div>
-            <button type="button" class="btn btn-success" style="font-size:1.05em; padding:14px;" onclick="submitExam()" id="btn-submit">Submit & Save Attempt</button>
+            
+            <!-- Pagination Navigation -->
+            <div class="pagination-container" id="pagination-controls">
+                <button type="button" class="btn btn-outline" onclick="changePage(-1)" id="btn-prev-page">⬅️ Previous</button>
+                <span class="page-info" id="page-indicator">Page 1 of 1</span>
+                <button type="button" class="btn btn-outline" onclick="changePage(1)" id="btn-next-page">Next ➡️</button>
+            </div>
+
+            <button type="button" class="btn btn-success" style="font-size:1.05em; padding:14px; width:100%; margin-top:20px; display:none;" onclick="submitExam()" id="btn-submit">Submit & Save Attempt</button>
         </form>
     </div>
 
@@ -519,6 +540,10 @@ let joinLeaderboard = true;
 let timerInterval = null;
 let secondsElapsed = 0;
 let attemptsHistory = JSON.parse(localStorage.getItem('iso_attempts_history') || '[]');
+
+// Pagination Variables
+let currentPage = 1;
+const PAGE_SIZE = 25; // Maximum questions per page
 
 const MAX_QUESTIONS_LIMIT = typeof questionBank !== 'undefined' ? questionBank.length : 300;
 
@@ -792,18 +817,14 @@ function startExam() {
     localStorage.setItem('iso_joined_leaderboard', joinLeaderboard ? 'true' : 'false');
 
     let countInput = parseInt(document.getElementById('input-qcount').value) || 10;
-    if (countInput > MAX_QUESTIONS_LIMIT) {
-        alert(currentLang === 'ar' 
-            ? `الحد الأقصى لعدد الأسئلة المتاحة هو ${MAX_QUESTIONS_LIMIT} سؤالاً.` 
-            : `Maximum available question count is ${MAX_QUESTIONS_LIMIT}.`);
-        countInput = MAX_QUESTIONS_LIMIT;
-        document.getElementById('input-qcount').value = MAX_QUESTIONS_LIMIT;
-    }
+    
+    // Fix: Select the exact requested question count from the full question bank
     let count = Math.min(Math.max(countInput, 1), MAX_QUESTIONS_LIMIT);
 
     let shuffledBank = shuffle(questionBank);
     activeQuestions = shuffledBank.slice(0, count);
     userAnswers = {};
+    currentPage = 1;
 
     document.getElementById('dashboard-view').style.display = 'none';
     document.getElementById('exam-screen').style.display = 'block';
@@ -817,7 +838,14 @@ function renderExamQuestions() {
     const container = document.getElementById('questions-container');
     container.innerHTML = '';
 
-    activeQuestions.forEach((q, idx) => {
+    let totalPages = Math.ceil(activeQuestions.length / PAGE_SIZE);
+    let startIndex = (currentPage - 1) * PAGE_SIZE;
+    let endIndex = Math.min(startIndex + PAGE_SIZE, activeQuestions.length);
+
+    document.getElementById('exam-progress-title').innerText = `${currentLang === 'ar' ? 'الأسئلة' : 'Questions'} ${startIndex + 1} - ${endIndex} ${currentLang === 'ar' ? 'من' : 'of'} ${activeQuestions.length}`;
+
+    for (let idx = startIndex; idx < endIndex; idx++) {
+        let q = activeQuestions[idx];
         let data = q[currentLang];
         let card = document.createElement('div');
         card.className = 'question-card';
@@ -825,18 +853,45 @@ function renderExamQuestions() {
         let optsWithIndex = data.opts.map((opt, i) => ({ text: opt, originalIdx: i }));
         let shuffledOpts = shuffle(optsWithIndex);
 
-        let optsHtml = shuffledOpts.map(o => `
-            <label class="option-item">
-                <input type="radio" name="q_${idx}" value="${o.originalIdx}" onchange="userAnswers[${idx}]=${o.originalIdx}">
-                ${o.text}
-            </label>
-        `).join('');
-
         let diffClass = 'diff-easy';
         let diffLabel = currentLang === 'ar' ? 'سهل' : 'Easy';
         if (q.difficulty === 'medium') { diffClass = 'diff-medium'; diffLabel = currentLang === 'ar' ? 'متوسط' : 'Medium'; }
         else if (q.difficulty === 'hard') { diffClass = 'diff-hard'; diffLabel = currentLang === 'ar' ? 'صعب' : 'Hard'; }
         else if (q.difficulty === 'vhard') { diffClass = 'diff-vhard'; diffLabel = currentLang === 'ar' ? 'صعب جداً (سيناريو)' : 'Very Hard (Scenario)'; }
+
+        // Render alternating UI types: Choice list vs Dropdown menu
+        let isDropdownType = (q.id % 2 === 0); 
+        let optsHtml = '';
+
+        if (isDropdownType) {
+            let selectOptions = shuffledOpts.map(o => `
+                <option value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'selected' : ''}>
+                    ${o.text}
+                </option>
+            `).join('');
+
+            optsHtml = `
+                <div style="margin-top:12px;">
+                    <select onchange="userAnswers[${idx}]=parseInt(this.value)">
+                        <option value="" disabled ${userAnswers[idx] === undefined ? 'selected' : ''}>
+                            ${currentLang === 'ar' ? '-- اختر الإجابة الصحيحة --' : '-- Select Correct Answer --'}
+                        </option>
+                        ${selectOptions}
+                    </select>
+                </div>
+            `;
+        } else {
+            optsHtml = `
+                <div class="options-list">
+                    ${shuffledOpts.map(o => `
+                        <label class="option-item">
+                            <input type="radio" name="q_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="userAnswers[${idx}]=${o.originalIdx}">
+                            ${o.text}
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+        }
 
         card.innerHTML = `
             <div class="q-header">
@@ -847,10 +902,30 @@ function renderExamQuestions() {
                 <span class="ref-tag">${q.ref}</span>
             </div>
             <div style="font-weight:700; font-size:1.05em; margin-bottom:12px; line-height:1.5;">${data.q}</div>
-            <div class="options-list">${optsHtml}</div>
+            ${optsHtml}
         `;
         container.appendChild(card);
-    });
+    }
+
+    // Pagination controls rendering
+    const pageIndicator = document.getElementById('page-indicator');
+    pageIndicator.innerText = `${currentLang === 'ar' ? 'صفحة' : 'Page'} ${currentPage} ${currentLang === 'ar' ? 'من' : 'of'} ${totalPages}`;
+
+    document.getElementById('btn-prev-page').style.visibility = currentPage === 1 ? 'hidden' : 'visible';
+    document.getElementById('btn-next-page').style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
+
+    // Show submit button only on the last page
+    document.getElementById('btn-submit').style.display = currentPage === totalPages ? 'block' : 'none';
+}
+
+function changePage(direction) {
+    let totalPages = Math.ceil(activeQuestions.length / PAGE_SIZE);
+    currentPage += direction;
+    if (currentPage < 1) currentPage = 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    renderExamQuestions();
+    window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function exitExam() {
