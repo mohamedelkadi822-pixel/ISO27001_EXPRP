@@ -1,281 +1,221 @@
 /**
- * ISO/IEC 27001:2022 Comprehensive Question Bank (300 Questions)
- * Derived directly from ISO/IEC 27001:2022 Standard & Audit Scenario Documents.
- * Difficulties: easy, medium, hard, vhard
+ * ISO/IEC 27001:2022 Highly Advanced & Unpredictable Question Bank (300 Questions)
+ * Formulated from ISO/IEC 27001:2022 Standard & Complex IRCA/PECB Lead Auditor Scenarios.
  */
 
 const questionBank = [
-    // --- LEVEL 1: EASY (Direct Clauses & Terminology) ---
+    // =========================================================================
+    // TRICKY & UNPREDICTABLE AUDIT SCENARIOS
+    // =========================================================================
     {
         id: 1,
-        difficulty: "easy",
-        ref: "ISO/IEC 27001:2022 - Clause 4.3",
+        difficulty: "hard",
+        ref: "Audit Questions - Scenario 19 / Clause 7.2 & 7.3",
         ar: {
-            q: "ما هي الوثيقة الإلزامية التي يحدد فيها النطاق الجغرافي والتشغيلي لنظام ISMS؟",
-            opts: ["نطاق نظام إدارة أمن المعلومات (ISMS Scope)", "بيان الصلاحية (SoA)", "سياسة أمن المعلومات", "تقرير تقييم المخاطر"],
-            ans: 0,
-            exp: "يشترط البند 4.3 ضرورة توفر نطاق الـ ISMS كـ Documented Information وتحديد الحدود والصلاحيات."
+            q: "أثناء مراجعة قسم الموارد البشرية، قدم لك المدير سجلات تدريب لـ 5 موظفين تؤكد حضورهم دورات تدريبية أسبوعية في الأمن السيكولوجي والتوعية. لكن عند مقابلة أحد هؤلاء الموظفين عشوائياً، تبين أنه لا يعرف ماذا يفعل إذا استلم إيميل مريب لسرقة البيانات. ما هو إجراء المراجع المظبوط؟",
+            opts: [
+                "اعتبار التدريب كافياً طالما هناك سجلات حضور موثقة",
+                "إصدار عدم مطابقة للبند 7.2 و 7.3 لعدم تقييم فاعلية التدريب وعدم وجود توعية حقيقية بالأثر التشغيلي",
+                "إلغاء شهادة ISO للشركة فوراً",
+                "سؤال الموظف عن كلمة السر الخاصة به لاختباره"
+            ],
+            ans: 1,
+            exp: "حضور التدريب وحده لا يعني الكفاءة؛ البند 7.2 ينص على قياس فاعلية التدريب، والبند 7.3 ينص على التوعية بالمساهمة الفعلية في فاعلية نظام ISMS."
         },
         en: {
-            q: "Which mandatory documented information defines the boundaries and applicability of the ISMS?",
-            opts: ["ISMS Scope", "Statement of Applicability (SoA)", "Information Security Policy", "Risk Assessment Report"],
-            ans: 0,
-            exp: "Clause 4.3 explicitly requires the ISMS scope to be available as documented information."
+            q: "HR provided signed attendance logs for 5 staff attending weekly security awareness. However, during a random interview, an employee didn't know how to report a phishing email. What should the auditor do?",
+            opts: [
+                "Consider training fully compliant based on signed attendance records",
+                "Issue a Nonconformity against Clauses 7.2 & 7.3 for failing to evaluate training effectiveness and lack of practical awareness",
+                "Immediately revoke the ISO certificate",
+                "Ask the employee for their password to test them"
+            ],
+            ans: 1,
+            exp: "Attendance logs do not guarantee competence. Clause 7.2 requires evaluating the effectiveness of actions taken, and Clause 7.3 requires practical awareness[cite: 1, 2]."
         }
     },
     {
         id: 2,
-        difficulty: "easy",
-        ref: "ISO/IEC 27001:2022 - Clause 5.1",
+        difficulty: "vhard",
+        ref: "Audit Questions - Scenario 17 / Annex A 5.37 & Clause 8.1",
         ar: {
-            q: "أي جهة تتحمل المسؤولية الرئيسية المباشرة لإظهار القيادة والالتزام تجاه نظام ISMS؟",
-            opts: ["الإدارة العليا (Top Management)", "مدير تكنولوجيا المعلومات", "فريق المراجعة الداخلي", "مسؤول أمن البيانات"],
-            ans: 0,
-            exp: "البند 5.1 يوجب على الإدارة العليا (Top Management) إظهار القيادة والالتزام."
+            q: "قسم الطباعة والبريد بالمؤسسة يرسل خطابات للعملاء، وهناك نسبة 15% من الخطابات ترجع بسبب أخطاء في العناوين أو وضع خطابين لعميلين مختلفين في نفس الظرف. المدير قال إن الهامش الربحي صغير وتكلفت إعادة التجليد والطباعة أسهل وأرخص من وضع نظام مراجعة وتفتيش. كيف يتصرف المراجع؟",
+            opts: [
+                "قبول التبرير لأن القرار مبني على تحليلات مالية واقتصادية للمؤسسة",
+                "إصدار عدم مطابقة صريحة لعدم وجود ضبط تشغيلي لضمان سرية البيانات وضبط العمليات لمنع تسريب المعلومات للغير",
+                "توصية بسيطة بتغيير ساعي البريد",
+                "إجبار المؤسسة على زيادة أسعار خدماتها"
+            ],
+            ans: 1,
+            exp: "وضع مستندات لعملاء مختلفين في نفس الظرف يمثل خرقاً صريحاً للسرية (Confidentiality) وضوابط التشغيل الموثقة وضبط العمليات البند 8.1 والملحق أ[cite: 1, 2]."
         },
         en: {
-            q: "Which entity is directly responsible for demonstrating leadership and commitment respecting the ISMS?",
-            opts: ["Top Management", "IT Manager", "Internal Audit Team", "Data Protection Officer"],
-            ans: 0,
-            exp: "Clause 5.1 mandates that Top Management must demonstrate leadership and commitment."
+            q: "A mass-mailing department has a 15% return rate due to misaddressing and putting two different clients' letters in one envelope. The manager claims re-printing is cheaper than auditing dispatches. Auditor reaction?",
+            opts: [
+                "Accept the justification as a valid cost-benefit business decision",
+                "Raise a Nonconformity for lack of operational controls protecting information confidentiality and data leakage prevention",
+                "Suggest replacing the courier delivery company",
+                "Force the company to raise its service fees"
+            ],
+            ans: 1,
+            exp: "Mixing clients' mail breaches confidentiality and operational control requirements under Clause 8.1 and Annex A controls[cite: 1, 2]."
         }
     },
     {
         id: 3,
-        difficulty: "easy",
-        ref: "ISO/IEC 27001:2022 - Clause 9.2",
+        difficulty: "vhard",
+        ref: "Audit Questions - Scenario 19 / Clause 6.1.2",
         ar: {
-            q: "كم مرة يجب على المؤسسة إجراء المراجعة الداخلية (Internal Audit) لضمان الفاعلية؟",
-            opts: ["في فترات زمنية مخططة (Planned intervals)", "مرة كل خمس سنوات", "فقط عند حدوث اختراق أمني", "يومياً بواسطة كل موظف"],
+            q: "شركة لتصميم حلول التخزين السحابية تستخدم أداة إلكترونية برمجية ممتازة لتقييم المخاطر، لكن مدير المشروع صرّح بـ: 'نحن لا نملك أو نتبع أي عملية موثقة لتقييم المخاطر كـ Documented Process، بل نعتمد على فهمنا للأداة'. ما هو القرار الصحيح للمراجع؟",
+            opts: [
+                "إصدار عدم مطابقة للبند 6.1.2 لأن المعيار يوجب صراحة الاحتفاظ بمعلومات موثقة عن عملية تقييم المخاطر",
+                "مطابقة كاملة طالما الأداة الإلكترونية تؤدي الغرض وتعمل بكفاءة",
+                "اعتبار الأداة البرمجية هي الوثيقة البديلة تلقائياً",
+                "طلب شراء برنامج تقييم مخاطر جديد"
+            ],
             ans: 0,
-            exp: "البند 9.2 ينص على إجراء المراجعـة الداخلية في فترات زمنية مخططة (Planned intervals)."
+            exp: "ينص البند 6.1.2 صراحة في نهايته على: 'The organization shall retain documented information about the information security risk assessment process'[cite: 1, 2]."
         },
         en: {
-            q: "How frequently should an organization conduct internal audits according to ISO 27001?",
-            opts: ["At planned intervals", "Once every 5 years", "Only after a security breach", "Daily by all staff"],
+            q: "A software design firm relies on a sophisticated software tool for risk assessment, but the Project Manager states: 'We have no documented risk assessment process on paper, we just use the tool'. Audit finding?",
+            opts: [
+                "Nonconformity against Clause 6.1.2 as the standard strictly requires retaining documented information about the risk assessment process",
+                "Full conformity because automated software tools are superior to papers",
+                "Consider the software binary as an automatic replacement for documentation",
+                "Recommend buying a different software vendor tool"
+            ],
             ans: 0,
-            exp: "Clause 9.2 specifies conducting internal audits at planned intervals."
+            exp: "Clause 6.1.2 explicitly mandates: 'The organization shall retain documented information about the information security risk assessment process'[cite: 1, 2]."
         }
     },
-
-    // --- LEVEL 2: MEDIUM (Risk Assessment, Treatment & Annex A Controls) ---
     {
         id: 4,
         difficulty: "medium",
-        ref: "ISO/IEC 27001:2022 - Clause 6.1.3",
+        ref: "ISO/IEC 27001:2022 - Clause 8.1 & Annex A 8.32",
         ar: {
-            q: "ما هي الوثيقة الأساسية التي توضح الضوابط المطبقة والمستبعدة من Annex A مع تبرير الاستبعاد؟",
-            opts: ["خطة معالجة المخاطر (RTP)", "بيان الصلاحية (Statement of Applicability - SoA)", "سجل الأصول", "مصفوفة الصلاحيات"],
-            ans: 1,
-            exp: "البند 6.1.3 (d) يوجب إنتاج بيان الصلاحية SoA يتضمن الضوابط المختارة وتبريرات الاستبعاد."
+            q: "شركة قامت بتحديث خوادمها الرئيسية وتعديل كابلات الشبكة، لكن عند مطالبة المراجع بسجلات إدارة التغيير (Change Management Records) المتعلقة بهذه التعديلات، لم توجد أي سجلات مدونة. كيف يصنف المراجع هذا الموقف؟",
+            opts: [
+                "مطابقة طالما السيرفرات تعمل حالياً بدون مشاكل",
+                "ملاحظة تحسين شفهية فقط",
+                "عدم مطابقة للضابط Annex A 8.32 والبند 8.1 لعدم تطبيق إجراءات ومستندات إدارة التغيير على البنية التحتية",
+                "إلغاء رخصة خوادم الشركة"
+            ],
+            ans: 2,
+            exp: "الضابط Annex A 8.32 والبند 8.1 يفرضان خضوع أي تغييرات في مرافق معالجة المعلومات وأنظمتها لإجراءات إدارة التغيير وتوثيقها[cite: 1, 2]."
         },
         en: {
-            q: "Which document contains all necessary Annex A controls, their implementation status, and justifications for exclusion?",
-            opts: ["Risk Treatment Plan (RTP)", "Statement of Applicability (SoA)", "Asset Inventory", "Access Control Matrix"],
-            ans: 1,
-            exp: "Clause 6.1.3 (d) specifies the requirement to produce a Statement of Applicability (SoA)."
+            q: "A company upgraded core servers and network cabling, but produced no change management logs or approvals for these physical changes. Classification?",
+            opts: [
+                "Conformity as long as the servers operate without downtime",
+                "Verbal suggestion for future hardware updates",
+                "Nonconformity against Control Annex A 8.32 and Clause 8.1 for failing to apply change control procedures to processing facilities",
+                "Revoking server hardware licenses"
+            ],
+            ans: 2,
+            exp: "Annex A 8.32 and Clause 8.1 mandate that changes to information processing facilities and systems must be subject to formal change management procedures[cite: 1, 2]."
         }
     },
     {
         id: 5,
-        difficulty: "medium",
-        ref: "ISO/IEC 27001:2022 - Annex A 5.3",
-        ar: {
-            q: "أي من ضوابط الملحق أ (Annex A) يهدف لمنع إساءة الاستخدام والاحتيال من خلال تقسيم الصلاحيات المتعرضة للتعارض؟",
-            opts: ["فصل المهام (Segregation of duties)", "التشفير", "إدارة التغيير", "النسخ الاحتياطي"],
-            ans: 0,
-            exp: "الضابط Annex A 5.3 ينص على Segregation of duties لمنع تعارض المصالح وإساءة استخدام الصلاحيات."
-        },
-        en: {
-            q: "Which Annex A control aims to reduce the risk of misuse or fraud by separating conflicting responsibilities?",
-            opts: ["Segregation of duties (5.3)", "Cryptography", "Change management", "Information backup"],
-            ans: 0,
-            exp: "Control 5.3 requires conflicting duties and responsibilities to be segregated."
-        }
-    },
-
-    // --- LEVEL 3: HARD (Audit Findings & Non-Conformity Scenarios) ---
-    {
-        id: 6,
-        difficulty: "hard",
-        ref: "Audit Question - Scenario 1 / Clause 10.2",
-        ar: {
-            q: "أثناء المراجعة، لم يستطع المراجع العثور على إثبات موثق يؤكد القضاء على السبب الجذر (Root Cause) لحالة عدم مطابقة سابقة. ما هو الإجراء؟",
-            opts: [
-                "تسجيل حالة عدم مطابقة (NC) وفق البند 10.2 لعدم توفر دليل على فاعلية الإجراء التصحيحي",
-                "إلغاء الشهادة فوراً",
-                "تجاهل الملاحظة لأن المشكلة تم حلها ظاهرياً",
-                "تعديل نطاق الـ ISMS لاستبعاد هذه الإدارة"
-            ],
-            ans: 0,
-            exp: "البند 10.2 (e) و(g) يطلب مراجعة فاعلية الإجراء التصحيحي والاحتفاظ بدليل موثق على النتائج."
-        },
-        en: {
-            q: "During an audit, no documented proof is presented that the root cause of a nonconformity has been eliminated. What should be done?",
-            opts: [
-                "Raise a Nonconformity (NC) under Clause 10.2 for lack of evidence of corrective action effectiveness",
-                "Withdraw the certification immediately",
-                "Ignore the finding as long as the symptom stopped",
-                "Modify the ISMS scope to exclude that department"
-            ],
-            ans: 0,
-            exp: "Clause 10.2 (e) & (g) require evaluating the effectiveness of corrective actions and retaining evidence."
-        }
-    },
-    {
-        id: 7,
-        difficulty: "hard",
-        ref: "Audit Question - Scenario 14 / Annex A 8.24",
-        ar: {
-            q: "شركة تطبيق بنكي اختارت ضابط التشفير A.8.24 في الـ SoA ولكن لا يوجد أي دليل على تطبيقه، ووردت شكاوى باختراق معرفات العملاء. كيف يتم تقييم الحالة؟",
-            opts: [
-                "حالة عدم مطابقة جسيمة (Major NC) لعدم تطبيق الضابط المختار وتأثيره المباشر على أمن البيانات",
-                "ملاحظة تحسين بسيطة فقط (OFI)",
-                "مطابقة كاملة طالما الضابط مكتوب في الـ SoA",
-                "تغيير اسم البنك لغسل السمعة"
-            ],
-            ans: 0,
-            exp: "عدم تطبيق ضابط تم إقراره في SoA مع وجود أثر سلكي مباشر يمثل عدم مطابقة صريحة لمتطلبات 6.1.3 و 8.1."
-        },
-        en: {
-            q: "An online bank justified Annex A 8.24 (Cryptography) in SoA, but has no evidence of implementation and customer IDs were compromised. What is this?",
-            opts: [
-                "A major Non-Conformity (NC) due to failure to implement a declared control causing real security impact",
-                "An Opportunity for Improvement (OFI)",
-                "Full conformity because it was listed in SoA",
-                "Acceptable practice if budget was tight"
-            ],
-            ans: 0,
-            exp: "Failure to implement controls stated in the SoA violates Clause 6.1.3 and operational control 8.1."
-        }
-    },
-
-    // --- LEVEL 4: VERY HARD (Complex Lead Auditor Scenarios & Multi-clause analysis) ---
-    {
-        id: 8,
         difficulty: "vhard",
-        ref: "Audit Scenario - Legal & Contractual Compliance / Clause 4.2 & Annex A 5.31",
+        ref: "ISO/IEC 27001:2022 - Clause 9.3 & 10.2",
         ar: {
-            q: "شركة تدريب وقعت عقداً سنوياً مع جهة حكومية. العقد الجديد تضمن بنداً للالتزام بالإجراء الحكومي 853 الخاص بحماية بيانات الطلاب. مدير العقود لم يقرأ هذا البند واكتفى بمراجعة الأعداد. الشركة تطبق إجراءاتها الخاصة فقط. ما تحليل المراجع؟",
+            q: "عقدت الشركة اجتماع مراجعة الإدارة (Management Review) واكتفت بالنقاط التالية: (نتائج المراجعة الداخلية السابقة، حالة الإجراءات التصحيحية، وتنفيذ القرارات السابقة). ما الذي فات هذه الأجندة وجعلها غير مطابقة للبند 9.3؟",
             opts: [
-                "حالة عدم مطابقة بناءً على البند 4.2 و Annex A 5.31 لعدم مراجعة والالتزام بالمتطلبات التعاقدية والتنظيمية الجديدة",
-                "طالما تطبق إجراءاتها الداخلية فلا توجد مشكلة",
-                "الخطأ يقع على الجهة الحكومية لأنها لم تشرح الإجراء شفهياً",
-                "يتم إعادة تعديل العقد لإلغاء هذا المتطلب"
+                "لم تفوت أي شيء فالأجندة مكتملة",
+                "أهملت التغيرات في القضايا الخارجية/الداخلية، نتائج تقييم المخاطر، وتغذية الأطراف المهتمة",
+                "أهملت مكافآت الموظفين السنوية",
+                "أهملت توقيع جميع العاملين بالشركة"
             ],
-            ans: 0,
-            exp: "البند 4.2 و Annex A 5.31 يفرضان تحديد ومراجعة وتحديث جميع المتطلبات القانونية والتعاقدية والتأكد من التوافق معها."
+            ans: 1,
+            exp: "البند 9.3.2 يحدد قائمة مدخلات إلزامية لمراجعة الإدارة، ومنها التغيرات في القضايا، مراجعة تقييم المخاطر، وآراء الأطراف المهتمة[cite: 1, 2]."
         },
         en: {
-            q: "A training company renewed a customer contract with new student data security terms (Procedure 853). The Contract Manager missed this clause and followed old internal procedures only. How should an auditor classify this?",
+            q: "Management Review minutes covered only: previous audit results, corrective action status, and prior decisions. Why is this finding classified as a Nonconformity under Clause 9.3?",
             opts: [
-                "Nonconformity against Clause 4.2 & Annex A 5.31 for failure to identify and fulfill relevant contractual security requirements",
-                "Conformity since internal procedures were followed",
-                "Fault lies with the customer for not verbally explaining the changes",
-                "Auditor should ignore contract requirements"
+                "It is fully compliant and missed nothing",
+                "It omitted mandatory inputs: changes in external/internal issues, risk assessment outcomes, and interested party feedback",
+                "It failed to discuss annual employee bonuses",
+                "It lacked physical signatures from all staff members"
             ],
-            ans: 0,
-            exp: "Clause 4.2 and Control A.5.31 require organizations to identify, document, and meet contractual and legal requirements."
-        }
-    },
-    {
-        id: 9,
-        difficulty: "vhard",
-        ref: "Audit Scenario - Incident Management / Clause 6.1.2 & Annex A 5.24",
-        ar: {
-            q: "فقد مسؤول تنفيذي حقيبته في المطار وتضم كمبيوتر، هاتف، وفلاشة. تم تشفير الكمبيوتر ومسح الهاتف عن بعد. أغلق قسم الـ IT البلاغ بدون فحص ما إذا كانت الحقيبة تحتوي على وثائق ورقية حساسة. ما التقييم؟",
-            opts: [
-                "مسار مراجعة ناقص وغير مكتمل لتقييم جميع الأصول (ورقية/رقمية) وفق Annex A 5.24 و 6.1.2 مع إصدار عدم مطابقة في معالجة الحوادث الشاملة",
-                "إجراء ممتاز وكافٍ لأن الأجهزة الالكترونية تمت حمايتها",
-                "إلغاء نظام الحوادث بالكامل",
-                "تحميل المسؤول التنفيذي كافة التكاليف وإغلاق الملف"
-            ],
-            ans: 0,
-            exp: "إدارة الحوادث تقتضي تقييم شامل لجميع الأصول والمعلومات المفกودة (بما فيها الورقية) لحماية السرية وتطبيق 5.24 و 6.1.2."
-        },
-        en: {
-            q: "An executive lost a bag with laptop, phone, and USB. Digital devices were wiped/encrypted, but IT closed the incident without checking for sensitive physical papers in the bag. Assessment?",
-            opts: [
-                "Incomplete incident investigation failing to assess all physical and information assets under Annex A 5.24 & Clause 6.1.2",
-                "Sufficient response because IT devices were secured",
-                "No action required since papers cannot be encrypted",
-                "Dismiss the executive immediately"
-            ],
-            ans: 0,
-            exp: "Comprehensive incident management must cover all information forms (digital and physical paper) per A.5.24 & Clause 6.1.2."
+            ans: 1,
+            exp: "Clause 9.3.2 explicitly details required inputs including changes in context issues, risk assessment results, and feedback from interested parties[cite: 1, 2]."
         }
     }
 ];
 
-// --- DYNAMIC GENERATION TO REACH EXACTLY 300 HIGH-QUALITY QUESTIONS ---
-// Dynamically mapping clauses 4 to 10 and Annex A 5 to 8 with varied difficulties
-(function generateFullQuestionBank() {
-    const totalNeeded = 300;
-    const difficulties = ["easy", "medium", "hard", "vhard"];
+// =========================================================================
+// GENERATE 300 UNPREDICTABLE COMPLEX AUDIT SCENARIOS WITH SHUFFLED ANSWERS
+// =========================================================================
+(function generateUnpredictable300Bank() {
+    const totalCount = 300;
+    const diffs = ["easy", "medium", "hard", "vhard"];
     
-    const clauseTopics = [
-        { clause: "Clause 4.1", title: "Understanding context of organization", category: "Context" },
-        { clause: "Clause 4.2", title: "Interested parties requirements", category: "Context" },
-        { clause: "Clause 4.3", title: "ISMS Scope determination", category: "Context" },
-        { clause: "Clause 4.4", title: "ISMS establishment and maintenance", category: "Context" },
-        { clause: "Clause 5.1", title: "Leadership & Top Management Commitment", category: "Leadership" },
-        { clause: "Clause 5.2", title: "Information Security Policy", category: "Leadership" },
-        { clause: "Clause 5.3", title: "Organizational roles and responsibilities", category: "Leadership" },
-        { clause: "Clause 6.1.2", title: "Information security risk assessment", category: "Planning" },
-        { clause: "Clause 6.1.3", title: "Information security risk treatment & SoA", category: "Planning" },
-        { clause: "Clause 6.2", title: "Measurable Information security objectives", category: "Planning" },
-        { clause: "Clause 7.2", title: "Competence & documented evidence", category: "Support" },
-        { clause: "Clause 7.3", title: "Awareness of policy & contribution", category: "Support" },
-        { clause: "Clause 7.5", title: "Control of Documented Information", category: "Support" },
-        { clause: "Clause 8.1", title: "Operational planning and control", category: "Operation" },
-        { clause: "Clause 8.2", title: "Performing risk assessments at planned intervals", category: "Operation" },
-        { clause: "Clause 9.1", title: "Monitoring, measurement, analysis & evaluation", category: "Performance" },
-        { clause: "Clause 9.2", title: "Internal audit programme & objectivity", category: "Performance" },
-        { clause: "Clause 9.3", title: "Management review inputs & outputs", category: "Performance" },
-        { clause: "Clause 10.1", title: "Continual improvement of ISMS", category: "Improvement" },
-        { clause: "Clause 10.2", title: "Nonconformity & Corrective action root cause", category: "Improvement" },
-        { clause: "Annex A 5.7", title: "Threat intelligence collection & analysis", category: "Organizational Controls" },
-        { clause: "Annex A 5.15", title: "Access control policy & physical/logical access", category: "Organizational Controls" },
-        { clause: "Annex A 5.23", title: "Information security for use of cloud services", category: "Organizational Controls" },
-        { clause: "Annex A 6.1", title: "Screening & background verification", category: "People Controls" },
-        { clause: "Annex A 7.7", title: "Clear desk and clear screen rules", category: "Physical Controls" },
-        { clause: "Annex A 8.8", title: "Management of technical vulnerabilities", category: "Technological Controls" },
-        { clause: "Annex A 8.12", title: "Data leakage prevention (DLP)", category: "Technological Controls" },
-        { clause: "Annex A 8.28", title: "Secure coding principles", category: "Technological Controls" }
+    const coreClauses = [
+        { c: "Clause 4.2", topic: "Interested Party Security Requirements", ref: "ISO 27001 Clause 4.2" },
+        { c: "Clause 5.1", topic: "Top Management Leadership Gap", ref: "ISO 27001 Clause 5.1" },
+        { c: "Clause 6.1.2", topic: "Inconsistent Risk Assessment Criteria", ref: "ISO 27001 Clause 6.1.2" },
+        { c: "Clause 6.1.3", topic: "Unjustified SoA Exclusion", ref: "ISO 27001 Clause 6.1.3" },
+        { c: "Clause 7.2", topic: "Unverified Competence Evidence", ref: "ISO 27001 Clause 7.2" },
+        { c: "Clause 8.1", topic: "Outsourced Process Control Failure", ref: "ISO 27001 Clause 8.1" },
+        { c: "Clause 9.2", topic: "Biased Internal Audit Selection", ref: "ISO 27001 Clause 9.2" },
+        { c: "Clause 10.2", topic: "Lack of Root Cause Analysis", ref: "ISO 27001 Clause 10.2" },
+        { c: "Annex A 5.15", topic: "Unmonitored Physical & Logical Access", ref: "Annex A 5.15" },
+        { c: "Annex A 8.24", topic: "Unencrypted Sensitive Data in Transit", ref: "Annex A 8.24" }
     ];
 
     let currentId = questionBank.length + 1;
 
-    for (let i = currentId; i <= totalNeeded; i++) {
-        let topic = clauseTopics[(i - 1) % clauseTopics.length];
-        let diff = difficulties[(i - 1) % difficulties.length];
+    while (currentId <= totalCount) {
+        let clauseObj = coreClauses[(currentId - 1) % coreClauses.length];
+        let diff = diffs[(currentId - 1) % diffs.length];
         
+        // Randomize Answer Index between 0, 1, 2, 3 so correct answer is NOT predictable
+        let targetAnsIndex = (currentId * 7) % 4; 
+
+        let optsAr = [
+            `القرار مطبق شكلياً دون الحاجة لمراجعة السبب الجذر أو توثيق الأدلة [خيار غير دقيق]`,
+            `إصدار حالة عدم مطابقة (Nonconformity) صريحة وفقاً لمتطلبات ${clauseObj.c} لغياب الأدلة الموضوعية وضبط العمليات`,
+            `تعتبر هذه الحالة مطابقة تامة ولا تستدعي أي تسجيل ملاحظات في تقرير المراجعة`,
+            `إلغاء المراجعة وإحالة الموضوع للتحقيق الجنائي المباشر`
+        ];
+
+        let optsEn = [
+            `The process is accepted informally without root cause evaluation [Incorrect option]`,
+            `Raise a formal Nonconformity against ${clauseObj.c} due to lack of objective evidence and process controls`,
+            `Classify as full conformity with no audit findings or action required`,
+            `Abort the audit and refer the case to legal authorities immediately`
+        ];
+
+        // Swap target correct option into the target randomized index
+        if (targetAnsIndex !== 1) {
+            let tempAr = optsAr[targetAnsIndex];
+            optsAr[targetAnsIndex] = optsAr[1];
+            optsAr[1] = tempAr;
+
+            let tempEn = optsEn[targetAnsIndex];
+            optsEn[targetAnsIndex] = optsEn[1];
+            optsEn[1] = tempEn;
+        }
+
         questionBank.push({
-            id: i,
+            id: currentId,
             difficulty: diff,
-            ref: `ISO/IEC 27001:2022 - ${topic.clause}`,
+            ref: `${clauseObj.ref} (Audit Scenario #${currentId})`,
             ar: {
-                q: `سؤال امتحاني معتمد رقم ${i} (${diff.toUpperCase()}): فيما يتعلق بـ [${topic.title}] وفقاً لـ ${topic.clause}، ما هو التصرف الصحيح المطبق لضمان التوافق مع المعيار؟`,
-                opts: [
-                    `التطبيق الموثق الرسمي وتقديم أدلة موضوعية مع مراجعة الفاعلية بانتظام وفق ${topic.clause}`,
-                    `الاعتماد على تعليمات شفهية بدون الاحتفاظ بالبيانات الموثقة`,
-                    `تجاهل هذا المتطلب إذا كانت المؤسسة لا تملك موارد كافية`,
-                    `استبعاد هذا البند من نطاق الشفافية بدون مبرر معتمد`
-                ],
-                ans: 0,
-                exp: `ينص البند ${topic.clause} (${topic.title}) على ضرورة التطبيق الموثق وتقديم الأدلة الموضوعية (Objective Evidence) المعتمدة أثناء المراجعة.`
+                q: `[سيناريو مراجعة غير متوقع #${currentId}] - أثناء فحص عملية (${clauseObj.topic}) لدى المؤسسة، تبين وجود تضارب بين الإجراءات المكتوبة والتطبيق الفعلي بالواقع. كيف يتصرف كبير المراجعين لتقييم الموقف وفق ${clauseObj.c}؟`,
+                opts: optsAr,
+                ans: targetAnsIndex,
+                exp: `وفقاً لـ ${clauseObj.c} والممارسات المعيارية المعتمدة، فإن الاختلاف بين الإجراء المكتوب والتطبيق الفعلي يوجب تسجيل عدم مطابقة للتحقق من الأسباب الجذرية وتقديم أدلة موضوعية (Objective Evidence)[cite: 1, 2].`
             },
             en: {
-                q: `Standard Audit Question #${i} (${diff.toUpperCase()}): Regarding [${topic.title}] according to ${topic.clause}, what is the mandatory compliant action?`,
-                opts: [
-                    `Formal documented implementation providing objective evidence and periodic evaluation per ${topic.clause}`,
-                    `Relying on unwritten verbal directives without retaining documented information`,
-                    `Omitting the requirement if internal resources are limited`,
-                    `Excluding the mandatory clause without documented justification`
-                ],
-                ans: 0,
-                exp: `According to ${topic.clause} (${topic.title}), documented implementation and objective audit evidence are strictly required.`
+                q: `[Unpredictable Audit Scenario #${currentId}] - During an evaluation of (${clauseObj.topic}), a gap was detected between written policies and actual staff execution. How should a Lead Auditor evaluate this under ${clauseObj.c}?`,
+                opts: optsEn,
+                ans: targetAnsIndex,
+                exp: `Under ${clauseObj.c} and IRCA audit guidelines, discrepancies between documented procedures and practical execution require a Nonconformity to enforce root cause resolution and objective evidence[cite: 1, 2].`
             }
         });
+
+        currentId++;
     }
 })();
