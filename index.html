@@ -1,500 +1,79 @@
-<script>
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby5hBkCWyyaYbr4qlVMGZBVOuqaQ9An-c1x-Gic5RIrHvyyHRk0mhrUp5EsLuQOFF6OpA/exec";
-
-let currentLang = 'en';
-let activeQuestions = [];
-let userAnswers = {};
-let currentTrainee = '';
-let joinLeaderboard = true;
-let timerInterval = null;
-let secondsElapsed = 0;
-let attemptsHistory = JSON.parse(localStorage.getItem('iso_attempts_history') || '[]');
-
-let currentPage = 1;
-const PAGE_SIZE = 25; 
-
-function getAvailableBankLength() {
-    return (typeof questionBank !== 'undefined' && Array.isArray(questionBank)) ? questionBank.length : 0;
-}
-
-const i18n = {
-    ar: {
-        landingTitle: "التحضير لشهادة ISO/IEC 27001:2022",
-        landingDesc: "أتقن أنظمة إدارة أمن المعلومات (ISMS)، سيناريوهات المراجعة، وضوابط Annex A بأسئلة محاكاة مبنية على معايير المراجعة ومراجع فورية.",
-        btnCtaText: "تشغيل محاكي الامتحان 🚀",
-        feat1Title: "أسئلة سيناريوهات حقيقية",
-        feat1Desc: "تغطية تدريبية شاملة للبنود 4-10 وضوابط Annex A بأسئلة قصصية عميقة.",
-        feat2Title: "دعم كامل للغتين",
-        feat2Desc: "تنقل بسلاسة بين اللغة العربية والإنجليزية في أي وقت مع إشارات فورية للبنود.",
-        feat3Title: "متابع الوقت والأداء",
-        feat3Desc: "تتبع الوقت المستغرق، سجلك المحلي، راجع الإجابات الخاطئة مع التعليل، وانضم للوحة الأوائل.",
-        discTitle: "⚠️ إخلاء مسؤولية:",
-        discText: "هذه المنصة هي أداة تعليمية وتدريبية مستقلة صُممت بناءً على طلبك واستخدامك الشخصي. الأسئلة عبارة عن نماذج تدريبية ومحاكاة مجهزة لتسهيل التدريب والتحضير للامتحان.",
-        discTitleDash: "⚠️ إخلاء مسؤولية:",
-        discTextDash: "المشاركة اختيارية تماماً وبناءً على طلبك الشخصي. الأسئلة مخصصة للتدريب فقط.",
-        footerDisc: "إدخال البيانات اختياري بالكامل. المطور لا يتحمل أي مسؤولية عن المحتوى المدخل.",
-        appTitle: "ISO/IEC 27001:2022 Exam Simulator",
-        appSubtitle: "نظام محاكاة الامتحانات ومتابعة الأداء وإدارة المحاولات",
-        btnClearHistory: "مسح السجل المحلي 🗑️",
-        lblAttempts: "إجمالي المحاولات",
-        lblAvgScore: "متوسط الدرجات",
-        lblBestScore: "أعلى درجة محققة",
-        lblTrainee: "اسم المتدرب (Trainee Name):",
-        lblJoinLb: "الانضمام للوحة الأوائل العامة ورؤية المراتب الأولى 🏆",
-        lbTitle: "🏆 لوحة ترتيب الأوائل العامة المباشرة",
-        thLbName: "اسم المتدرب",
-        thLbPct: "النسبة المئوية",
-        lblQCount: `عدد الأسئلة:`,
-        btnStart: "ابدأ الاختبار الآن 🚀",
-        tblTitle: "سجل المحاولات السابقة",
-        thName: "اسم المتدرب",
-        thDate: "التاريخ والوقت",
-        thLang: "اللغة",
-        thTime: "المدة المستغرقة",
-        thScore: "الدرجة",
-        thPct: "النسبة",
-        btnCancel: "إلغاء وتراجع",
-        btnSubmit: "إنهاء الامتحان وتسجيل المحاولة",
-        resTitle: "نتيجة المحاولة",
-        btnBackDash: "العودة للوحة التحكم"
-    },
-    en: {
-        landingTitle: "ISO/IEC 27001:2022 Exam Preparation",
-        landingDesc: "Master Information Security Management Systems (ISMS), audit scenarios, and Annex A controls with real practice questions and instant clause references.",
-        btnCtaText: "Launch Exam Simulator 🚀",
-        feat1Title: "Real Audit Scenarios",
-        feat1Desc: "Comprehensive practice coverage of Clauses 4-10 and Annex A Controls.",
-        feat2Title: "Dual Language Support",
-        feat2Desc: "Switch seamlessly between English and Arabic at any time with full ISO standard references.",
-        feat3Title: "Performance & Timer Tracker",
-        feat3Desc: "Track your elapsed time, local history, review wrong answers, and join the public Leaderboard.",
-        discTitle: "⚠️ Disclaimer:",
-        discText: "This platform is an independent educational tool provided solely at your personal request and choice. Questions are practice/simulated materials designed to facilitate exam preparation.",
-        discTitleDash: "⚠️ Disclaimer:",
-        discTextDash: "Participation is entirely voluntary and based on your own personal request. Practice questions are provided for preparation purposes only.",
-        footerDisc: "Data submission is voluntary. Author assumes no liability for entered content.",
-        appTitle: "ISO/IEC 27001:2022 Exam Simulator",
-        appSubtitle: "Exam Simulation, Performance Dashboard & History Tracker",
-        btnClearHistory: "Clear Local History 🗑️",
-        lblAttempts: "Total Attempts",
-        lblAvgScore: "Average Score",
-        lblBestScore: "Best Score",
-        lblTrainee: "Trainee Name:",
-        lblJoinLb: "Join Public Leaderboard & view top ranks 🏆",
-        lbTitle: "🏆 Public Live Leaderboard (Opted-in Trainees)",
-        thLbName: "Trainee Name",
-        thLbPct: "Percentage",
-        lblQCount: `Question Count:`,
-        btnStart: "Start Exam Now 🚀",
-        tblTitle: "Past Attempts History",
-        thName: "Trainee Name",
-        thDate: "Date & Time",
-        thLang: "Language",
-        thTime: "Time Taken",
-        thScore: "Score",
-        thPct: "Percentage",
-        btnCancel: "Cancel Exam",
-        btnSubmit: "Submit & Save Attempt",
-        resTitle: "Exam Result",
-        btnBackDash: "Back to Dashboard"
-    }
-};
-
-function toggleTheme() {
-    const currentTheme = document.body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.body.setAttribute('data-theme', newTheme);
-    document.getElementById('btn-theme-toggle').innerText = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
-}
-
-function toggleLanguageGlobal() {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    document.getElementById('btn-lang-toggle').innerText = currentLang === 'en' ? '🌐 العربية' : '🌐 English';
-    
-    document.getElementById('html-root').setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-    document.getElementById('html-root').setAttribute('lang', currentLang);
-
-    const t = i18n[currentLang];
-    document.getElementById('landing-title').innerText = t.landingTitle;
-    document.getElementById('landing-desc').innerText = t.landingDesc;
-    document.getElementById('btn-cta-text').innerText = t.btnCtaText;
-    document.getElementById('feat1-title').innerText = t.feat1Title;
-    document.getElementById('feat1-desc').innerText = t.feat1Desc;
-    document.getElementById('feat2-title').innerText = t.feat2Title;
-    document.getElementById('feat2-desc').innerText = t.feat2Desc;
-    document.getElementById('feat3-title').innerText = t.feat3Title;
-    document.getElementById('feat3-desc').innerText = t.feat3Desc;
-    document.getElementById('disc-title').innerText = t.discTitle;
-    document.getElementById('disc-text').innerText = t.discText;
-    document.getElementById('disc-title-dash').innerText = t.discTitleDash;
-    document.getElementById('disc-text-dash').innerText = t.discTextDash;
-    document.getElementById('footer-disc').innerText = t.footerDisc;
-
-    document.getElementById('app-title').innerText = t.appTitle;
-    document.getElementById('app-subtitle').innerText = t.appSubtitle;
-    document.getElementById('btn-clear-history').innerText = t.btnClearHistory;
-    document.getElementById('lbl-attempts').innerText = t.lblAttempts;
-    document.getElementById('lbl-avg-score').innerText = t.lblAvgScore;
-    document.getElementById('lbl-best-score').innerText = t.lblBestScore;
-    document.getElementById('lbl-trainee').innerText = t.lblTrainee;
-    document.getElementById('lbl-join-lb').innerText = t.lblJoinLb;
-    document.getElementById('lb-title').innerText = t.lbTitle;
-    document.getElementById('th-lb-name').innerText = t.thLbName;
-    document.getElementById('th-lb-pct').innerText = t.thLbPct;
-    
-    let totalAvail = getAvailableBankLength();
-    document.getElementById('lbl-qcount').innerText = `${t.lblQCount} ${totalAvail > 0 ? '(Max: ' + totalAvail + ')' : ''}`;
-    
-    document.getElementById('btn-start').innerText = t.btnStart;
-    document.getElementById('tbl-title').innerText = t.tblTitle;
-    document.getElementById('th-name').innerText = t.thName;
-    document.getElementById('th-date').innerText = t.thDate;
-    document.getElementById('th-lang').innerText = t.thLang;
-    document.getElementById('th-time').innerText = t.thTime;
-    document.getElementById('th-score').innerText = t.thScore;
-    document.getElementById('th-pct').innerText = t.thPct;
-    document.getElementById('btn-cancel').innerText = t.btnCancel;
-    document.getElementById('btn-submit').innerText = t.btnSubmit;
-    document.getElementById('res-title').innerText = t.resTitle;
-    document.getElementById('btn-back-dash').innerText = t.btnBackDash;
-
-    updateDashboardStats();
-}
-
-function launchSimulator() {
-    document.getElementById('landing-page').style.display = 'none';
-    document.getElementById('simulator-app').style.display = 'block';
-    window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-function formatTime(totalSeconds) {
-    let mins = Math.floor(totalSeconds / 60);
-    let secs = totalSeconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-}
-
-function startTimer() {
-    secondsElapsed = 0;
-    document.getElementById('exam-timer').innerText = `⏱️ ${formatTime(secondsElapsed)}`;
-    clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-        secondsElapsed++;
-        document.getElementById('exam-timer').innerText = `⏱️ ${formatTime(secondsElapsed)}`;
-    }, 1000);
-}
-
-function stopTimer() {
-    clearInterval(timerInterval);
-}
-
-function updateDashboardStats() {
-    document.getElementById('stat-attempts').innerText = attemptsHistory.length;
-    if (attemptsHistory.length > 0) {
-        let sum = attemptsHistory.reduce((acc, curr) => acc + curr.pct, 0);
-        let avg = Math.round(sum / attemptsHistory.length);
-        let best = Math.max(...attemptsHistory.map(a => a.pct));
-        document.getElementById('stat-avg-score').innerText = `${avg}%`;
-        document.getElementById('stat-best-score').innerText = `${best}%`;
-    } else {
-        document.getElementById('stat-avg-score').innerText = '0%';
-        document.getElementById('stat-best-score').innerText = '0%';
-    }
-
-    const lbSection = document.getElementById('leaderboard-section');
-    const hasJoinedLb = localStorage.getItem('iso_joined_leaderboard') === 'true';
-
-    if (hasJoinedLb) {
-        lbSection.style.display = 'block';
-        fetchLiveLeaderboard();
-    } else {
-        lbSection.style.display = 'none';
-    }
-
-    const tbody = document.getElementById('history-tbody');
-    tbody.innerHTML = '';
-    attemptsHistory.slice().reverse().forEach((att, idx) => {
-        let tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${attemptsHistory.length - idx}</td>
-            <td><strong>${att.traineeName || 'N/A'}</strong></td>
-            <td>${att.timestamp}</td>
-            <td>${att.lang === 'ar' ? 'العربية' : 'English'}</td>
-            <td><strong>${att.timeTaken || '00:00'}</strong></td>
-            <td>${att.score} / ${att.total}</td>
-            <td><strong>${att.pct}%</strong></td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-function fetchLiveLeaderboard() {
-    const tbody = document.getElementById('leaderboard-tbody');
-    tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">⌛ Loading Live Leaderboard...</td></tr>`;
-
-    if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_WEB_APP_URL_HERE") {
-        fetch(GOOGLE_SCRIPT_URL)
-            .then(res => res.json())
-            .then(data => {
-                if (data.status === "success" && data.leaderboard) {
-                    renderLeaderboard(data.leaderboard);
-                } else {
-                    tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">No entries yet.</td></tr>`;
-                }
-            })
-            .catch(err => {
-                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">Unable to load public leaderboard.</td></tr>`;
-            });
-    } else {
-        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">Live Leaderboard URL not configured.</td></tr>`;
-    }
-}
-
-function renderLeaderboard(list) {
-    const tbody = document.getElementById('leaderboard-tbody');
-    tbody.innerHTML = '';
-
-    if (list.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">No entries yet.</td></tr>`;
-        return;
-    }
-
-    list.slice(0, 10).forEach((item, idx) => {
-        let tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td style="font-weight:700; color:${idx === 0 ? 'var(--gold)' : 'inherit'}">${idx === 0 ? '🥇 #1' : (idx === 1 ? '🥈 #2' : (idx === 2 ? '🥉 #3' : `#${idx+1}`))}</td>
-            <td><strong>${item.name}</strong></td>
-            <td><strong>${item.pct}%</strong></td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-function shuffle(array) {
-    if (!array || !Array.isArray(array)) return [];
-    let arr = JSON.parse(JSON.stringify(array));
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
-
-function startExam() {
-    let nameInput = document.getElementById('input-trainee').value.trim();
-    if (!nameInput) {
-        alert(currentLang === 'ar' ? 'يرجى إدخال اسم المتدرب أولاً!' : 'Please enter trainee name first!');
-        return;
-    }
-
-    let bankLen = getAvailableBankLength();
-    if (bankLen === 0) {
-        alert(currentLang === 'ar' 
-            ? 'خطأ: لم يتم تحميل أسئلة الاختبار (questions.js غير موجود أو يحتوي على أخطاء برمجية)!' 
-            : 'Error: questions.js is not loaded or contains syntax errors!');
-        return;
-    }
-
-    currentTrainee = nameInput;
-    joinLeaderboard = document.getElementById('chk-leaderboard').checked;
-    localStorage.setItem('iso_joined_leaderboard', joinLeaderboard ? 'true' : 'false');
-
-    let countInput = parseInt(document.getElementById('input-qcount').value) || 10;
-    let count = Math.min(Math.max(countInput, 1), bankLen);
-
-    let shuffledBank = shuffle(questionBank);
-    activeQuestions = shuffledBank.slice(0, count);
-    userAnswers = {};
-    currentPage = 1;
-
-    document.getElementById('dashboard-view').style.display = 'none';
-    document.getElementById('exam-screen').style.display = 'block';
-
-    startTimer();
-    renderExamQuestions();
-    window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-function renderExamQuestions() {
-    const container = document.getElementById('questions-container');
-    container.innerHTML = '';
-
-    let totalPages = Math.ceil(activeQuestions.length / PAGE_SIZE);
-    let startIndex = (currentPage - 1) * PAGE_SIZE;
-    let endIndex = Math.min(startIndex + PAGE_SIZE, activeQuestions.length);
-
-    document.getElementById('exam-progress-title').innerText = `${currentLang === 'ar' ? 'الأسئلة' : 'Questions'} ${startIndex + 1} - ${endIndex} ${currentLang === 'ar' ? 'من' : 'of'} ${activeQuestions.length}`;
-
-    for (let idx = startIndex; idx < endIndex; idx++) {
-        let q = activeQuestions[idx];
-        let data = q[currentLang];
-        let card = document.createElement('div');
-        card.className = 'question-card';
-
-        let optsWithIndex = data.opts.map((opt, i) => ({ text: opt, originalIdx: i }));
-        let shuffledOpts = shuffle(optsWithIndex);
-
-        let optsHtml = `
-            <div class="options-list">
-                ${shuffledOpts.map(o => `
-                    <label class="option-item">
-                        <input type="radio" name="q_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="userAnswers[${idx}]=${o.originalIdx}">
-                        ${o.text}
-                    </label>
-                `).join('')}
-            </div>
-        `;
-
-        card.innerHTML = `
-            <div class="q-header">
-                <span class="badge">Q${idx + 1} / ${activeQuestions.length}</span>
-                <span class="ref-tag">${q.ref}</span>
-            </div>
-            <div style="font-weight:700; font-size:1.05em; margin-bottom:12px; line-height:1.5;">${data.q}</div>
-            ${optsHtml}
-        `;
-        container.appendChild(card);
-    }
-
-    const pageIndicator = document.getElementById('page-indicator');
-    pageIndicator.innerText = `${currentLang === 'ar' ? 'صفحة' : 'Page'} ${currentPage} ${currentLang === 'ar' ? 'من' : 'of'} ${totalPages}`;
-
-    document.getElementById('btn-prev-page').style.visibility = currentPage === 1 ? 'hidden' : 'visible';
-    document.getElementById('btn-next-page').style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
-
-    document.getElementById('pagination-controls').style.display = activeQuestions.length > PAGE_SIZE ? 'flex' : 'none';
-    document.getElementById('btn-submit').style.display = currentPage === totalPages ? 'block' : 'none';
-}
-
-function changePage(direction) {
-    let totalPages = Math.ceil(activeQuestions.length / PAGE_SIZE);
-    currentPage += direction;
-    if (currentPage < 1) currentPage = 1;
-    if (currentPage > totalPages) currentPage = totalPages;
-
-    renderExamQuestions();
-    window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-function exitExam() {
-    stopTimer();
-    document.getElementById('exam-screen').style.display = 'none';
-    document.getElementById('dashboard-view').style.display = 'block';
-}
-
-function submitExam() {
-    stopTimer();
-    let finalTimeStr = formatTime(secondsElapsed);
-
-    let score = 0;
-    activeQuestions.forEach((q, idx) => {
-        let selected = userAnswers[idx];
-        if (selected !== undefined && selected === q[currentLang].ans) {
-            score++;
+// --- CLAUSE 5: LEADERSHIP ---
+    {
+        id: 5,
+        ref: "ISO/IEC 27001:2022 - Clause 5.1",
+        ar: {
+            q: "المدير التنفيذي لشركة تداول قام بتفويض مدير تكنولوجيا المعلومات بالكامل للتوقيع على جميع سياسات ومخرجات نظام إدارة أمن المعلومات، ورفض حضور اجتماعات مراجعة الإدارة (Management Review) أو مراجعة الأهداف بحجة انشغاله بتوسع الشركة. كيف يتعامل المراجع مع هذا التفويض؟",
+            opts: [
+                "قبول التفويض، لأن المعيار يسمح بتعيين ممثل للإدارة (Management Representative) لقيادة الـ ISMS",
+                "تسجيل عدم مطابقة للبند 5.1، لأن الإدارة العليا يجب أن تُظهر بنفسها القيادة والالتزام ولا يمكنها تفويض مسؤوليتها المباشرة بالكامل",
+                "مطابقة، بشرط وجود قرار مجلس إدارة مكتوب يفوض مدير تكنولوجيا المعلومات",
+                "ملاحظة تحسين (OFI) تطلب من المدير التنفيذي التوقيع على محاضر الاجتماعات لاحقاً"
+            ],
+            ans: 1,
+            exp: "البند 5.1 يلقي التزام إظهار القيادة والالتزام مباشرة على الإدارة العليا (Top Management) لضمان توافق النظام مع التوجه الاستراتيجي."
+        },
+        en: {
+            q: "The CEO of a trading firm delegated all ISMS sign-offs and Management Review obligations exclusively to the IT Director, skipping security reviews due to corporate expansion duties. How should the auditor handle this delegation?",
+            opts: [
+                "Accept delegation, as ISO standards allow appointing a Management Representative to run the ISMS",
+                "Nonconformity against Clause 5.1, as Top Management must directly demonstrate leadership and commitment and cannot completely abdicate accountability",
+                "Conformity, provided a formal board resolution explicitly granting full proxy exists",
+                "Opportunity for Improvement (OFI) asking the CEO to retroactively countersign review meeting minutes"
+            ],
+            ans: 1,
+            exp: "Clause 5.1 mandates that Top Management itself must demonstrate leadership and commitment regarding the ISMS."
         }
-    });
-
-    let pct = Math.round((score / activeQuestions.length) * 100);
-    let now = new Date();
-    let timeStr = now.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US');
-
-    let newAttempt = {
-        traineeName: currentTrainee,
-        timestamp: timeStr,
-        lang: currentLang,
-        timeTaken: finalTimeStr,
-        score: score,
-        total: activeQuestions.length,
-        pct: pct,
-        consent: joinLeaderboard
-    };
-
-    attemptsHistory.push(newAttempt);
-    localStorage.setItem('iso_attempts_history', JSON.stringify(attemptsHistory));
-
-    if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_WEB_APP_URL_HERE") {
-        fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newAttempt)
-        }).catch(err => console.log('Syncing error:', err));
-    }
-
-    showResultScreen(score, pct, finalTimeStr);
-}
-
-function showResultScreen(score, pct, timeTakenStr) {
-    document.getElementById('exam-screen').style.display = 'none';
-    document.getElementById('result-screen').style.display = 'block';
-
-    document.getElementById('res-trainee-name').innerText = `${currentLang === 'ar' ? 'المتدرب:' : 'Trainee:'} ${currentTrainee}`;
-    document.getElementById('res-score').innerText = `${score} / ${activeQuestions.length} (${pct}%)`;
-    document.getElementById('res-time-taken').innerText = `⏱️ ${currentLang === 'ar' ? 'المدة المستغرقة:' : 'Time Taken:'} ${timeTakenStr}`;
-    
-    let feedback = '';
-    if (pct >= 85) feedback = currentLang === 'ar' ? 'أداء ممتاز جداً! أنت جاهز لاجتياز الامتحان بنجاح 🎯' : 'Excellent performance! You are fully ready for the exam 🎯';
-    else if (pct >= 70) feedback = currentLang === 'ar' ? 'أداء جيد! يرجى مراجعة النقاط الخاطئة لضمان الدرجة النهائية 👍' : 'Good effort! Review incorrect answers for perfection 👍';
-    else feedback = currentLang === 'ar' ? 'يحتاج إلى مزيد من المراجعة للبناء المعياري والضوابط 📚' : 'Needs more review of clauses and controls 📚';
-    
-    document.getElementById('res-feedback').innerText = feedback;
-
-    const reviewContainer = document.getElementById('review-container');
-    reviewContainer.innerHTML = '<h3>' + (currentLang === 'ar' ? 'تفاصيل المراجعة والتعليل المعياري:' : 'Detailed Review & References:') + '</h3>';
-
-    activeQuestions.forEach((q, idx) => {
-        let data = q[currentLang];
-        let userAns = userAnswers[idx];
-        let isCorrect = userAns === data.ans;
-
-        let userText = userAns !== undefined ? data.opts[userAns] : (currentLang === 'ar' ? 'لم تجب' : 'Not answered');
-        let correctText = data.opts[data.ans];
-
-        let box = document.createElement('div');
-        box.style.cssText = "background:var(--bg-card); padding:16px; border-radius:12px; margin-bottom:12px; border:1px solid var(--border-color); font-size:0.95em;";
-        box.innerHTML = `
-            <div><strong>Q${idx + 1}: ${data.q}</strong></div>
-            <div style="margin:8px 0;">
-                <span style="color:${isCorrect ? 'var(--success)' : 'var(--danger)'}; font-weight:700;">
-                    ${currentLang === 'ar' ? 'إجابتك:' : 'Your answer:'} ${userText}
-                </span>
-                ${!isCorrect ? `<br><span style="color:var(--success); font-weight:700;">${currentLang === 'ar' ? 'الإجابة الصحيحة:' : 'Correct answer:'} ${correctText}</span>` : ''}
-            </div>
-            <div class="explanation-box">
-                <span class="ref-tag">📌 Reference: ${q.ref}</span><br>
-                💡 ${data.exp}
-            </div>
-        `;
-        reviewContainer.appendChild(box);
-    });
-
-    window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-function showDashboard() {
-    document.getElementById('result-screen').style.display = 'none';
-    document.getElementById('dashboard-view').style.display = 'block';
-    updateDashboardStats();
-}
-
-function clearLocalHistory() {
-    let confirmMsg = currentLang === 'ar' 
-        ? 'هل أنت تأكد من رغبتك في مسح سجل المحاولات المحلي الخاص بك من هذا المتصفح؟' 
-        : 'Are you sure you want to clear your local attempt history from this browser?';
-    
-    if (confirm(confirmMsg)) {
-        attemptsHistory = [];
-        localStorage.removeItem('iso_attempts_history');
-        localStorage.removeItem('iso_joined_leaderboard');
-        updateDashboardStats();
-    }
-}
-
-window.onload = () => {
-    let bankLen = getAvailableBankLength();
-    const qInput = document.getElementById('input-qcount');
-    if (qInput && bankLen > 0) {
-        qInput.max = bankLen;
-    }
-    updateDashboardStats();
-};
-</script>
+    },
+    {
+        id: 6,
+        ref: "ISO/IEC 27001:2022 - Clause 5.2",
+        ar: {
+            q: "سياسة أمن المعلومات في شركة تجزئة صيغت ببراعة وتم اعتمادها من المدير التنفيذي. لكن أثناء المراجعة، تبين أنها محفوظة في مجلد آمن لا يستطيع الوصول إليه سوى مدراء الأقسام، ولم تنشر أو تتاح للموظفين أو المتعاقدين. ما هو التصنيف المعياري؟",
+            opts: [
+                "مطابقة، لحماية وثيقة السياسة من التعديل غير المصرح به وضمان سريتها",
+                "عدم مطابقة للبند 5.2، لأن المعيار يفرض إتاحة السياسة كمعلومات موثقة ونشرها داخل المؤسسة وإتاحتها للأطراف المهتمة عند الاقتضاء",
+                "ملاحظة تحسين (OFI)، تطلب إرسال ملخص السياسة عبر البريد الإلكتروني للموظفين الجدد",
+                "مطابقة، طالما أن مدراء الأقسام يقومون بتوجيه مرؤوسيهم شفهياً"
+            ],
+            ans: 1,
+            exp: "البند 5.2 ينص صراحة على أن سياسة أمن المعلومات يجب أن تكون متاحة كمعلومات موثقة، وتُبلغ داخل المنظمة، وتكون متاحة للأطراف المهتمة."
+        },
+        en: {
+            q: "A retail firm's Information Security Policy was signed by the CEO. However, it was saved in a restricted folder accessible only to Department Heads and was never communicated to staff or contractors. Audit ruling?",
+            opts: [
+                "Conformity, to protect the policy document from unauthorized modifications and preserve confidentiality",
+                "Nonconformity against Clause 5.2, because the policy must be communicated within the organization and available to relevant interested parties",
+                "Opportunity for Improvement (OFI), recommending emailing a policy summary to new hires during onboarding",
+                "Conformity, provided Department Heads verbally instruct their team members on policy expectations"
+            ],
+            ans: 1,
+            exp: "Clause 5.2 explicitly requires the policy to be available as documented information, communicated within the organization, and available to interested parties."
+        }
+    },
+    {
+        id: 7,
+        ref: "ISO/IEC 27001:2022 - Clause 5.3",
+        ar: {
+            q: "في شركة استشارات، تم إسناد مسؤولية الإبلاغ عن أداء نظام ISMS إلى الإدارة العليا لمسؤول أمن المعلومات (CISO)، لكن الوصف الوظيفي والهيكل لم يمنحه السلطة والصلاحية (Authority) اللازمة لإيقاف الأنظمة المخالفة أو استدعاء الموظفين للتحقيق. ما تقييم المراجع؟",
+            opts: [
+                "مطابقة، لأن إسناد المسؤولية (Responsibility) يكفي لتلبية متطلبات المعيار دون الحاجة لمنح صلاحيات تشغيلية",
+                "عدم مطابقة للبند 5.3، لأن الإدارة العليا يجب أن تضمن تحديد وإسناد وإبلاغ المسؤوليات والصلاحيات (Responsibilities & Authorities)",
+                "ملاحظة تحسين (OFI)، تطلب تعديل الهيكل الوظيفي في المراجعة السنوية القادمة",
+                "مطابقة، طالما أن المدير التنفيذي يتدخل شخصياً عند حدوث الاختراقات"
+            ],
+            ans: 1,
+            exp: "البند 5.3 يتطلب إسناد ونقل المسؤوليات والصلاحيات (Authorities) معاً لضمان مطابقة النظام والإبلاغ عن الأداء."
+        },
+        en: {
+            q: "In a consulting firm, the CISO was assigned the responsibility to report ISMS performance to Top Management, but was given no authority to halt non-compliant systems or enforce security audits. How is this assessed?",
+            opts: [
+                "Conformity, as assigning responsibility alone fulfills standard requirements without requiring operational powers",
+                "Nonconformity against Clause 5.3, because Top Management must ensure both responsibilities AND authorities for relevant roles are assigned",
+                "Opportunity for Improvement (OFI), suggesting HR updates job descriptions during the annual performance review",
+                "Conformity, provided the CEO personally intervenes whenever a critical security breach occurs"
+            ],
+            ans: 1,
+            exp: "Clause 5.3 mandates assigning and communicating both responsibilities AND authorities for roles relevant to information security."
+        }
+    },
