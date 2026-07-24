@@ -338,6 +338,14 @@
         .badge-dropdown { background-color: var(--color-dropdown); }
         .badge-checkbox { background-color: var(--color-checkbox); }
 
+        .select-instruction {
+            font-size: 0.82em;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
         .options-list { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
         .option-item {
             padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 0.9em; display: flex; align-items: flex-start; gap: 10px; transition: all 0.2s ease; line-height: 1.4;
@@ -878,7 +886,7 @@ function startExam() {
 
     let shuffledBank = shuffle(questionBank);
     
-    // Assign display UI types: 0 = Radio, 1 = Dropdown, 2 = True Multiselect Checkbox
+    // Assign display UI types: 0 = Radio, 1 = Dropdown, 2 = Multiselect Checkbox
     activeQuestions = shuffledBank.slice(0, count).map((q, idx) => {
         let type = idx % 3; 
         return { ...q, uiType: type };
@@ -932,11 +940,13 @@ function renderExamQuestions() {
         let optsHtml = '';
         let cardClass = '';
         let badgeHtml = '';
+        let instructionText = '';
 
         if (q.uiType === 0) {
             // Radio Choices (Blue)
             cardClass = 'card-type-radio';
             badgeHtml = `<span class="badge-type badge-radio">${currentLang === 'ar' ? 'اختيار أحادي' : 'Single Choice'}</span>`;
+            instructionText = currentLang === 'ar' ? 'اختر إجابة واحدة صحيحة:' : 'Choose 1 correct answer:';
             optsHtml = `
                 <div class="options-list">
                     ${shuffledOpts.map(o => `
@@ -951,6 +961,7 @@ function renderExamQuestions() {
             // Dropdown Select (Purple)
             cardClass = 'card-type-dropdown';
             badgeHtml = `<span class="badge-type badge-dropdown">${currentLang === 'ar' ? 'قائمة منسدلة' : 'Dropdown Select'}</span>`;
+            instructionText = currentLang === 'ar' ? 'اختر الإجابة من القائمة أدناه:' : 'Select the correct answer from the dropdown:';
             optsHtml = `
                 <div style="margin-top:12px; width: 100%;">
                     <select class="custom-dropdown-select" onchange="userAnswers[${idx}]=parseInt(this.value)">
@@ -966,9 +977,10 @@ function renderExamQuestions() {
                 </div>
             `;
         } else {
-            // Multiselect Checkboxes (Teal) - Allows selecting multiple options
+            // Multiselect Checkboxes (Teal) - Fully accepts multiple choices
             cardClass = 'card-type-checkbox';
-            badgeHtml = `<span class="badge-type badge-checkbox">${currentLang === 'ar' ? 'متعدد الاختيارات' : 'Multiselect Checkboxes'}</span>`;
+            badgeHtml = `<span class="badge-type badge-checkbox">${currentLang === 'ar' ? 'متعدد الاختيارات' : 'Multiple Choice'}</span>`;
+            instructionText = currentLang === 'ar' ? 'اختر الإجابة الصحيحة (اختيار واحد مطلوب لهذا السؤال):' : 'Select the correct option (Choose 1):';
             let selectedArr = Array.isArray(userAnswers[idx]) ? userAnswers[idx] : [];
             optsHtml = `
                 <div class="options-list">
@@ -991,7 +1003,8 @@ function renderExamQuestions() {
                 </div>
                 <span class="ref-tag">${q.ref}</span>
             </div>
-            <div style="font-weight:700; font-size:1.05em; margin-bottom:12px; line-height:1.5;">${data.q}</div>
+            <div style="font-weight:700; font-size:1.05em; margin-bottom:6px; line-height:1.5;">${data.q}</div>
+            <span class="select-instruction">${instructionText}</span>
             ${optsHtml}
         `;
         container.appendChild(card);
