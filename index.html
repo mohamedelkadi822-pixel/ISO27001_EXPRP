@@ -25,7 +25,6 @@
 
             --color-radio: #2563eb;
             --color-dropdown: #8b5cf6;
-            --color-checkbox: #0d9488;
         }
 
         [data-theme="dark"] {
@@ -45,7 +44,6 @@
 
             --color-radio: #60a5fa;
             --color-dropdown: #a78bfa;
-            --color-checkbox: #2dd4bf;
         }
 
         body {
@@ -319,9 +317,6 @@
         .card-type-dropdown { border-left: 6px solid var(--color-dropdown) !important; }
         [dir="rtl"] .card-type-dropdown { border-left: 1px solid var(--border-color) !important; border-right: 6px solid var(--color-dropdown) !important; }
 
-        .card-type-checkbox { border-left: 6px solid var(--color-checkbox) !important; }
-        [dir="rtl"] .card-type-checkbox { border-left: 1px solid var(--border-color) !important; border-right: 6px solid var(--color-checkbox) !important; }
-
         .q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.82em; flex-wrap: wrap; gap: 6px; }
         .badge { background: rgba(148, 163, 184, 0.2); color: var(--text-primary); padding: 4px 8px; border-radius: 6px; font-size: 0.85em; font-weight: 700; }
 
@@ -336,7 +331,6 @@
         [dir="rtl"] .badge-type { margin-left: 0; margin-right: 6px; }
         .badge-radio { background-color: var(--color-radio); }
         .badge-dropdown { background-color: var(--color-dropdown); }
-        .badge-checkbox { background-color: var(--color-checkbox); }
 
         .select-instruction {
             font-size: 0.82em;
@@ -886,9 +880,9 @@ function startExam() {
 
     let shuffledBank = shuffle(questionBank);
     
-    // Assign display UI types: 0 = Radio, 1 = Dropdown, 2 = Checkbox (Single selection choice rendered with checkboxes for visual diversity)
+    // تم التوزيع بين النوعين فقط: Dropdown (0) و Radio (1)
     activeQuestions = shuffledBank.slice(0, count).map((q, idx) => {
-        let type = idx % 3; 
+        let type = idx % 2; 
         return { ...q, uiType: type };
     });
 
@@ -901,18 +895,6 @@ function startExam() {
     startTimer();
     renderExamQuestions();
     window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-function handleCheckboxChange(qIdx, val, checkboxEl) {
-    // Ensures single selection behavior for this question type while using checkboxes visually
-    document.querySelectorAll(`.q_cb_${qIdx}`).forEach(cb => {
-        if (cb !== checkboxEl) cb.checked = false;
-    });
-    if (checkboxEl.checked) {
-        userAnswers[qIdx] = val;
-    } else {
-        delete userAnswers[qIdx];
-    }
 }
 
 function renderExamQuestions() {
@@ -953,7 +935,7 @@ function renderExamQuestions() {
                     `).join('')}
                 </div>
             `;
-        } else if (q.uiType === 1) {
+        } else {
             // Dropdown Select (Purple)
             cardClass = 'card-type-dropdown';
             badgeHtml = `<span class="badge-type badge-dropdown">${currentLang === 'ar' ? 'قائمة منسدلة' : 'Dropdown Select'}</span>`;
@@ -972,21 +954,6 @@ function renderExamQuestions() {
                     </select>
                 </div>
             `;
-        } else {
-            // Checkbox Choice (Teal) - Visually distinct checkboxes preserving single-answer exam logic
-            cardClass = 'card-type-checkbox';
-            badgeHtml = `<span class="badge-type badge-checkbox">${currentLang === 'ar' ? 'اختيار متعدد' : 'Single Choice'}</span>`;
-            instructionText = currentLang === 'ar' ? 'اختر الإجابة الصحيحة (اختيار واحد مطلوب):' : 'Select the correct option (Choose 1):';
-            optsHtml = `
-                <div class="options-list">
-                    ${shuffledOpts.map(o => `
-                        <label class="option-item">
-                            <input type="checkbox" class="q_cb_${idx}" value="${o.originalIdx}" ${userAnswers[idx] === o.originalIdx ? 'checked' : ''} onchange="handleCheckboxChange(${idx}, ${o.originalIdx}, this)">
-                            <span>${o.text}</span>
-                        </label>
-                    `).join('')}
-                </div>
-            `;
         }
 
         card.className = `question-card ${cardClass}`;
@@ -996,7 +963,6 @@ function renderExamQuestions() {
                     <span class="badge">Q${idx + 1} / ${activeQuestions.length}</span>
                     ${badgeHtml}
                 </div>
-                <span class="ref-tag">${q.ref}</span>
             </div>
             <div style="font-weight:700; font-size:1.05em; margin-bottom:6px; line-height:1.5;">${data.q}</div>
             <span class="select-instruction">${instructionText}</span>
